@@ -93,7 +93,7 @@ public class StoreItem : MonoBehaviour {
             transform.position = Vector3.LerpUnclamped(from, to, retraction.Evaluate(i / (float) steps));
             yield return new WaitForSeconds(delta);
         }
-
+        transform.position = to;
         workshop.Emit(this, endEvent);
 
     }

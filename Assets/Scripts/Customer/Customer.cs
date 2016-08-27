@@ -8,11 +8,15 @@ public class Customer : MonoBehaviour {
     Canvas canvas;
 
     public Image avatar;
+    public Text nameArea;
     public Text textArea;
+    public Image faceImage;
+    public Text workshopNameArea;
 
     public int currentIndex = -1;
     public static List<int> metCustomers = new List<int>();
     public List<Sprite> sprites = new List<Sprite>();
+    public List<Sprite> faces = new List<Sprite>();
     public List<string> names = new List<string>();
     public List<string> greetings = new List<string>();
     public List<int> customerLvl = new List<int>();
@@ -30,12 +34,19 @@ public class Customer : MonoBehaviour {
     {
         if (currentIndex < 0)
         {
+
             sprites.Add(avatar.sprite);
             greetings.Add(textArea.text);
+            names.Add(nameArea.text);
+            faces.Add(faceImage.sprite);
+
         } else if (currentIndex < sprites.Count)
         {
             sprites[currentIndex] = avatar.sprite;
             greetings[currentIndex] = textArea.text;
+            names[currentIndex] = nameArea.text;
+            faces[currentIndex] = faceImage.sprite;
+
         } else
         {
             Debug.LogError("Index too large, " + currentIndex);
@@ -47,6 +58,9 @@ public class Customer : MonoBehaviour {
         SetCustomerIndex();
         avatar.sprite = sprites[currentIndex];
         textArea.text = greetings[currentIndex];
+        nameArea.text = names[currentIndex];
+        workshopNameArea.text = names[currentIndex];
+        faceImage.sprite = faces[currentIndex];
     }
 
     void SetCustomerIndex()

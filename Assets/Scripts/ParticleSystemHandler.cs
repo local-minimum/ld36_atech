@@ -2,11 +2,14 @@
 using System.Collections;
 
 public class ParticleSystemHandler : MonoBehaviour {
-	public ParticleSystem m_System;
+
+	public ParticleSystem particleSystem;
+	public Charge charge;
+	public Powder powder;
 
 	// Use this for initialization
 	void Start () {
-		m_System.Emit (1);
+		particleSystem.Emit (1);
 	}
 	
 	// Update is called once per frame

@@ -23,6 +23,8 @@ public class Customer : MonoBehaviour {
 
     void Start () {
         canvas = GetComponent<Canvas>();
+        canvas.enabled = true;
+        SetCustomerFromLevel();
 	}
 	
     public void HideCustomer()

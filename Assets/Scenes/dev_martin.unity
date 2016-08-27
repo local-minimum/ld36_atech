@@ -625,8 +625,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -4.5, y: 6.5}
-  m_SizeDelta: {x: -29, y: -21}
+  m_AnchoredPosition: {x: 0, y: 6.5}
+  m_SizeDelta: {x: -60, y: -21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &421887230
 MonoBehaviour:
@@ -660,7 +660,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Workshop
+  m_Text: To the workshop >
 --- !u!222 &421887231
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -679,7 +679,7 @@ GameObject:
   - 114: {fileID: 494760031}
   - 114: {fileID: 494760030}
   m_Layer: 5
-  m_Name: HideButton
+  m_Name: AcceptButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -702,7 +702,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -10, y: 10}
-  m_SizeDelta: {x: 372.3, y: 121.4}
+  m_SizeDelta: {x: 372.3, y: 100}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &494760030
 MonoBehaviour:
@@ -822,8 +822,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -44.15}
+  m_SizeDelta: {x: 0, y: -88.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &734484575
 MonoBehaviour:
@@ -1059,9 +1059,11 @@ MonoBehaviour:
   workshopNameArea: {fileID: 2084294289}
   currentIndex: -1
   sprites:
-  - {fileID: 0}
-  faces: []
-  names: []
+  - {fileID: 21300000, guid: b593213c75056448bb3b2c9e5ef99731, type: 3}
+  faces:
+  - {fileID: 21300000, guid: cb8030c618046dd4ea2024ed898e81a0, type: 3}
+  names:
+  - Mr. Dolphin
   greetings:
   - 'Hello there firefriend help me explode.
 
@@ -1186,9 +1188,9 @@ RectTransform:
   - {fileID: 1654932989}
   m_Father: {fileID: 734484574}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 178}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -75.3}
   m_SizeDelta: {x: -20, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &913564548
@@ -1203,15 +1205,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.49264705, g: 0.3115268, b: 0.3115268, a: 1}
+  m_Color: {r: 0.33088237, g: 0.20923445, b: 0.20923445, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 0c5c962977fd9c643a1b84877c60ade8, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1968,7 +1970,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -2355,8 +2357,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.2, y: 1}
-  m_AnchoredPosition: {x: 0, y: 8}
-  m_SizeDelta: {x: -2, y: -18}
+  m_AnchoredPosition: {x: 0.5, y: 5}
+  m_SizeDelta: {x: -3, y: -14}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1886399948
 CanvasRenderer:
@@ -2383,7 +2385,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: b593213c75056448bb3b2c9e5ef99731, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cb8030c618046dd4ea2024ed898e81a0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

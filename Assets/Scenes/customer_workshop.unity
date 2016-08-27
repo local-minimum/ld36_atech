@@ -1594,7 +1594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 511143e8ad0a6064597cf4cb26040344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  launchScene: 
+  launchScene: fireworks
 --- !u!1001 &1309099200
 Prefab:
   m_ObjectHideFlags: 0

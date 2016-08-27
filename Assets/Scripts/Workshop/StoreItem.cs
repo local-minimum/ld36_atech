@@ -17,6 +17,29 @@ public class StoreItem : MonoBehaviour {
     [SerializeField] int steps = 20;
     [SerializeField] float delta = 0.01f;
 
+    [SerializeField]
+    RocketComponent blueprint;
+
+    public RocketComponent Blueprint
+    {
+        get
+        {
+            return blueprint;
+        }
+
+        set
+        {
+            blueprint = value;
+            if (typeof(Powder) == value.GetType())
+            {
+                itemType = ItemType.Powders;
+            } else
+            {
+                itemType = ItemType.Charges;
+            }
+        }
+    }
+
     void Awake()
     {
         workshop = FindObjectOfType<Workshop>();

@@ -173,6 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemType: 0
   icon: {fileID: 1520152780}
+  stage: 0
 --- !u!1 &139554169
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,6 +797,7 @@ GameObject:
   - 114: {fileID: 525041090}
   - 114: {fileID: 525041093}
   - 114: {fileID: 525041092}
+  - 114: {fileID: 525041094}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -865,7 +867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acbf9540001be4a44a83825f6428b262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 1
   retraction:
     serializedVersion: 2
     m_Curve:
@@ -889,6 +891,7 @@ MonoBehaviour:
     m_RotationOrder: 0
   steps: 20
   delta: 0.01
+  blueprint: {fileID: 525041094}
 --- !u!114 &525041093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -970,6 +973,26 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &525041094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 525041088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 012347e8b7c8040ca898256b93b58842, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  judgementProperties: []
+  icon: {fileID: 0}
+  description: 
+  audio: {fileID: 0}
+  shape: {fileID: 0}
+  startColor: {r: 0, g: 0, b: 0, a: 0}
+  endColor: {r: 0, g: 0, b: 0, a: 0}
+  burnTime: 0
+  behaviour: 
 --- !u!1 &734484573
 GameObject:
   m_ObjectHideFlags: 0
@@ -1122,6 +1145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemType: 0
   icon: {fileID: 1701399579}
+  stage: 0
 --- !u!1 &776093110
 GameObject:
   m_ObjectHideFlags: 0
@@ -1592,6 +1616,7 @@ GameObject:
   - 114: {fileID: 1495637070}
   - 114: {fileID: 1495637069}
   - 114: {fileID: 1495637068}
+  - 114: {fileID: 1495637072}
   m_Layer: 5
   m_Name: Item (1)
   m_TagString: Untagged
@@ -1652,6 +1677,7 @@ MonoBehaviour:
     m_RotationOrder: 0
   steps: 20
   delta: 0.01
+  blueprint: {fileID: 1495637072}
 --- !u!114 &1495637069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1766,6 +1792,24 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1495637066}
+--- !u!114 &1495637072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1495637066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a44e4fb62216b46f0ba14dfe73ecc02a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  judgementProperties: []
+  icon: {fileID: 0}
+  description: 
+  audio: {fileID: 0}
+  explosionShape: {fileID: 0}
+  shapeSize: 0
+  randomness: 0
 --- !u!1 &1520152778
 GameObject:
   m_ObjectHideFlags: 0
@@ -2140,6 +2184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemType: 1
   icon: {fileID: 1852952514}
+  stage: 0
 --- !u!1 &1852952512
 GameObject:
   m_ObjectHideFlags: 0

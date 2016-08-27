@@ -50,7 +50,7 @@ public class StoreItem : MonoBehaviour {
     private void Workshop_OnRocketSlotAction(RocketSlot slot, SlotEvent type)
     {
         if (state == StoreItemEvents.Drag) {
-            Debug.Log(slot);
+
             if (type == SlotEvent.Hover)
             {
                 if (slot.itemType == itemType)

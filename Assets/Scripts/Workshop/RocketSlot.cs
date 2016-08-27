@@ -9,6 +9,9 @@ public class RocketSlot : MonoBehaviour
     [SerializeField]
     ItemType _itemType;
 
+    [SerializeField]
+    Image icon;
+
     StoreItem item;
 
     Workshop workshop;
@@ -24,7 +27,7 @@ public class RocketSlot : MonoBehaviour
 
         set
         {
-            item = value;
+            item = value;            
         }
     }
 
@@ -39,6 +42,30 @@ public class RocketSlot : MonoBehaviour
     void Awake()
     {
         workshop = FindObjectOfType<Workshop>();
+    }
+
+    void OnEnable()
+    {
+        workshop.OnStoreItemAction += Workshop_OnStoreItemAction;
+    }
+
+    void OnDisable()
+    {
+        workshop.OnStoreItemAction -= Workshop_OnStoreItemAction;
+    }
+
+    private void Workshop_OnStoreItemAction(StoreItem item, StoreItemEvents type)
+    {
+        if (item == this.item && type == StoreItemEvents.Slotted)
+        {
+            Image img = item.GetComponent<Image>();
+            icon.sprite = img.sprite;
+            icon.color = img.color;
+            icon.fillMethod = img.fillMethod;
+            icon.preserveAspect = img.preserveAspect;
+            icon.fillAmount = icon.fillAmount;
+
+        }
     }
 
     bool MouseOver
@@ -70,7 +97,6 @@ public class RocketSlot : MonoBehaviour
 
     public void OnMouseEnter()
     {
-        Debug.Log("Enter " + this);
         if (item == null)
         {
             workshop.Emit(this, SlotEvent.Hover);
@@ -79,7 +105,6 @@ public class RocketSlot : MonoBehaviour
 
     public void OnMouseExit()
     {
-        Debug.Log("Exit " + this);
         if (item == null)
         {
             workshop.Emit(this, SlotEvent.Exit);

@@ -1,13 +1,6 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: a9089405095754b9ba89a7fd68786749
-timeCreated: 1472314570
-licenseType: Free
-TextureImporter:
-  fileIDToRecycleName: {}
-=======
 guid: 3c971e1b12b75ab45a9ce6b9d3e776c5
-timeCreated: 1472313376
+timeCreated: 1472325113
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -22,17 +15,14 @@ TextureImporter:
     21300016: circles_8
     21300018: circles_9
     21300020: circles_10
-    21300022: circles_11
-    21300024: circles_12
-    21300026: circles_13
-    21300028: circles_14
-    21300030: circles_15
-    21300032: circles_16
-    21300034: circles_17
-    21300036: circles_18
-    21300038: circles_19
-    21300040: circles_20
->>>>>>> 3a6f9329121c6c92737698ca9e0c01a44a80f106
+    21300022: circles_12
+    21300024: circles_13
+    21300026: circles_14
+    21300028: circles_15
+    21300030: circles_17
+    21300032: circles_18
+    21300034: circles_19
+    21300036: circles_20
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -59,11 +49,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-<<<<<<< HEAD
-    aniso: -1
-=======
     aniso: 16
->>>>>>> 3a6f9329121c6c92737698ca9e0c01a44a80f106
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -71,11 +57,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-<<<<<<< HEAD
-  spriteMode: 1
-=======
   spriteMode: 2
->>>>>>> 3a6f9329121c6c92737698ca9e0c01a44a80f106
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -88,9 +70,6 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     serializedVersion: 2
-<<<<<<< HEAD
-    sprites: []
-=======
     sprites:
     - serializedVersion: 2
       name: circles_0
@@ -150,7 +129,7 @@ TextureImporter:
         serializedVersion: 2
         x: 2428
         y: 1319
-        width: 697
+        width: 707
         height: 683
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -187,9 +166,9 @@ TextureImporter:
       name: circles_7
       rect:
         serializedVersion: 2
-        x: 883
+        x: 876
         y: 523
-        width: 613
+        width: 620
         height: 643
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -231,20 +210,7 @@ TextureImporter:
         width: 677
         height: 733
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: circles_11
-      rect:
-        serializedVersion: 2
-        x: 3232
-        y: 720
-        width: 31
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -295,19 +261,6 @@ TextureImporter:
         y: 529
         width: 4
         height: 4
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: circles_16
-      rect:
-        serializedVersion: 2
-        x: 3137
-        y: 359
-        width: 123
-        height: 196
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -365,7 +318,6 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
->>>>>>> 3a6f9329121c6c92737698ca9e0c01a44a80f106
     outline: []
   spritePackingTag: 
   userData: 

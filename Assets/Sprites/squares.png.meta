@@ -1,13 +1,6 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: b3d73c7fd33084d0c95c08ddd6bbf0b9
-timeCreated: 1472314573
-licenseType: Free
-TextureImporter:
-  fileIDToRecycleName: {}
-=======
 guid: 62ad3dacac398d246ba976c8b5a7285f
-timeCreated: 1472313396
+timeCreated: 1472325048
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -29,7 +22,6 @@ TextureImporter:
     21300030: squares_15
     21300032: squares_16
     21300034: squares_17
->>>>>>> 3a6f9329121c6c92737698ca9e0c01a44a80f106
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -56,11 +48,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-<<<<<<< HEAD
-    aniso: -1
-=======
     aniso: 16
->>>>>>> 3a6f9329121c6c92737698ca9e0c01a44a80f106
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -68,11 +56,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-<<<<<<< HEAD
-  spriteMode: 1
-=======
   spriteMode: 2
->>>>>>> 3a6f9329121c6c92737698ca9e0c01a44a80f106
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -85,9 +69,6 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     serializedVersion: 2
-<<<<<<< HEAD
-    sprites: []
-=======
     sprites:
     - serializedVersion: 2
       name: squares_0
@@ -323,7 +304,6 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
->>>>>>> 3a6f9329121c6c92737698ca9e0c01a44a80f106
     outline: []
   spritePackingTag: 
   userData: 

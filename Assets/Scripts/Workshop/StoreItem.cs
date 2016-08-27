@@ -6,8 +6,8 @@ public class StoreItem : MonoBehaviour {
     public ItemType itemType = ItemType.Charges;
 
     Workshop workshop;
-    RocketSlot slot;
-    StoreItemEvents state = StoreItemEvents.None;
+    public RocketSlot slot;
+    public StoreItemEvents state = StoreItemEvents.None;
 
     Vector3 sourcePosition;
 
@@ -91,6 +91,7 @@ public class StoreItem : MonoBehaviour {
         if (slot == null)
         {
             StartCoroutine(AnimateTo(transform.position, sourcePosition, StoreItemEvents.Return));
+            slot = null;
         } else
         {
             slot.Item = this;                        
@@ -109,6 +110,7 @@ public class StoreItem : MonoBehaviour {
         }
         transform.position = to;
         workshop.Emit(this, endEvent);
+        state = StoreItemEvents.None;
 
     }
 }

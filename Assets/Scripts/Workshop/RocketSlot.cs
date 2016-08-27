@@ -12,11 +12,13 @@ public class RocketSlot : MonoBehaviour
     [SerializeField]
     Image icon;
 
-    StoreItem item;
+    public StoreItem item;
 
     Workshop workshop;
 
     bool isOver = false;
+
+    public StoreItem dragItem;
 
     public StoreItem Item
     {
@@ -65,6 +67,14 @@ public class RocketSlot : MonoBehaviour
             icon.preserveAspect = img.preserveAspect;
             icon.fillAmount = icon.fillAmount;
 
+        } else if (type == StoreItemEvents.Drag)
+        {
+            dragItem = item;
+        }
+
+        if (type == StoreItemEvents.Slotted || type == StoreItemEvents.Return || type == StoreItemEvents.None)
+        {
+            dragItem = null;
         }
     }
 
@@ -97,7 +107,7 @@ public class RocketSlot : MonoBehaviour
 
     public void OnMouseEnter()
     {
-        if (item == null)
+        if (item != dragItem)
         {
             workshop.Emit(this, SlotEvent.Hover);
         }
@@ -105,7 +115,7 @@ public class RocketSlot : MonoBehaviour
 
     public void OnMouseExit()
     {
-        if (item == null)
+        if (item != dragItem)
         {
             workshop.Emit(this, SlotEvent.Exit);
         }

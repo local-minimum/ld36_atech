@@ -1,18 +1,15 @@
 fileFormatVersion: 2
-guid: dcd0a622c7b374665b327284620987b3
-timeCreated: 1472303211
+guid: 6b6d69e29771a4e118a99a9704c600b7
+timeCreated: 1472319527
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Umakes_Lowpoly_heart
     400000: //RootNode
-    400002: Umakes_Lowpoly_heart
-    2300000: Umakes_Lowpoly_heart
-    3300000: Umakes_Lowpoly_heart
-    4300000: Umakes_Lowpoly_heart
-    9500000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Cross
   materials:
     importMaterials: 1
     materialName: 0
@@ -44,7 +41,7 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 0
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     secondaryUVAngleDistortion: 8
@@ -71,7 +68,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

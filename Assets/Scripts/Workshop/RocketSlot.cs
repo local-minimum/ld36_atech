@@ -39,10 +39,20 @@ public class RocketSlot : MonoBehaviour
             if (item)
             {
                 World.RocketBlueprint[identifier] = new KeyValuePair<int, RocketComponent>(stage, item.Blueprint);
+                workshop.Emit(this, SlotEvent.Filled);
             } else
             {
                 World.RocketBlueprint.Remove(identifier);
+                workshop.Emit(this, SlotEvent.Empied);
             }
+        }
+    }
+
+    public int ID
+    {
+        get
+        {
+            return identifier;
         }
     }
 

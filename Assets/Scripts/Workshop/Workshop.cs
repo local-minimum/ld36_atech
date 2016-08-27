@@ -6,15 +6,18 @@ public delegate void RocketSlotAction(RocketSlot slot, SlotEvent type);
 
 
 public enum StoreItemEvents {None, Hover, Drag, Return, Slotted };
-public enum ItemType { Charges, Powders };
+public enum ItemType {None, Charges, Powders };
 
 public delegate void StoreItemAction(StoreItem item, StoreItemEvents type);
 
+public enum RocketEventsTypes { Incomplete, Ready};
+public delegate void RocketAction(RocketEventsTypes type);
 
 public class Workshop : MonoBehaviour {
 
     public event RocketSlotAction OnRocketSlotAction;
     public event StoreItemAction OnStoreItemAction;
+    public event RocketAction OnRocketAction;
 
     [SerializeField]
     Canvas customerCanvas;
@@ -37,6 +40,14 @@ public class Workshop : MonoBehaviour {
         if (OnStoreItemAction != null)
         {
             OnStoreItemAction(item, type);
+        }
+    }
+
+    public void Emit(RocketEventsTypes type)
+    {
+        if (OnRocketAction != null)
+        {
+            OnRocketAction(type);
         }
     }
 }

@@ -3,7 +3,21 @@ using System.Collections.Generic;
 
 public class StoreItem : MonoBehaviour {
 
-    public ItemType itemType = ItemType.Charges;
+    public ItemType itemType {
+        get
+        {
+            if (blueprint == null)
+            {
+                return ItemType.None;
+            } else if (typeof(Charge) == blueprint.GetType())
+            {
+                return ItemType.Charges;
+            } else
+            {
+                return ItemType.Powders;
+            }
+        }
+    }
 
     Workshop workshop;
     RocketSlot slot;
@@ -30,13 +44,6 @@ public class StoreItem : MonoBehaviour {
         set
         {
             blueprint = value;
-            if (typeof(Powder) == value.GetType())
-            {
-                itemType = ItemType.Powders;
-            } else
-            {
-                itemType = ItemType.Charges;
-            }
         }
     }
 

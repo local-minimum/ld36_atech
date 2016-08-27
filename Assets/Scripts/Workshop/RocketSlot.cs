@@ -7,7 +7,7 @@ public class RocketSlot : MonoBehaviour
 {
 
     [SerializeField]
-    ItemType itemType;
+    ItemType _itemType;
 
     StoreItem item;
 
@@ -25,6 +25,14 @@ public class RocketSlot : MonoBehaviour
         set
         {
             item = value;
+        }
+    }
+
+    public ItemType itemType
+    {
+        get
+        {
+            return _itemType;
         }
     }
 

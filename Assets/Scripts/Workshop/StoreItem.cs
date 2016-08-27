@@ -30,19 +30,33 @@ public class StoreItem : MonoBehaviour {
     void OnEnable()
     {
         workshop.OnRocketSlotAction += Workshop_OnRocketSlotAction;
+        workshop.OnStoreItemAction += Workshop_OnStoreItemAction;
     }
 
     void OnDisalbe()
     {
         workshop.OnRocketSlotAction -= Workshop_OnRocketSlotAction;
+        workshop.OnStoreItemAction -= Workshop_OnStoreItemAction;
+    }
+
+    private void Workshop_OnStoreItemAction(StoreItem item, StoreItemEvents type)
+    {
+        if (item == this && type == StoreItemEvents.Slotted)
+        {
+            transform.position = sourcePosition;
+        }
     }
 
     private void Workshop_OnRocketSlotAction(RocketSlot slot, SlotEvent type)
     {
         if (state == StoreItemEvents.Drag) {
+            Debug.Log(slot);
             if (type == SlotEvent.Hover)
             {
-                this.slot = slot;
+                if (slot.itemType == itemType)
+                {
+                    this.slot = slot;
+                }
             } else if (type == SlotEvent.Exit)
             {
                 this.slot = null;
@@ -79,9 +93,9 @@ public class StoreItem : MonoBehaviour {
             StartCoroutine(AnimateTo(transform.position, sourcePosition, StoreItemEvents.Return));
         } else
         {
-            slot.Item = this;            
+            slot.Item = this;                        
+            StartCoroutine(AnimateTo(transform.position, slot.transform.position, StoreItemEvents.Slotted));
             slot = null;
-            StartCoroutine(AnimateTo(transform.position, sourcePosition, StoreItemEvents.Slotted));
         }
         
     }

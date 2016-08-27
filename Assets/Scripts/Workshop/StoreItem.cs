@@ -6,8 +6,8 @@ public class StoreItem : MonoBehaviour {
     public ItemType itemType = ItemType.Charges;
 
     Workshop workshop;
-    public RocketSlot slot;
-    public StoreItemEvents state = StoreItemEvents.None;
+    RocketSlot slot;
+    StoreItemEvents state = StoreItemEvents.None;
 
     Vector3 sourcePosition;
 

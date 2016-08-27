@@ -12,13 +12,16 @@ public class RocketSlot : MonoBehaviour
     [SerializeField]
     Image icon;
 
-    public StoreItem item;
+    [SerializeField]
+    int stage;
+
+    StoreItem item;
 
     Workshop workshop;
 
     bool isOver = false;
 
-    public StoreItem dragItem;
+    StoreItem dragItem;
 
     public StoreItem Item
     {

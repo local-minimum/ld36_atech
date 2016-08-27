@@ -13,6 +13,7 @@ public class Customer : MonoBehaviour {
     public int currentIndex = -1;
     public static List<int> metCustomers = new List<int>();
     public List<Sprite> sprites = new List<Sprite>();
+    public List<string> names = new List<string>();
     public List<string> greetings = new List<string>();
     public List<int> customerLvl = new List<int>();
 

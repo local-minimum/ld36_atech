@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Linq;
 
+public enum CustomerMode {Order, Pay};
+
 public class Customer : MonoBehaviour {
 
     Canvas canvas;
@@ -12,7 +14,7 @@ public class Customer : MonoBehaviour {
     public Text textArea;
     public Image faceImage;
     public Text workshopNameArea;
-
+    public static CustomerMode customerMode = CustomerMode.Order;
     public int currentIndex = -1;
     public static List<int> metCustomers = new List<int>();
     public List<Sprite> sprites = new List<Sprite>();
@@ -24,7 +26,10 @@ public class Customer : MonoBehaviour {
     void Start () {
         canvas = GetComponent<Canvas>();
         canvas.enabled = true;
-        SetCustomerFromLevel();
+        if (customerMode == CustomerMode.Order)
+        {
+            SetCustomerFromLevel();
+        }
 	}
 	
     public void HideCustomer()

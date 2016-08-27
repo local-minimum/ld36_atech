@@ -1,14 +1,30 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
+using UnityEngine.UI;
 
 
-public class RocketSlot : MonoBehaviour {
+public class RocketSlot : MonoBehaviour
+{
 
     [SerializeField]
-    ItemType itemType;
+    ItemType _itemType;
+
+    [SerializeField]
+    Image icon;
+
+    [SerializeField]
+    int stage;
+
+    [SerializeField]
+    int identifier;
 
     StoreItem item;
 
     Workshop workshop;
+
+    bool isOver = false;
+
+    StoreItem dragItem;
 
     public StoreItem Item
     {
@@ -20,6 +36,21 @@ public class RocketSlot : MonoBehaviour {
         set
         {
             item = value;
+            if (item)
+            {
+                World.RocketBlueprint[identifier] = new KeyValuePair<int, RocketComponent>(stage, item.Blueprint);
+            } else
+            {
+                World.RocketBlueprint.Remove(identifier);
+            }
+        }
+    }
+
+    public ItemType itemType
+    {
+        get
+        {
+            return _itemType;
         }
     }
 
@@ -28,17 +59,76 @@ public class RocketSlot : MonoBehaviour {
         workshop = FindObjectOfType<Workshop>();
     }
 
-    void OnMouseEnter()
+    void OnEnable()
     {
-        if (item == null)
+        workshop.OnStoreItemAction += Workshop_OnStoreItemAction;
+    }
+
+    void OnDisable()
+    {
+        workshop.OnStoreItemAction -= Workshop_OnStoreItemAction;
+    }
+
+    private void Workshop_OnStoreItemAction(StoreItem item, StoreItemEvents type)
+    {
+        if (item == this.item && type == StoreItemEvents.Slotted)
+        {
+            Image img = item.GetComponent<Image>();
+            icon.sprite = img.sprite;
+            icon.color = img.color;
+            icon.fillMethod = img.fillMethod;
+            icon.preserveAspect = img.preserveAspect;
+            icon.fillAmount = icon.fillAmount;
+
+        } else if (type == StoreItemEvents.Drag)
+        {
+            dragItem = item;
+        }
+
+        if (type == StoreItemEvents.Slotted || type == StoreItemEvents.Return || type == StoreItemEvents.None)
+        {
+            dragItem = null;
+        }
+    }
+
+    bool MouseOver
+    {
+        get
+        {
+            return RectTransformUtility.RectangleContainsScreenPoint(transform as RectTransform, Input.mousePosition);
+        }
+    }
+
+    void Update()
+    {
+        if (MouseOver)
+        {
+            if (!isOver)
+            {
+                isOver = true;
+                OnMouseEnter();
+            }
+        } else
+        {
+            if (isOver)
+            {
+                isOver = false;
+                OnMouseExit();
+            }
+        }
+    }
+
+    public void OnMouseEnter()
+    {
+        if (item != dragItem)
         {
             workshop.Emit(this, SlotEvent.Hover);
         }
     }
 
-    void OnMouseExit()
+    public void OnMouseExit()
     {
-        if (item == null)
+        if (item != dragItem)
         {
             workshop.Emit(this, SlotEvent.Exit);
         }

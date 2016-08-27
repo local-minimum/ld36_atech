@@ -17,6 +17,29 @@ public class StoreItem : MonoBehaviour {
     [SerializeField] int steps = 20;
     [SerializeField] float delta = 0.01f;
 
+    [SerializeField]
+    RocketComponent blueprint;
+
+    public RocketComponent Blueprint
+    {
+        get
+        {
+            return blueprint;
+        }
+
+        set
+        {
+            blueprint = value;
+            if (typeof(Powder) == value.GetType())
+            {
+                itemType = ItemType.Powders;
+            } else
+            {
+                itemType = ItemType.Charges;
+            }
+        }
+    }
+
     void Awake()
     {
         workshop = FindObjectOfType<Workshop>();
@@ -30,19 +53,33 @@ public class StoreItem : MonoBehaviour {
     void OnEnable()
     {
         workshop.OnRocketSlotAction += Workshop_OnRocketSlotAction;
+        workshop.OnStoreItemAction += Workshop_OnStoreItemAction;
     }
 
     void OnDisalbe()
     {
         workshop.OnRocketSlotAction -= Workshop_OnRocketSlotAction;
+        workshop.OnStoreItemAction -= Workshop_OnStoreItemAction;
+    }
+
+    private void Workshop_OnStoreItemAction(StoreItem item, StoreItemEvents type)
+    {
+        if (item == this && type == StoreItemEvents.Slotted)
+        {
+            transform.position = sourcePosition;
+        }
     }
 
     private void Workshop_OnRocketSlotAction(RocketSlot slot, SlotEvent type)
     {
         if (state == StoreItemEvents.Drag) {
+
             if (type == SlotEvent.Hover)
             {
-                this.slot = slot;
+                if (slot.itemType == itemType)
+                {
+                    this.slot = slot;
+                }
             } else if (type == SlotEvent.Exit)
             {
                 this.slot = null;
@@ -77,11 +114,12 @@ public class StoreItem : MonoBehaviour {
         if (slot == null)
         {
             StartCoroutine(AnimateTo(transform.position, sourcePosition, StoreItemEvents.Return));
+            slot = null;
         } else
         {
-            slot.Item = this;            
+            slot.Item = this;                        
+            StartCoroutine(AnimateTo(transform.position, slot.transform.position, StoreItemEvents.Slotted));
             slot = null;
-            StartCoroutine(AnimateTo(transform.position, sourcePosition, StoreItemEvents.Slotted));
         }
         
     }
@@ -93,8 +131,9 @@ public class StoreItem : MonoBehaviour {
             transform.position = Vector3.LerpUnclamped(from, to, retraction.Evaluate(i / (float) steps));
             yield return new WaitForSeconds(delta);
         }
-
+        transform.position = to;
         workshop.Emit(this, endEvent);
+        state = StoreItemEvents.None;
 
     }
 }

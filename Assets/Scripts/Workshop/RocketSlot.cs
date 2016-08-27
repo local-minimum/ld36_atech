@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.EventSystems;
+using System.Collections.Generic;
 using UnityEngine.UI;
 
 
@@ -14,6 +14,9 @@ public class RocketSlot : MonoBehaviour
 
     [SerializeField]
     int stage;
+
+    [SerializeField]
+    int identifier;
 
     StoreItem item;
 
@@ -32,7 +35,14 @@ public class RocketSlot : MonoBehaviour
 
         set
         {
-            item = value;            
+            item = value;
+            if (item)
+            {
+                World.RocketBlueprint[identifier] = new KeyValuePair<int, RocketComponent>(stage, item.Blueprint);
+            } else
+            {
+                World.RocketBlueprint.Remove(identifier);
+            }
         }
     }
 

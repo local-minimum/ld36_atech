@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public abstract class RocketComponent : MonoBehaviour {
 
@@ -13,7 +14,7 @@ public abstract class RocketComponent : MonoBehaviour {
         StoreItem item = GetComponent<StoreItem>();
         if (item)
         {
-            item.Blueprint = this;
+            item.Blueprint = this;        
         }
     }
 }

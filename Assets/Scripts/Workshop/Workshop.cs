@@ -16,6 +16,14 @@ public class Workshop : MonoBehaviour {
     public event RocketSlotAction OnRocketSlotAction;
     public event StoreItemAction OnStoreItemAction;
 
+    [SerializeField]
+    Canvas customerCanvas;
+
+    public void ShowCustomer()
+    {
+        customerCanvas.enabled = true;
+    }
+
     public void Emit(RocketSlot slot, SlotEvent type)
     {
         if (OnRocketSlotAction != null)

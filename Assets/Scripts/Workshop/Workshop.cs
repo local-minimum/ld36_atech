@@ -5,7 +5,7 @@ public enum SlotEvent { Hover, Exit, Filled, Empied };
 public delegate void RocketSlotAction(RocketSlot slot, SlotEvent type);
 
 
-public enum StoreItemEvents { Hover, Drag, Return, Slotted };
+public enum StoreItemEvents {None, Hover, Drag, Return, Slotted };
 public enum ItemType { Charges, Powders };
 
 public delegate void StoreItemAction(StoreItem item, StoreItemEvents type);

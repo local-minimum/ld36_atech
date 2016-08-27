@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class StoreItem : MonoBehaviour {
 
@@ -7,11 +7,20 @@ public class StoreItem : MonoBehaviour {
 
     Workshop workshop;
     RocketSlot slot;
-    StoreItemEvents state;
+    StoreItemEvents state = StoreItemEvents.None;
+
+    Vector3 sourcePosition;
+
+    [SerializeField]
+    AnimationCurve retraction;
+
+    [SerializeField] int steps = 20;
+    [SerializeField] float delta = 0.01f;
 
     void Awake()
     {
         workshop = FindObjectOfType<Workshop>();
+        sourcePosition = transform.position;
     }
 
     void LateUpdate () {
@@ -46,24 +55,46 @@ public class StoreItem : MonoBehaviour {
         workshop.Emit(this, StoreItemEvents.Hover);        
     }
 
-    public void Drag()
+    public void OnBeginDrag()
     {
-        workshop.Emit(this, StoreItemEvents.Drag);
+        if (state == StoreItemEvents.None)
+        {
+            workshop.Emit(this, StoreItemEvents.Drag);
+            state = StoreItemEvents.Drag;
+        }
     }
 
-    public void Release()
+    public void OnDrag()
+    {
+        if (state == StoreItemEvents.Drag)
+        {
+            transform.position = Input.mousePosition;
+        }
+    }
+
+    public void OnEndDrag()
     {
         if (slot == null)
         {
-            workshop.Emit(this, StoreItemEvents.Return);
+            StartCoroutine(AnimateTo(transform.position, sourcePosition, StoreItemEvents.Return));
         } else
         {
-            slot.Item = this;
-            workshop.Emit(this, StoreItemEvents.Slotted);
-
+            slot.Item = this;            
             slot = null;
+            StartCoroutine(AnimateTo(transform.position, sourcePosition, StoreItemEvents.Slotted));
+        }
+        
+    }
+
+    IEnumerator<WaitForSeconds> AnimateTo(Vector3 from, Vector3 to, StoreItemEvents endEvent)
+    {
+        for (int i = 0; i <steps; i ++)
+        {
+            transform.position = Vector3.LerpUnclamped(from, to, retraction.Evaluate(i / (float) steps));
+            yield return new WaitForSeconds(delta);
         }
 
-        
+        workshop.Emit(this, endEvent);
+
     }
 }

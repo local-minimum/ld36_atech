@@ -476,6 +476,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 0
+  retraction:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 2.0313876
+      outSlope: 2.0313876
+      tangentMode: 0
+    - time: 0.8201882
+      value: 1.0739014
+      inSlope: 0.5507469
+      outSlope: 0.5507469
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  steps: 50
+  delta: 0.01
 --- !u!114 &525041093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -510,7 +533,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 525041092}
-          m_MethodName: Drag
+          m_MethodName: OnDrag
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -522,12 +545,29 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  - eventID: 6
+  - eventID: 13
     callback:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 525041092}
-          m_MethodName: Release
+          m_MethodName: OnBeginDrag
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 14
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 525041092}
+          m_MethodName: OnEndDrag
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

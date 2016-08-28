@@ -135,7 +135,7 @@ public class Workshop : MonoBehaviour {
             }
             string json = asset.text;
             Ingredient part = JsonUtility.FromJson<Ingredient>(json);
-            if (ingredients.ContainsKey(part.name))
+            if (ingredients.ContainsKey(part.identifier))
             {
                 Debug.LogError(string.Format("Duplicated ingredient '{0}' from file '{1}' was already loaded.", part.identifier, json_files[part_index]));
             }

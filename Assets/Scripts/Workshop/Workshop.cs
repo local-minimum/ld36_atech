@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public enum SlotEvent { Hover, Exit, Filled, Empied };
 public delegate void RocketSlotAction(RocketSlot slot, SlotEvent type);
@@ -13,14 +13,57 @@ public delegate void StoreItemAction(StoreItem item, StoreItemEvents type);
 public enum RocketEventsTypes { Incomplete, Ready};
 public delegate void RocketAction(RocketEventsTypes type);
 
+[System.Serializable]
+public class Ingredient
+{
+    public string identifier;
+    public string name;
+    public string text;
+}
+
 public class Workshop : MonoBehaviour {
 
     public event RocketSlotAction OnRocketSlotAction;
     public event StoreItemAction OnStoreItemAction;
     public event RocketAction OnRocketAction;
 
+    public static Dictionary<string, Ingredient> ingredients = new Dictionary<string, Ingredient>();
+
+    private static Workshop _shop;
+
+    private static Workshop shop
+    {
+        get
+        {
+            if (_shop == null)
+            {
+                _shop = FindObjectOfType<Workshop>();
+            }
+            return _shop;
+        }
+    }
+
+    [SerializeField]
+    List<string> json_files = new List<string>();
+
     [SerializeField]
     Canvas customerCanvas;
+
+    void OnEnable()
+    {
+        if (_shop == null)
+        {
+            _shop = this;
+        }
+    }
+
+    void OnDisable()
+    {
+        if (_shop == this)
+        {
+            _shop = null;
+        }
+    }
 
     public void ShowCustomer()
     {
@@ -49,5 +92,36 @@ public class Workshop : MonoBehaviour {
         {
             OnRocketAction(type);
         }
+    }
+
+    public static void LoadJSON()
+    {
+        shop._LoadJSON();
+    }
+
+    void _LoadJSON()
+    {
+        for (int part_index = 0, files = json_files.Count; part_index < files; part_index++)
+        {
+
+            TextAsset asset = Resources.Load(json_files[part_index]) as TextAsset;
+            if (asset == null)
+            {
+                Debug.LogError("Missing file: " + json_files[part_index]);
+                continue;
+            }
+            else
+            {
+                Debug.Log("Parsing JSON: " + json_files[part_index]);
+            }
+            string json = asset.text;
+            Ingredient part = JsonUtility.FromJson<Ingredient>(json);
+            if (ingredients.ContainsKey(part.name))
+            {
+                Debug.LogError(string.Format("Duplicated ingredient '{0}' from file '{1}' was already loaded.", part.identifier, json_files[part_index]));
+            }
+            ingredients.Add(part.identifier, part);
+        }
+
     }
 }

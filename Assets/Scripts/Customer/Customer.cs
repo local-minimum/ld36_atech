@@ -70,6 +70,11 @@ public class Customer : MonoBehaviour {
             return;
         }
 
+        if (Workshop.ingredients.Count < 0)
+        {
+            Workshop.LoadJSON();
+        }
+
         for (int part_index = 0, files = json_files.Count; part_index < files; part_index++)
         {
             TextAsset asset = Resources.Load(json_files[part_index]) as TextAsset;
@@ -92,20 +97,23 @@ public class Customer : MonoBehaviour {
             dialogues[part.level].Add(part);
             usedDialogues[part.level].Add(false);
 
-            if (!ValidateCriteria(part.negativeCriteria))
+            string[] invalid = GetInvalidCriteria(part.negativeCriteria);
+            if (invalid.Length > 0)
             {
-                Debug.LogError("Some of negative don't exist: " + string.Join(", ", part.negativeCriteria));
+                Debug.LogError("These negative don't exist: " + string.Join(", ", invalid));
             }
-            if (!ValidateCriteria(part.positiveCriteria))
+
+            invalid = GetInvalidCriteria(part.positiveCriteria);
+            if (invalid.Length > 0)
             {
-                Debug.LogError("Some of positive don't exist: " + string.Join(", ", part.positiveCriteria));
+                Debug.LogError("These positive don't exist: " + string.Join(", ", invalid));
             }
         }
         
     }
 
-    bool ValidateCriteria(string[] criteria) {
-        return false;
+    string[] GetInvalidCriteria(string[] criteria) {
+        return criteria.Where(e => !Workshop.ingredients.ContainsKey(e)).ToArray();
     }
 
     public void HideCustomer()

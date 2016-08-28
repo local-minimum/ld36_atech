@@ -27,8 +27,8 @@ public class HandleExplosion : MonoBehaviour {
 				var valy = Random.Range (-range, range);
 				var valz = Random.Range (-range, range);
 				particles2 [i].position = vertex * 10 + new Vector3(valx, valy, valz);
-				particles2 [i].color = powder.startColor;
-				particles2 [i].color = new Color (powder.startColor.r, powder.startColor.g, powder.startColor.b, 1);
+			//	particles2 [i].color = powder.startColor;
+			//	particles2 [i].color = new Color (powder.startColor.r, powder.startColor.g, powder.startColor.b, 1);
 				particles2 [i].startSize = 0.2f;
 				particles2 [i].lifetime = 2 * val;
 				particles2 [i].velocity = (vertex * 100) * val * (float)charge.shapeSize;

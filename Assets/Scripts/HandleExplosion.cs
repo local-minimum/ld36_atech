@@ -37,8 +37,8 @@ public class HandleExplosion : MonoBehaviour {
 			col.enabled = true;
 			Gradient grad = new Gradient();
 			grad.SetKeys( new GradientColorKey[] {
-				new GradientColorKey(powder.startColor, 0.0f), 
-				new GradientColorKey(powder.endColor, 1.0f) },
+				new GradientColorKey(powder.color, 0.0f), 
+				new GradientColorKey(powder.color, 1.0f) },
 				new GradientAlphaKey[] { 
 					new GradientAlphaKey(1.0f, 0.0f), 
 					new GradientAlphaKey(1.0f, 1.0f) } );

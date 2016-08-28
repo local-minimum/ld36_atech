@@ -44,6 +44,12 @@ public class Customer : MonoBehaviour {
 
     static Dictionary<int, List<DialoguePart>> dialogues = new Dictionary<int, List<DialoguePart>>();
 
+    [SerializeField] int baseScore = 400;
+    [SerializeField] int failScorePart = -50;
+    [SerializeField] int criticalFail = -400;
+    [SerializeField] int bonusPart = 50;
+    [SerializeField] int completeBonus = 400;
+
     void Start () {
 
         LoadJSON();
@@ -142,6 +148,15 @@ public class Customer : MonoBehaviour {
             metCustomers.Add(currentIndex);
 
         }
+    }
 
+    public int Score
+    {
+        get
+        {
+            int score = baseScore;
+            //TODO: Add stuff
+            return score;
+        }
     }
 }

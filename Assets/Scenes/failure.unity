@@ -2007,12 +2007,39 @@ Prefab:
     - target: {fileID: 114000014269750416, guid: 95bf3377f6318480c9677957309fd649,
         type: 2}
       propertyPath: m_Text
-      value: 'You died in a tragic fire accident
+      value: 'A mob of disappointed customers appears
+
+        The have fire
+
+        and lots of it
+
+
+        The are burning your workshop
+
+
+        The village starts to burn
+
+
+        lots of fire
+
+
+        everybody dies
+
+
+        even the dolphin
+
+
+        game over
 
 
         CREDITS:
 
         Thanks to banana wine!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000013470053036, guid: 95bf3377f6318480c9677957309fd649,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 800
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 95bf3377f6318480c9677957309fd649, type: 2}

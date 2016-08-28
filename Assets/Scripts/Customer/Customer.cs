@@ -114,10 +114,7 @@ public class Customer : MonoBehaviour {
             {
                 Debug.LogError("Missing file: " + json_files[part_index]);
                 continue;
-            } else
-            {
-                Debug.Log("Parsing JSON: " + json_files[part_index]);
-            }
+            } 
             string json = asset.text;
             DialoguePart part = JsonUtility.FromJson<DialoguePart>(json);
             if (!dialogues.ContainsKey(part.level))
@@ -128,6 +125,8 @@ public class Customer : MonoBehaviour {
 
             dialogues[part.level].Add(part);
             usedDialogues[part.level].Add(false);
+
+            Debug.Log(string.Format("Loaded {0} ({1}) at {2}", part.orderTitle, part.name, part.level));
 
             string[] invalid = GetInvalidCriteria(part.negativeCriteria);
             if (invalid.Length > 0)

@@ -1065,6 +1065,7 @@ MonoBehaviour:
   - Customers/dolphin
   - Customers/heron
   - Customers/sloth
+  - Customers/bull2
   speaker: {fileID: 495658558}
   baseScore: 400
   failScorePart: -50
@@ -2553,7 +2554,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   json_files:
-  - Ingredients/test
+  - Ingredients/powder_algae
+  - Ingredients/powder_ash
+  - Ingredients/powder_cat
+  - Ingredients/powder_crystal
+  - Ingredients/powder_dew
+  - Ingredients/powder_fairies
+  - Ingredients/powder_feathers
+  - Ingredients/powder_frogs
+  - Ingredients/powder_hearts
+  - Ingredients/powder_laughter
+  - Ingredients/powder_mist
+  - Ingredients/powder_roses
+  - Ingredients/powder_steel
+  - Ingredients/powder_tea
   customerCanvas: {fileID: 776093113}
 --- !u!1 &1886399946
 GameObject:

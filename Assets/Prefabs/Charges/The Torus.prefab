@@ -9,53 +9,51 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1000013734700862}
+  m_RootGameObject: {fileID: 1000010895589942}
   m_IsPrefabParent: 1
---- !u!1 &1000013734700862
+--- !u!1 &1000010895589942
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 4000014193155462}
-  - 114: {fileID: 114000012135395662}
+  - 4: {fileID: 4000012593502250}
+  - 114: {fileID: 114000014190209654}
   m_Layer: 0
-  m_Name: "Grodandedra\u0308kt"
+  m_Name: The Torus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4000014193155462
+--- !u!4 &4000012593502250
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013734700862}
+  m_GameObject: {fileID: 1000010895589942}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.3255035, y: 0.021699382, z: 0}
+  m_LocalPosition: {x: -0.651007, y: 0.043398764, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &114000012135395662
+--- !u!114 &114000014190209654
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013734700862}
+  m_GameObject: {fileID: 1000010895589942}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 012347e8b7c8040ca898256b93b58842, type: 3}
+  m_Script: {fileID: 11500000, guid: a44e4fb62216b46f0ba14dfe73ecc02a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   judgementProperties: []
   icon: {fileID: 0}
   description: 
   audio: {fileID: 8300000, guid: 30d0410b64068494ca1652ae67385d82, type: 3}
-  particleMaterial: {fileID: 2100000, guid: 3fc7c7cd7e6bb4cf3b5f75cb63bbf75b, type: 2}
-  color: {r: 0.20161116, g: 0.8308824, b: 0.5444554, a: 0}
-  burnTime: 0
-  behaviour: 
+  explosionShape: {fileID: 4300000, guid: 038023a3d87724239909d612301203f1, type: 3}
+  shapeSize: 4

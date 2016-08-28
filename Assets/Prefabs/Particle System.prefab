@@ -251,6 +251,7 @@ MonoBehaviour:
   subSystem: {fileID: 198000011426746014}
   charge: {fileID: 0}
   powder: {fileID: 0}
+  disableNextScene: 0
   source: {fileID: 82000014026207574}
 --- !u!198 &198000011426746014
 ParticleSystem:
@@ -2034,7 +2035,7 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     startLifetime:
-      scalar: 0.1
+      scalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2405,7 +2406,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     randomizeRotationDirection: 0
-    gravityModifier: 0.1
+    gravityModifier: 0
     maxNumParticles: 1000
     size3D: 0
     rotation3D: 0
@@ -2978,7 +2979,7 @@ ParticleSystem:
       minMaxState: 0
     inWorldSpace: 0
   InheritVelocityModule:
-    enabled: 0
+    enabled: 1
     m_Mode: 0
     m_Curve:
       scalar: 0

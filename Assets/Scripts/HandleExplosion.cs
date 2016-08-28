@@ -11,9 +11,14 @@ public class HandleExplosion : MonoBehaviour {
 	ParticleSystem.Particle[] particles = new ParticleSystem.Particle[10];
 	public AudioSource source;
 
+	private IEnumerator PlaySounds() {
+		yield return new WaitForSeconds(0.1f);
+		source.Play ();
+	}
+
 	void OnParticleCollision(GameObject other) {
 		source.clip = powder.audio;
-		source.Play ();
+		StartCoroutine (PlaySounds ());
 		var system = this.GetComponent<ParticleSystem> ();
 		int num = system.GetParticles (particles);
 		if (num > 0) {
@@ -67,6 +72,7 @@ public class HandleExplosion : MonoBehaviour {
 			StartCoroutine (LaunchScene());
 		}
 	}
+
 
 	private IEnumerator LaunchScene() {
 		yield return new WaitForSeconds(2);

@@ -5,6 +5,7 @@ using System.Linq;
 
 public enum CustomerMode {Order, Pay};
 
+[System.Serializable]
 public class DialoguePart
 {
     public int level;
@@ -13,9 +14,9 @@ public class DialoguePart
     public string text;
     public List<string> positiveCriteria;
     public List<string> negativeCriteria;
-    public float wordSpeed;
-    public float endOfSentenceSpeed;
-    public float endOfSentenceDelays;
+    public float wordSpeed = 0.2f;
+    public float endOfSentenceSpeed = 0.4f;
+    public float endOfSentenceDelays = 5;
     public string positiveFeedback;
     public string neutralFeedback;
     public string negativeFeedback;
@@ -71,7 +72,7 @@ public class Customer : MonoBehaviour {
 
         for (int part_index = 0, files = json_files.Count; part_index < files; part_index++)
         {
-            TextAsset asset = Resources.LoadAll<TextAsset>(json_files[part_index]).Where(a => a.name == json_files[part_index]).FirstOrDefault();
+            TextAsset asset = Resources.Load(json_files[part_index]) as TextAsset;
             if (asset == null)
             {
                 Debug.LogError("Missing file: " + json_files[part_index]);
@@ -81,17 +82,14 @@ public class Customer : MonoBehaviour {
                 Debug.Log("Parsing JSON: " + json_files[part_index]);
             }
             string json = asset.text;
-            List<DialoguePart> dialogueParts = JsonUtility.FromJson<List<DialoguePart>>(json);
-            for (int i = 0, l = dialogueParts.Count; i < l; i++)
+            DialoguePart part = JsonUtility.FromJson<DialoguePart>(json);
+            if (!dialogues.ContainsKey(part.level))
             {
-                DialoguePart part = dialogueParts[i];
-                if (!dialogues.ContainsKey(part.level))
-                {
-                    dialogues[part.level] = new List<DialoguePart>();
-                }
-                dialogues[part.level].Add(part);
+                dialogues[part.level] = new List<DialoguePart>();
             }
+            dialogues[part.level].Add(part);
         }
+        
     }
 
     public void HideCustomer()

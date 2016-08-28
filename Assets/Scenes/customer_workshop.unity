@@ -946,7 +946,13 @@ MonoBehaviour:
     cheap. Kaboom is my style.'
   customerLvl: 00000000
   json_files:
-  - Data/test.json
+  - Data/test_no_speed
+  - Data/test
+  baseScore: 400
+  failScorePart: -50
+  criticalFail: -400
+  bonusPart: 50
+  completeBonus: 400
 --- !u!95 &776093116
 Animator:
   serializedVersion: 3

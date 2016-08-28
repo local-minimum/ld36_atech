@@ -71,7 +71,7 @@ public class Customer : MonoBehaviour {
 
         for (int part_index = 0, files = json_files.Count; part_index < files; part_index++)
         {
-            TextAsset asset = Resources.Load<TextAsset>(json_files[part_index]);
+            TextAsset asset = Resources.LoadAll<TextAsset>(json_files[part_index]).Where(a => a.name == json_files[part_index]).FirstOrDefault();
             if (asset == null)
             {
                 Debug.LogError("Missing file: " + json_files[part_index]);

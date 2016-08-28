@@ -1,6 +1,7 @@
 {
     "name": "Volcanic Ash",
     "identifier": "powder_ash",
+    "level": -1,
     "text": "",
     "shape": "",
     "colour": "grey",

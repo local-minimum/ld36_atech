@@ -14,6 +14,8 @@ public static class World {
 
     static int _lvl = 0;
     static int max_lvl = 5;
+    static int _scoreLast = 0;
+    static bool _lastWasNegative = false;
 
     public static int _score = 0;
 
@@ -34,17 +36,35 @@ public static class World {
         }
     }
 
-    public static void AddScore(int change)
+    public static int ScoreLast
     {
+        get
+        {
+            return _scoreLast;
+        }
+    }
+
+    public static bool LastWasNegative
+    {
+        get
+        {
+            return _lastWasNegative;
+        }
+    }
+
+    public static void AddScore(int change, bool isNegativeResponse)
+    {
+        _scoreLast = change;
         _score += change;
+        _lastWasNegative = isNegativeResponse;
 
         if (OnNewScore != null)
         {
             OnNewScore(_score);
         }
 
-        int _scoreLvl = _lvlThresholds.Select((val, i) => new { index = i + 1, value = val }).Where(e => e.value < _score).Last().index;
-        if (_scoreLvl > _lvl)
+        var last = _lvlThresholds.Select((val, i) => new { index = i + 1, value = val }).Where(e => e.value < _score).LastOrDefault();        
+        if (last != null && last.value > _lvl)
         {
             NextLevel();
         }

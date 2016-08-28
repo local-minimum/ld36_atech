@@ -537,6 +537,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33558fafca9bb4348894b7828fe0069c, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &336106741 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000012624216930, guid: 33558fafca9bb4348894b7828fe0069c,
+    type: 2}
+  m_PrefabInternal: {fileID: 336106740}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &342113590
 GameObject:
   m_ObjectHideFlags: 0
@@ -931,12 +937,10 @@ MonoBehaviour:
   - Customers/heron
   - Customers/sloth
   - Customers/bull2
+  txt: {fileID: 336106741}
   nextCustomer: Next Customer
   toWorkShopText: To Workshop >
-  speaker: {fileID: 82000012219376520, guid: 8d1104ff18471544b91c322d2a4fd713, type: 2}
-  speakerB: {fileID: 82000012721979432, guid: 8d1104ff18471544b91c322d2a4fd713, type: 2}
-  speakerButtons: {fileID: 82000010846330046, guid: 8d1104ff18471544b91c322d2a4fd713,
-    type: 2}
+  theEndText: The Next Night
   workshopSnapshot: {fileID: 245000010085214376, guid: 49116b83a12edfb46abdb69b4ec1c548,
     type: 2}
   customerOrderSnapshot: {fileID: 24500003, guid: 49116b83a12edfb46abdb69b4ec1c548,
@@ -1576,6 +1580,27 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013583675590, guid: ba4c072ea49c26e4b90727e1d183777b,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 17e01fa9a52895b4b9a77541b9f26a01,
+        type: 3}
+    - target: {fileID: 114000013583675590, guid: ba4c072ea49c26e4b90727e1d183777b,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013583675590, guid: ba4c072ea49c26e4b90727e1d183777b,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013583675590, guid: ba4c072ea49c26e4b90727e1d183777b,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ba4c072ea49c26e4b90727e1d183777b, type: 2}

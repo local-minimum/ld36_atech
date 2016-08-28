@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public enum CustomerMode {Order, Pay};
 
@@ -48,6 +49,9 @@ public class Customer : MonoBehaviour {
     static Dictionary<int, List<bool>> usedDialogues = new Dictionary<int, List<bool>>();
 
     [SerializeField]
+    Text txt;
+
+    [SerializeField]
     string nextCustomer = "Next Customer";
 
     [SerializeField]
@@ -82,9 +86,11 @@ public class Customer : MonoBehaviour {
         canvas.enabled = true;
         if (customerMode == CustomerMode.Order)
         {
+            txt.text = toWorkShopText;
             SetCustomerFromLevel();
         } else
         {
+            txt.text = nextCustomer;
             SetupResponse();
         }
 	}
@@ -158,7 +164,7 @@ public class Customer : MonoBehaviour {
             Debug.Log("Customer Neutral");
             textTalk.Talk(part.neutralFeedback);
         }
-        World.AddScore(score);
+        World.AddScore(score, negatives > 0);
     }
 
     string[] GetInvalidCriteria(string[] criteria) {
@@ -174,7 +180,20 @@ public class Customer : MonoBehaviour {
             canvas.enabled = false;
         } else
         {
-            SetCustomerFromLevel();
+            if (!World.GameOver)
+            {
+                txt.text = toWorkShopText;
+                SetCustomerFromLevel();
+            } else
+            {
+                if (World.LastWasNegative || World.Score < 0)
+                {
+                    SceneManager.LoadScene("failure");
+                } else
+                {
+                    SceneManager.LoadScene("success");
+                }
+            }
 
         }
     }

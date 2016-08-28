@@ -1,0 +1,15 @@
+{
+    "level": 4,
+    "orderTitle": "Metal Mayhem!",
+    "name": "Dillarmaa",
+    "element": "metal",
+    "text": "",
+    "positiveCriteria": ["loud", "metal", "hard", "violent", "musical"],
+    "negativeCriteria": ["dreamy", "pixies", "rainbows", "unicorns", "silence", "slow"],
+    "positiveFeedback": "",
+    "negativeFeedback": "",
+    "neutralFeedback": "",
+    "wordSpeed": -1,
+    "endOfSentenceSpeed": -1,
+    "endOfSentenceDelays": -1
+}

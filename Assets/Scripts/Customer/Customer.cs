@@ -12,6 +12,7 @@ public class Customer : MonoBehaviour {
     public Image avatar;
     public Text nameArea;
     public Text textArea;
+    public TextTalker textTalk;
     public Image faceImage;
     public Text workshopNameArea;
     public static CustomerMode customerMode = CustomerMode.Order;
@@ -64,7 +65,7 @@ public class Customer : MonoBehaviour {
     {
         SetCustomerIndex();
         avatar.sprite = sprites[currentIndex];
-        textArea.text = greetings[currentIndex];
+        textTalk.Talk(greetings[currentIndex]);
         nameArea.text = names[currentIndex];
         workshopNameArea.text = names[currentIndex];
         faceImage.sprite = faces[currentIndex];

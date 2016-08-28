@@ -6,7 +6,13 @@ public class SingleCam : MonoBehaviour {
 
     static SingleCam _cam;
 
-	void Awake () {
+    [SerializeField] AudioSource customerOrder;
+
+    [SerializeField] AudioSource customerResponse;
+
+    [SerializeField] AudioSource buttons;
+
+    void Awake () {
         if (_cam != null && _cam != this)
         {
             Destroy(gameObject);
@@ -26,4 +32,28 @@ public class SingleCam : MonoBehaviour {
 			}
 		}
 	}
+
+    public static AudioSource CustomerOrderSpeaker
+    {
+        get
+        {
+            return _cam.customerOrder;
+        }
+    }
+
+    public static AudioSource CustomerResponseSpeaker
+    {
+        get
+        {
+            return _cam.customerResponse;
+        }
+    }
+
+    public static AudioSource ButtonSpeaker
+    {
+        get
+        {
+            return _cam.buttons;
+        }
+    }
 }

@@ -324,7 +324,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   Priority: 128
@@ -395,7 +395,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243000014044013340, guid: 49116b83a12edfb46abdb69b4ec1c548,
     type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 821cfd0213288489ba2c9e603c131c2a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -470,7 +470,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243000013901207466, guid: 49116b83a12edfb46abdb69b4ec1c548,
     type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 821cfd0213288489ba2c9e603c131c2a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -628,6 +628,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1923e4f21a6d6674c9f2a0cddff0700c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  customerOrder: {fileID: 82000012219376520}
+  customerResponse: {fileID: 82000012721979432}
+  buttons: {fileID: 82000010846330046}
 --- !u!124 &124000011849760744
 Behaviour:
   m_ObjectHideFlags: 1

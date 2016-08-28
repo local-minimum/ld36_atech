@@ -48,11 +48,10 @@ public class Customer : MonoBehaviour {
     static Dictionary<int, List<bool>> usedDialogues = new Dictionary<int, List<bool>>();
 
     [SerializeField]
-    AudioSource speaker;
+    string nextCustomer = "Next Customer";
+
     [SerializeField]
-    AudioSource speakerB;
-    [SerializeField]
-    AudioSource speakerButtons;
+    string toWorkShopText = "To Workshop >";
 
     [SerializeField]
     AudioMixerSnapshot workshopSnapshot;
@@ -165,10 +164,16 @@ public class Customer : MonoBehaviour {
 
     public void HideCustomer()
     {
+        if (customerMode == CustomerMode.Order)
+        {
+            SingleCam.ButtonSpeaker.PlayOneShot(toWorkshopSound);
+            workshopSnapshot.TransitionTo(fadeTime);
+            canvas.enabled = false;
+        } else
+        {
+            SetCustomerFromLevel();
 
-        speakerButtons.PlayOneShot(toWorkshopSound);
-        workshopSnapshot.TransitionTo(fadeTime);
-        canvas.enabled = false;
+        }
     }
 
     public void Record()
@@ -194,6 +199,7 @@ public class Customer : MonoBehaviour {
 
     public void SetCustomerFromLevel()
     {
+        customerMode = CustomerMode.Order;
         SetCustomerIndex();
         SetupCustomer();
     }
@@ -213,11 +219,10 @@ public class Customer : MonoBehaviour {
         {
             Debug.LogError(string.Format("Could not find identifier '{0}' ({1}) in lists.", part.identifier, part.name));
         }
-
-        speaker.clip = musics[listIndex];
-        speakerB.clip = musics[listIndex];
-        speaker.Play();
-        speakerB.Play();
+        SingleCam.CustomerOrderSpeaker.clip = musics[listIndex];
+        SingleCam.CustomerResponseSpeaker.clip = musics[listIndex];
+        SingleCam.CustomerOrderSpeaker.Play();
+        SingleCam.CustomerResponseSpeaker.Play();
 
         customerOrderSnapshot.TransitionTo(fadeTime);
 

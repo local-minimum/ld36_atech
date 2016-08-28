@@ -15,16 +15,19 @@ public class TextTalker : MonoBehaviour {
     Text TextArea;
 
     [SerializeField, Range(0, 1)]
-    float wordPause = 0.4f;
+    float defaultWordPause = 0.1f;
+    float wordPause = 0.1f;
 
     [SerializeField, Range(0, 100)]
-    int sentencePauses = 3;
+    int defaultSentencePauses = 5;
+    int sentencePauses = 5;
 
     [SerializeField, Range(0, 1)]
+    float defaultSentencePause = 0.4f;
     float sentencePause = 0.4f;
 
     [SerializeField]
-    string sentencePauseAnimation = "..";
+    string sentencePauseAnimation = "...";
 
     [SerializeField]
     Button toggleButton;
@@ -35,6 +38,36 @@ public class TextTalker : MonoBehaviour {
     public void Talk(string text)
     {
         StartCoroutine(_Talk(text));
+    }
+
+    public void Talk(DialoguePart part)
+    {
+        if (part.wordSpeed > 0)
+        {
+            wordPause = part.wordSpeed;
+        }
+        else
+        {
+            wordPause = defaultWordPause;
+        }
+
+        if (part.endOfSentenceSpeed > 0)
+        {
+            sentencePause = part.endOfSentenceSpeed;
+        } else
+        {
+            sentencePause = defaultSentencePause;
+        }
+
+        if (part.endOfSentenceDelays > 0)
+        {
+            sentencePauses = part.endOfSentenceDelays;
+        } else
+        {
+            sentencePauses = defaultSentencePauses;
+        }
+
+        Talk(part.text);
     }
 
     IEnumerator<WaitForSeconds> _Talk(string text)

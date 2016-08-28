@@ -12,11 +12,12 @@ public class DialoguePart
     public string name;
     public string orderTitle;
     public string text;
-    public List<string> positiveCriteria;
-    public List<string> negativeCriteria;
+    public string element;
+    public string[] positiveCriteria;
+    public string[] negativeCriteria;
     public float wordSpeed = 0.2f;
     public float endOfSentenceSpeed = 0.4f;
-    public float endOfSentenceDelays = 5;
+    public int endOfSentenceDelays = 5;
     public string positiveFeedback;
     public string neutralFeedback;
     public string negativeFeedback;
@@ -34,16 +35,14 @@ public class Customer : MonoBehaviour {
     public Text workshopNameArea;
     public static CustomerMode customerMode = CustomerMode.Order;
     public int currentIndex = -1;
-    public static List<int> metCustomers = new List<int>();
     public List<Sprite> sprites = new List<Sprite>();
     public List<Sprite> faces = new List<Sprite>();
     public List<string> names = new List<string>();
-    [HideInInspector] public List<string> greetings = new List<string>();
-    [HideInInspector] public List<int> customerLvl = new List<int>();
 
     public List<string> json_files = new List<string>();
 
     static Dictionary<int, List<DialoguePart>> dialogues = new Dictionary<int, List<DialoguePart>>();
+    static Dictionary<int, List<bool>> usedDialogues = new Dictionary<int, List<bool>>();
 
     [SerializeField] int baseScore = 400;
     [SerializeField] int failScorePart = -50;
@@ -86,10 +85,26 @@ public class Customer : MonoBehaviour {
             if (!dialogues.ContainsKey(part.level))
             {
                 dialogues[part.level] = new List<DialoguePart>();
+                usedDialogues[part.level] = new List<bool>();
             }
+
             dialogues[part.level].Add(part);
+            usedDialogues[part.level].Add(false);
+
+            if (!ValidateCriteria(part.negativeCriteria))
+            {
+                Debug.LogError("All of the negative exist: " + string.Join(", ", part.negativeCriteria));
+            }
+            if (!ValidateCriteria(part.positiveCriteria))
+            {
+                Debug.LogError("All of the positive exist: " + string.Join(", ", part.positiveCriteria));
+            }
         }
         
+    }
+
+    bool ValidateCriteria(string[] criteria) {
+        return false;
     }
 
     public void HideCustomer()
@@ -103,14 +118,12 @@ public class Customer : MonoBehaviour {
         {
 
             sprites.Add(avatar.sprite);
-            greetings.Add(textArea.text);
             names.Add(nameArea.text);
             faces.Add(faceImage.sprite);
 
         } else if (currentIndex < sprites.Count)
         {
             sprites[currentIndex] = avatar.sprite;
-            greetings[currentIndex] = textArea.text;
             names[currentIndex] = nameArea.text;
             faces[currentIndex] = faceImage.sprite;
 
@@ -123,29 +136,35 @@ public class Customer : MonoBehaviour {
     public void SetCustomerFromLevel()
     {
         SetCustomerIndex();
+        DialoguePart part = dialogues[World.Level][currentIndex];
         avatar.sprite = sprites[currentIndex];
-        textTalk.Talk(greetings[currentIndex]);
-        nameArea.text = names[currentIndex];
+        textTalk.Talk(part);
+        nameArea.text = part.orderTitle;
         workshopNameArea.text = names[currentIndex];
         faceImage.sprite = faces[currentIndex];
     }
 
     void SetCustomerIndex()
     {
-        int[] potentials = customerLvl.Select((lvl, index) => new { lvl = lvl, index = index }).Where(item => item.lvl == World.Level).Select(item => item.index).ToArray();
-        int[] candidates = potentials.Where(index => !metCustomers.Contains(index)).ToArray();
+        List<bool> used = usedDialogues[World.Level];
+
+        int[] candidates = used.Select((val, index) => new {index = index, used = val}).Where(item => !item.used).Select(item => item.index).ToArray();        
         if (candidates.Length > 0)
         {
             currentIndex = candidates[Random.Range(0, candidates.Length)];
-            metCustomers.Add(currentIndex);
         }
         else
         {
-            metCustomers.RemoveAll(val => potentials.Contains(val));
-            currentIndex = potentials[Random.Range(0, potentials.Length)];
-            metCustomers.Add(currentIndex);
+            for (int i=0, l=usedDialogues[World.Level].Count; i< l; i++)
+            {
+                usedDialogues[World.Level][i] = false;
+            }
 
+            int[] potentials = Enumerable.Range(0, usedDialogues[World.Level].Count).Where((e, i) => i != currentIndex).ToArray();
+            currentIndex = potentials[Random.Range(0, potentials.Length)];
+            
         }
+        usedDialogues[World.Level][currentIndex] = true;
     }
 
     public int Score

@@ -70,7 +70,7 @@ public class Customer : MonoBehaviour {
             return;
         }
 
-        if (Workshop.ingredients.Count < 0)
+        if (Workshop.ingredients.Count == 0)
         {
             Workshop.LoadJSON();
         }

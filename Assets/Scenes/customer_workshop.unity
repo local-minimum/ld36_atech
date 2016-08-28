@@ -3288,7 +3288,7 @@ RectTransform:
   - {fileID: 4008247}
   - {fileID: 1954366661}
   m_Father: {fileID: 1862634190}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_AnchorMin: {x: 0.22, y: 0.03}
   m_AnchorMax: {x: 0.68, y: 0.97}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -4734,7 +4734,7 @@ RectTransform:
   - {fileID: 1490910217}
   - {fileID: 1164670314}
   m_Father: {fileID: 1862634190}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_AnchorMin: {x: 0.7, y: 0.03}
   m_AnchorMax: {x: 0.99, y: 0.97}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -5197,6 +5197,7 @@ GameObject:
   - 224: {fileID: 1282666143}
   - 222: {fileID: 1282666145}
   - 114: {fileID: 1282666144}
+  - 114: {fileID: 1282666146}
   m_Layer: 5
   m_Name: HoverText
   m_TagString: Untagged
@@ -5218,7 +5219,7 @@ RectTransform:
   - {fileID: 1152821133}
   - {fileID: 1700637842}
   m_Father: {fileID: 1862634190}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_AnchorMin: {x: 0.01, y: 0.03}
   m_AnchorMax: {x: 0.2, y: 0.6}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -5257,6 +5258,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1282666142}
+--- !u!114 &1282666146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1282666142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f879b98f12ee564da48e7f389750d4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  helpTitle: Instructions
+  helpText: Drag the ingredients with the correct shapes into the rocket slots.  When
+    all slots are filled you may launch.  Remember that the customer is always right.
+  hoverTimeout: 3
+  Title: {fileID: 1152821134}
+  Body: {fileID: 1700637843}
 --- !u!1 &1295129070
 GameObject:
   m_ObjectHideFlags: 0
@@ -6795,16 +6813,22 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 73c2687f186e4284a8691583c6b03873, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 1
-    m_MaxSize: 300
+    m_MaxSize: 24
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 'Drag the ingredients with the correct shapes into the rocket slots.
+
+
+    When all slots are filled you may launch.
+
+
+    Remember that the customer is always right.'
 --- !u!222 &1700637844
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7440,9 +7464,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 139554170}
+  - {fileID: 1282666143}
   - {fileID: 1120187876}
   - {fileID: 734484574}
-  - {fileID: 1282666143}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
@@ -8410,10 +8434,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 139554170}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0.04, y: 0}
-  m_AnchorMax: {x: 0.96, y: 0.37}
-  m_AnchoredPosition: {x: 0, y: 2.5}
-  m_SizeDelta: {x: 0, y: -5}
+  m_AnchorMin: {x: 0.1, y: 0}
+  m_AnchorMax: {x: 0.9, y: 0.3}
+  m_AnchoredPosition: {x: 0, y: 4}
+  m_SizeDelta: {x: 0, y: -8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2084294289
 MonoBehaviour:

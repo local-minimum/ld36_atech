@@ -3,7 +3,7 @@
 [System.Serializable]
 public class Powder : RocketComponent {
 
-	public Sprite particleSprite;
+	public Material particleMaterial;
 	public Color startColor;
 	public Color endColor;
 	public double burnTime;

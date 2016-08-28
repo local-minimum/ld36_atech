@@ -23,7 +23,8 @@ public class StoreItem : MonoBehaviour {
     RocketSlot slot;
     StoreItemEvents state = StoreItemEvents.None;
 
-    Vector3 sourcePosition;
+    [SerializeField]
+    Transform sourcePosition;
 
     [SerializeField]
     AnimationCurve retraction;
@@ -33,6 +34,9 @@ public class StoreItem : MonoBehaviour {
 
     [SerializeField]
     RocketComponent blueprint;
+
+    [SerializeField, Range(0, 10)]
+    float positionNoise = 0.1f;
 
     public RocketComponent Blueprint
     {
@@ -47,15 +51,18 @@ public class StoreItem : MonoBehaviour {
         }
     }
 
+    Vector3 Noise
+    {
+        get
+        {
+            return new Vector3(Random.Range(-positionNoise, positionNoise), Random.Range(-positionNoise, positionNoise), 0);
+        }
+    }
+
     void Awake()
     {
         workshop = FindObjectOfType<Workshop>();
-        sourcePosition = transform.position;
     }
-
-    void LateUpdate () {
-	
-	}
 
     void OnEnable()
     {
@@ -73,7 +80,7 @@ public class StoreItem : MonoBehaviour {
     {
         if (item == this && type == StoreItemEvents.Slotted)
         {
-            transform.position = sourcePosition;
+            transform.position = sourcePosition.position + Noise;
         }
     }
 
@@ -120,7 +127,7 @@ public class StoreItem : MonoBehaviour {
     {
         if (slot == null)
         {
-            StartCoroutine(AnimateTo(transform.position, sourcePosition, StoreItemEvents.Return));
+            StartCoroutine(AnimateTo(transform.position, sourcePosition.position + Noise, StoreItemEvents.Return));
             slot = null;
         } else
         {

@@ -62,6 +62,7 @@ public class StoreItem : MonoBehaviour {
     void Awake()
     {
         workshop = FindObjectOfType<Workshop>();
+        transform.position = sourcePosition.position + Noise;
     }
 
     void OnEnable()

@@ -942,8 +942,11 @@ MonoBehaviour:
   - 'Hello there firefriend help me explode.
 
 
-    Help me burn!'
+    Help me burn! This is my request, so don''t you go squander. And don''t do it
+    cheap. Kaboom is my style.'
   customerLvl: 00000000
+  json_files:
+  - Data/test.json
 --- !u!95 &776093116
 Animator:
   serializedVersion: 3
@@ -1265,8 +1268,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TextArea: {fileID: 932796461}
   wordPause: 0.1
-  sentencePauses: 7
-  sentencePause: 0.5
+  sentencePauses: 5
+  sentencePause: 0.4
   sentencePauseAnimation: ..
   toggleButton: {fileID: 494760030}
 --- !u!1 &1120187875

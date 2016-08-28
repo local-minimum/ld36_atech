@@ -73,7 +73,7 @@ public class TextTalker : MonoBehaviour {
             }
 
             atSentenceEnd = pos < len && sentencelimits.Contains(text[pos]);
-            while (pos < len && wordlimits.Contains(text[pos]))
+            while (pos < len && !atSentenceEnd && wordlimits.Contains(text[pos]))
             {
                 pos++;
 

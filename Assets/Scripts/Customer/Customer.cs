@@ -5,6 +5,22 @@ using System.Linq;
 
 public enum CustomerMode {Order, Pay};
 
+public class DialoguePart
+{
+    public int level;
+    public string name;
+    public string orderTitle;
+    public string text;
+    public List<string> positiveCriteria;
+    public List<string> negativeCriteria;
+    public float wordSpeed;
+    public float endOfSentenceSpeed;
+    public float endOfSentenceDelays;
+    public string positiveFeedback;
+    public string neutralFeedback;
+    public string negativeFeedback;
+}
+
 public class Customer : MonoBehaviour {
 
     Canvas canvas;
@@ -21,10 +37,17 @@ public class Customer : MonoBehaviour {
     public List<Sprite> sprites = new List<Sprite>();
     public List<Sprite> faces = new List<Sprite>();
     public List<string> names = new List<string>();
-    public List<string> greetings = new List<string>();
-    public List<int> customerLvl = new List<int>();
+    [HideInInspector] public List<string> greetings = new List<string>();
+    [HideInInspector] public List<int> customerLvl = new List<int>();
+
+    public List<string> json_files = new List<string>();
+
+    static Dictionary<int, List<DialoguePart>> dialogues = new Dictionary<int, List<DialoguePart>>();
 
     void Start () {
+
+        LoadJSON();
+
         canvas = GetComponent<Canvas>();
         canvas.enabled = true;
         if (customerMode == CustomerMode.Order)
@@ -33,6 +56,35 @@ public class Customer : MonoBehaviour {
         }
 	}
 	
+    void LoadJSON()
+    {
+        if (dialogues.Count > 0)
+        {
+            return;
+        }
+
+        for (int part_index = 0, files = json_files.Count; part_index < files; part_index++)
+        {
+            TextAsset asset = Resources.Load<TextAsset>(json_files[part_index]);
+            if (asset == null)
+            {
+                Debug.LogError("Missing file: " + json_files[part_index]);
+                continue;
+            }
+            string json = asset.text;
+            List<DialoguePart> dialogueParts = JsonUtility.FromJson<List<DialoguePart>>(json);
+            for (int i = 0, l = dialogueParts.Count; i < l; i++)
+            {
+                DialoguePart part = dialogueParts[i];
+                if (!dialogues.ContainsKey(part.level))
+                {
+                    dialogues[part.level] = new List<DialoguePart>();
+                }
+                dialogues[part.level].Add(part);
+            }
+        }
+    }
+
     public void HideCustomer()
     {
         canvas.enabled = false;

@@ -33,6 +33,15 @@ public class Workshop : MonoBehaviour {
     AudioMixerSnapshot customerSnapshot;
 
     [SerializeField]
+    AudioSource speakerButtons;
+
+    [SerializeField]
+    AudioClip toOrderClip;
+
+    [SerializeField]
+    AudioClip toFireworks;
+
+    [SerializeField]
     float fadeTime;
 
     public static Dictionary<string, Ingredient> ingredients = new Dictionary<string, Ingredient>();
@@ -75,6 +84,7 @@ public class Workshop : MonoBehaviour {
 
     public void ShowCustomer()
     {
+        speakerButtons.PlayOneShot(toOrderClip);
         customerSnapshot.TransitionTo(fadeTime);
         customerCanvas.enabled = true;
     }
@@ -96,7 +106,7 @@ public class Workshop : MonoBehaviour {
     }
 
     public void Emit(RocketEventsTypes type)
-    {
+    {        
         if (OnRocketAction != null)
         {
             OnRocketAction(type);

@@ -1,0 +1,15 @@
+{
+    "level": 3,
+    "orderTitle": "Man of Bulls' burning passion",
+    "name": "Man of Bulls",
+    "element": "fire",
+    "text": "Hereby I present myself: I am Man of Bulls - Baron of Fire.\nI have decided to avail myself of your services, feel honored!\nI am going to get the magnificent Countess Rose bosoms wrapped inside my muscular arms\nand that already on Midsummer's Eve!\nFor this I need a powerful rocket fired up into the glittering summer sky around noon\nagain and again\nuntil she gets so very mesmerized that I must bring her back down to Earth again\nwith a mighty confession of love and passion.",
+    "positiveCriteria": ["fire", "FIRE", "heart", "flowers", "red"],
+    "negativeCriteria": ["cats", "blue", "silence"],
+    "positiveFeedback": "By Chongli! My heart will always burn with slow remembrance of that magic night of fire and roses!",
+    "negativeFeedback": "You little insignificant louse, miserable cockroach! I will break you, you fucking peasant!",
+    "neutralFeedback": "",
+    "wordSpeed": -1,
+    "endOfSentenceSpeed": -1,
+    "endOfSentenceDelays": -1
+}

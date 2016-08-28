@@ -90,11 +90,6 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!198 &569261333 stripped
-ParticleSystem:
-  m_PrefabParentObject: {fileID: 198000013111990358, guid: 0fff83ed4d569463dada3db054e17ecf,
-    type: 2}
-  m_PrefabInternal: {fileID: 630332381}
 --- !u!1001 &630332381
 Prefab:
   m_ObjectHideFlags: 0
@@ -104,7 +99,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000011713735614, guid: 0fff83ed4d569463dada3db054e17ecf, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.02
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 4000011713735614, guid: 0fff83ed4d569463dada3db054e17ecf, type: 2}
       propertyPath: m_LocalPosition.y
@@ -149,11 +144,16 @@ Prefab:
       propertyPath: powder
       value: 
       objectReference: {fileID: 1091729896}
-    - target: {fileID: 199000013386950132, guid: 0fff83ed4d569463dada3db054e17ecf,
+    - target: {fileID: 198000013111990358, guid: 0fff83ed4d569463dada3db054e17ecf,
         type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 1ec5001c7dce64ee086962eb57b85d81, type: 2}
+      propertyPath: ShapeModule.arc
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 198000013111990358, guid: 0fff83ed4d569463dada3db054e17ecf,
+        type: 2}
+      propertyPath: ShapeModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0fff83ed4d569463dada3db054e17ecf, type: 2}
   m_IsPrefabParent: 0
@@ -485,7 +485,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e67dcedeaacb42c78fb4fda15d57673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleSystem: {fileID: 569261333}
+  testCharge: {fileID: 1567029657}
+  testPowder: {fileID: 1091729896}
 --- !u!4 &1366596788
 Transform:
   m_ObjectHideFlags: 0

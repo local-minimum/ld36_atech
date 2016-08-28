@@ -44,7 +44,6 @@ public class HandleExplosion : MonoBehaviour {
 					new GradientAlphaKey(1.0f, 1.0f) } );
 			col.color = grad;
 
-			float startSize = 1;
 			for (var i = 0; i < particleCount; ++i) {
 				var idx = Random.Range (0, charge.explosionShape.vertexCount);
 				var vertex = charge.explosionShape.vertices [(int)idx];
@@ -54,6 +53,7 @@ public class HandleExplosion : MonoBehaviour {
 				var valy = Random.Range (-range, range);
 				var valz = Random.Range (-range, range);
 				particles2 [i].position = vertex * 10 + new Vector3(valx, valy, valz);
+				float startSize = Random.Range(0.4f, 1f);
 				particles2 [i].startSize = startSize;
 				particles2 [i].lifetime = 2 * val;
 				particles2 [i].velocity = (vertex * 100) * val * (float)charge.shapeSize;

@@ -70,6 +70,9 @@ public class Customer : MonoBehaviour {
             {
                 Debug.LogError("Missing file: " + json_files[part_index]);
                 continue;
+            } else
+            {
+                Debug.Log("Parsing JSON: " + json_files[part_index]);
             }
             string json = asset.text;
             List<DialoguePart> dialogueParts = JsonUtility.FromJson<List<DialoguePart>>(json);

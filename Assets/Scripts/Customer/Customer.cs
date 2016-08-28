@@ -54,6 +54,9 @@ public class Customer : MonoBehaviour {
     string toWorkShopText = "To Workshop >";
 
     [SerializeField]
+    string theEndText = "The Next Night";
+
+    [SerializeField]
     AudioMixerSnapshot workshopSnapshot;
     [SerializeField]
     AudioMixerSnapshot customerOrderSnapshot;

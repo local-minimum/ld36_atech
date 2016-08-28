@@ -11,12 +11,13 @@ public static class World {
     public static event ScoreEvent OnNewScore;
 
     public static Dictionary<int, KeyValuePair<int, RocketComponent>> RocketBlueprint = new Dictionary<int, KeyValuePair<int, RocketComponent>>();
-    
+
     static int _lvl = 0;
+    static int max_lvl = 5;
 
     public static int _score = 0;
-    
-    static int[] _lvlThresholds = new int[] {400, 900, 1500, 2500};
+
+    static int[] _lvlThresholds = new int[] { 400, 900, 1500, 2500 };
 
     public static int Level
     {
@@ -58,7 +59,7 @@ public static class World {
             OnNewLevel(_lvl);
         }
     }
-    
+
     public static void Reset()
     {
         _score = 0;
@@ -66,6 +67,13 @@ public static class World {
         if (OnNewLevel != null)
         {
             OnNewLevel(_lvl);
+        }
+    }
+
+    public static bool GameOver
+    {
+        get {
+            return _lvl >= max_lvl;
         }
     }
 }

@@ -312,7 +312,7 @@ MonoBehaviour:
   icon: {fileID: 0}
   description: 
   audio: {fileID: 8300000, guid: 78d6e397ae10f4044a705652e518144f, type: 3}
-  shape: {fileID: 0}
+  particleSprite: {fileID: 21300000, guid: 5543d6139867240459526d58cc180885, type: 3}
   startColor: {r: 1, g: 0, b: 0, a: 1}
   endColor: {r: 0.36551714, g: 0, b: 1, a: 1}
   burnTime: 0

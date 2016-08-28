@@ -19,7 +19,10 @@ public class HandleExplosion : MonoBehaviour {
 		if (num > 0) {
 			started = true;
 			system.SetParticles (new ParticleSystem.Particle[0], 0);
-			subSystem.transform.localPosition = particles [0].position;	
+			subSystem.transform.localPosition = particles [0].position;
+			var renderer = subSystem.GetComponent<Renderer> ();
+			renderer.material = powder.particleMaterial;
+
 			var particleCount = (int)(100 * charge.shapeSize);	
 			subSystem.Emit (particleCount);
 			var particles2 = new ParticleSystem.Particle[particleCount];

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Audio;
 
 public enum SlotEvent { Hover, Exit, Filled, Empied };
 public delegate void RocketSlotAction(RocketSlot slot, SlotEvent type);
@@ -27,6 +28,12 @@ public class Workshop : MonoBehaviour {
     public event RocketSlotAction OnRocketSlotAction;
     public event StoreItemAction OnStoreItemAction;
     public event RocketAction OnRocketAction;
+
+    [SerializeField]
+    AudioMixerSnapshot customerSnapshot;
+
+    [SerializeField]
+    float fadeTime;
 
     public static Dictionary<string, Ingredient> ingredients = new Dictionary<string, Ingredient>();
 
@@ -68,6 +75,7 @@ public class Workshop : MonoBehaviour {
 
     public void ShowCustomer()
     {
+        customerSnapshot.TransitionTo(fadeTime);
         customerCanvas.enabled = true;
     }
 

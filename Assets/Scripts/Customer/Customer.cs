@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.Audio;
 
 public enum CustomerMode {Order, Pay};
 
@@ -35,7 +36,7 @@ public class Customer : MonoBehaviour {
     public Image faceImage;
     public Text workshopNameArea;
     public static CustomerMode customerMode = CustomerMode.Order;
-    public int currentIndex = -1;
+    static int currentIndex = -1;
     public List<Sprite> sprites = new List<Sprite>();
     public List<Sprite> faces = new List<Sprite>();
     public List<string> identifiers = new List<string>();
@@ -48,6 +49,17 @@ public class Customer : MonoBehaviour {
 
     [SerializeField]
     AudioSource speaker;
+    [SerializeField]
+    AudioSource speakerB;
+
+    [SerializeField]
+    AudioMixerSnapshot workshopSnapshot;
+    [SerializeField]
+    AudioMixerSnapshot customerOrderSnapshot;
+    [SerializeField]
+    AudioMixerSnapshot customerResponseSnapshot;
+    [SerializeField]
+    float fadeTime = 0.1f;
 
     [SerializeField] int baseScore = 400;
     [SerializeField] int failScorePart = -50;
@@ -122,6 +134,7 @@ public class Customer : MonoBehaviour {
 
     public void HideCustomer()
     {
+        workshopSnapshot.TransitionTo(fadeTime);
         canvas.enabled = false;
     }
 
@@ -149,6 +162,11 @@ public class Customer : MonoBehaviour {
     public void SetCustomerFromLevel()
     {
         SetCustomerIndex();
+        SetupCustomer();
+    }
+
+    void SetupCustomer()
+    {
         DialoguePart part = dialogues[World.Level][currentIndex];
         textTalk.Talk(part);
         nameArea.text = part.orderTitle;
@@ -159,12 +177,13 @@ public class Customer : MonoBehaviour {
         {
             Debug.LogError(string.Format("Could not find identifier '{0}' ({1}) in lists.", part.identifier, part.name));
         }
-        speaker.mute = true;
+
         speaker.clip = musics[listIndex];
-        speaker.loop = true;
-        speaker.mute = false;
+        speakerB.clip = musics[listIndex];
         speaker.Play();
-        
+        speakerB.Play();
+
+        customerOrderSnapshot.TransitionTo(fadeTime);
 
         faceImage.sprite = faces[listIndex];
         avatar.sprite = sprites[listIndex];

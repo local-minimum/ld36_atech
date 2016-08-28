@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010850693936}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.3255035, y: 0.021699382, z: 0}
+  m_LocalPosition: {x: 2.5214846, y: -6.999218, z: 3.8671875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -54,7 +54,7 @@ MonoBehaviour:
   judgementProperties: []
   icon: {fileID: 0}
   description: 
-  audio: {fileID: 8300000, guid: 30d0410b64068494ca1652ae67385d82, type: 3}
+  audio: {fileID: 8300000, guid: 2537eed80bf3c48c3bebbebc132bf8aa, type: 3}
   particleMaterial: {fileID: 2100000, guid: 7d8e341f5e2424978aab16ae78860b04, type: 2}
   color: {r: 0, g: 0.006896496, b: 1, a: 0}
   burnTime: 0

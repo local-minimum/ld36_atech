@@ -19,7 +19,9 @@ public class HandleExplosion : MonoBehaviour {
 
 	void OnParticleCollision(GameObject other) {
 		source.clip = powder.audio;
-		StartCoroutine (PlaySounds ());
+		if (source.clip != null) {
+			StartCoroutine (PlaySounds ());
+		}
 		var system = this.GetComponent<ParticleSystem> ();
 		int num = system.GetParticles (particles);
 		if (num > 0) {

@@ -938,15 +938,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: cb8030c618046dd4ea2024ed898e81a0, type: 3}
   names:
   - Mr. Dolphin
-  greetings:
-  - 'Hello there firefriend help me explode.
-
-
-    Help me burn! This is my request, so don''t you go squander. And don''t do it
-    cheap. Kaboom is my style.'
-  customerLvl: 00000000
   json_files:
-  - Customers/test
+  - Customers/armadillo
+  - Customers/bull
+  - Customers/dolphin
+  - Customers/heron
+  - Customers/sloth
   baseScore: 400
   failScorePart: -50
   criticalFail: -400
@@ -1272,9 +1269,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TextArea: {fileID: 932796461}
-  wordPause: 0.1
-  sentencePauses: 5
-  sentencePause: 0.4
+  defaultWordPause: 0.1
+  defaultSentencePauses: 5
+  defaultSentencePause: 0.4
   sentencePauseAnimation: ..
   toggleButton: {fileID: 494760030}
 --- !u!1 &1120187875

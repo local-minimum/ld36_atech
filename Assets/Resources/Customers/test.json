@@ -9,7 +9,7 @@
     "postiveFeedback": "In the name of starry skies that was a wonderful display!\nWe thank you from the bottom of our hearts <3 <3 <3 <3",
     "negativeFeedback": "Oh, sigh...\nWe had wished for a more colorful and spectacular display...\nPlease, think carefully about this!",
     "neutralFeedback": "",
-    "wordSpeed": 1,
-    "endOfSentenceSpeed": 1,
-    "endOfSentenceDelays": 1
+    "wordSpeed": -1,
+    "endOfSentenceSpeed": -1,
+    "endOfSentenceDelays": -1
 }

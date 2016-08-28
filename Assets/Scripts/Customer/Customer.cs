@@ -93,11 +93,11 @@ public class Customer : MonoBehaviour {
 
             if (!ValidateCriteria(part.negativeCriteria))
             {
-                Debug.LogError("All of the negative exist: " + string.Join(", ", part.negativeCriteria));
+                Debug.LogError("Some of negative don't exist: " + string.Join(", ", part.negativeCriteria));
             }
             if (!ValidateCriteria(part.positiveCriteria))
             {
-                Debug.LogError("All of the positive exist: " + string.Join(", ", part.positiveCriteria));
+                Debug.LogError("Some of positive don't exist: " + string.Join(", ", part.positiveCriteria));
             }
         }
         

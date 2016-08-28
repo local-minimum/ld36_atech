@@ -1,0 +1,15 @@
+{
+    "level": 2,
+    "orderTitle": "The Day of the Drowsers",
+    "name": "Sloth",
+    "element": "earth",
+    "text": "Good evening.\nI vegetated here as quiet as I could\na few hours after I woke up this afternoon\nbecause I have a very important errand...\nthe thing is that I should have celebrated the Day of the Drowsers with my bear friends the Koala and the Lemur\na couple of years ago\nand I thought it would have sounded dreamfully with an underlying pedal point",
+    "positiveCriteria": ["peace", "sustained notes"],
+    "negativeCriteria": ["noise"],
+    "positiveFeedback": "What a deep kaleidoscopic dream I thought I just scented just outside the corner of my ear, excellent...",
+    "negativeFeedback": "Argghhh...\nA thousand nails of sunshine stinging through my poor eardrums!\n[falls to the ground, exhausted]",
+    "neutralFeedback": "zzz...",
+    "wordSpeed": 1,
+    "endOfSentenceSpeed": 1,
+    "endOfSentenceDelays": 1
+}

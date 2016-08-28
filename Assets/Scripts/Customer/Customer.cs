@@ -145,12 +145,15 @@ public class Customer : MonoBehaviour {
         int score = Score(part, out positives, out negatives);
         if (negatives > 0)
         {
+            Debug.Log("Customer Negative");
             textTalk.Talk(part.negativeFeedback);
         } else if (positives > 0)
         {
+            Debug.Log("Customer Positive");
             textTalk.Talk(part.positiveFeedback);
         } else
         {
+            Debug.Log("Customer Neutral");
             textTalk.Talk(part.neutralFeedback);
         }
         World.AddScore(score);

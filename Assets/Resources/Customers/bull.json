@@ -1,11 +1,11 @@
 {
     "level": 3,
-    "orderTitle": "Bull",
+    "orderTitle": "Man of Bulls' Midsummer Confession",
 	"identifier": "Bull",
     "name": "Bull",
     "element": "fire",
     "text": "Hereby I present myself: I am Man of Bulls - Baron of Fire.\n\nI have decided to avail myself of your services, feel honored!\n\nI am going to get the magnificent Countess Rose' bosoms wrapped inside my muscular arms, and that already on Midsummer's Eve!\n\nFor this I need a powerful rocket fired up into the glittering summer sky around noon.\n\nAgain and again!\n\nUntil she gets so very mesmerized that I must bring her back down to Earth again, with a mighty confession of love and passion.",
-    "positiveCriteria": ["powder_heart", "powder_ash", "powder_dew", "power_roses"],
+    "positiveCriteria": ["powder_heart", "powder_ash", "powder_dew", "powder_roses"],
     "negativeCriteria": ["powder_feathers", "powder_frogs", "charge_cube"],
     "positiveFeedback": "By Chongli! My heart will always burn with slow remembrance of that magic night of fire and roses!",
     "negativeFeedback": "You little insignificant louse, miserable cockroach! I will break you, you fucking peasant!",

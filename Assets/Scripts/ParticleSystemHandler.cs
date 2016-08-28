@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class ParticleSystemHandler : MonoBehaviour {
 
+	public GameObject prefab;
 	public Charge testCharge;
 	public Powder testPowder;
 
@@ -41,7 +42,7 @@ public class ParticleSystemHandler : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		for (int i = 0; i < 3; ++i) {
-			GameObject instance = Instantiate (Resources.Load ("Particle System", typeof(GameObject))) as GameObject;
+			GameObject instance = Instantiate(prefab);
 			SendFireworks (instance);
 		}
 	}

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class SingleCam : MonoBehaviour {
 
@@ -12,5 +13,15 @@ public class SingleCam : MonoBehaviour {
         }
         _cam = this;
         DontDestroyOnLoad(this);
+	}
+
+	void Update() {
+		if (Input.GetKey (KeyCode.Escape)) {
+			if (SceneManager.GetActiveScene ().name == "title") {
+				Application.Quit ();
+			} else {
+				SceneManager.LoadScene ("title");
+			}
+		}
 	}
 }

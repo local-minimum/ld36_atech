@@ -9,6 +9,7 @@ public enum CustomerMode {Order, Pay};
 public class DialoguePart
 {
     public int level;
+    public string indentifier;
     public string name;
     public string orderTitle;
     public string text;

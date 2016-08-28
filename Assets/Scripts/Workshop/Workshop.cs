@@ -19,6 +19,7 @@ public class Ingredient
     public string identifier;
     public string name;
     public string text;
+    public int level;
 }
 
 public class Workshop : MonoBehaviour {

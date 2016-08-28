@@ -1,0 +1,10 @@
+{
+    "name": "Steel",
+    "identifier": "powder_steel",
+    "text": "The hardest of them all! Made from swords that have killed at least a dozen warriors.",
+    "shape": "twinkle",
+    "colour": "grey",
+    "time": -1,
+    "behaviour": "glitter",
+    "sound": "clank"
+}

@@ -1,0 +1,10 @@
+{
+    "name": "Assorted Hearts",
+    "identifier": "powder_heart",
+    "text": "",
+    "shape": "",
+    "colour": "red",
+    "time": -1,
+    "behaviour": "pulsing",
+    "sound": "meow"
+}

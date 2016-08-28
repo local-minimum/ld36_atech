@@ -1,0 +1,10 @@
+{
+    "name": "Volcanic Ash",
+    "identifier": "powder_ash",
+    "text": "",
+    "shape": "",
+    "colour": "grey",
+    "time": -1,
+    "behaviour": "",
+    "sound": "explosion"
+}

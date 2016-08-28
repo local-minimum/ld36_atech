@@ -1,0 +1,10 @@
+{
+    "name": "Green Algae",
+    "identifier": "powder_algae",
+    "text": "Grown slowly at the bottom of the ocean. Now even slimier!",
+    "shape": "drop",
+    "colour": "green",
+    "time": -1,
+    "behaviour": "glitter",
+    "sound": "splosh"
+}

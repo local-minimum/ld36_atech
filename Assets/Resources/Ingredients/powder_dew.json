@@ -1,0 +1,10 @@
+{
+    "name": "Moon Dew",
+    "identifier": "powder_dew",
+    "text": "",
+    "shape": "drop",
+    "colour": "blue",
+    "time": -1,
+    "behaviour": "",
+    "sound": "drop"
+}

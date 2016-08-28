@@ -1,0 +1,10 @@
+{
+    "name": "Children's Laughter",
+    "identifier": "powder_laughter",
+    "text": "Harvested from the Fields of Joy from the finest free range children. This premium product contains only True Laughter™.",
+    "shape": "flower",
+    "colour": "yellow",
+    "time": -1,
+    "behaviour": "glitter",
+    "sound": "laughter"
+}

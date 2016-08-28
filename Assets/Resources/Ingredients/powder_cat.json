@@ -1,0 +1,10 @@
+{
+    "name": "Black Cat",
+    "identifier": "powder_cat",
+    "text": "Silent but deadly, this elegant minimalist design will work in any combination.",
+    "shape": "",
+    "colour": "black",
+    "time": -1,
+    "behaviour": "",
+    "sound": "meow"
+}

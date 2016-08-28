@@ -1,0 +1,10 @@
+{
+    "name": "Forest Fairies",
+    "identifier": "powder_fairies",
+    "text": "For the most special occasions, fairies provide that beloved pink glow. Now even more exclusive! The Fairy Forest has been emptied.",
+    "shape": "star",
+    "colour": "pink",
+    "time": -1,
+    "behaviour": "glitter",
+    "sound": "sad_voices"
+}

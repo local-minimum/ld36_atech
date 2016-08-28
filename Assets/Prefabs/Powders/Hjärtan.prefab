@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000011770214080}
   - 114: {fileID: 114000013984488302}
   m_Layer: 0
-  m_Name: "Hj\xE4rtan"
+  m_Name: "Hja\u0308rtan"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -692,6 +692,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bcc3fd803cbd458ea16fe7689ecf9ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioMixerSnapshot: {fileID: 245000013344407306, guid: 49116b83a12edfb46abdb69b4ec1c548,
+    type: 2}
 --- !u!224 &1411920368
 RectTransform:
   m_ObjectHideFlags: 0

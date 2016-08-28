@@ -8,6 +8,7 @@ public class HandleExplosion : MonoBehaviour {
 	public Charge charge;
 	public Powder powder;
 	bool started = false;
+	public bool disableNextScene = false;
 	ParticleSystem.Particle[] particles = new ParticleSystem.Particle[10];
 	public AudioSource source;
 
@@ -67,9 +68,11 @@ public class HandleExplosion : MonoBehaviour {
 		}
 	}
 	void Update () {	       
-		int num = subSystem.GetParticles (particles);
-		if (started && num == 0) {
-			StartCoroutine (LaunchScene());
+		if (!disableNextScene) {
+			int num = subSystem.GetParticles (particles);
+			if (started && num == 0) {
+				StartCoroutine (LaunchScene ());
+			}
 		}
 	}
 

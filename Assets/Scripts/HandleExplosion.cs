@@ -9,8 +9,11 @@ public class HandleExplosion : MonoBehaviour {
 	public Powder powder;
 	bool started = false;
 	ParticleSystem.Particle[] particles = new ParticleSystem.Particle[10];
+	public AudioSource source;
 
 	void OnParticleCollision(GameObject other) {
+		source.clip = powder.audio;
+		source.Play ();
 		var system = this.GetComponent<ParticleSystem> ();
 		int num = system.GetParticles (particles);
 		if (num > 0) {

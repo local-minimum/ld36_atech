@@ -6,6 +6,7 @@ public class TitleScreen : MonoBehaviour {
 
 	public void StartGame()
 	{
+		World.Reset ();
 		SceneManager.LoadScene("customer_workshop");
 	}
 

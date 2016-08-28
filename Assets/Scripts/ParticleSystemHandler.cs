@@ -4,26 +4,46 @@ using System.Collections.Generic;
 
 public class ParticleSystemHandler : MonoBehaviour {
 
-	public ParticleSystem particleSystem;
+	public Charge testCharge;
+	public Powder testPowder;
 
-	// Use this for initialization
-	void Start () {
+	void SendFireworks (GameObject instance)
+	{
+		float diff = Random.Range (-5.0f, 5.0f);
+		instance.transform.position = new Vector3 (instance.transform.position.x + diff, instance.transform.position.y, instance.transform.position.z);
+		var particleSystem = instance.GetComponent<ParticleSystem> ();
+		var handleExplosion = particleSystem.GetComponent<HandleExplosion> ();
+		handleExplosion.powder = testPowder;
+		handleExplosion.charge = testCharge;
 		foreach (var value in World.RocketBlueprint) {
-			var handleExplosion = particleSystem.GetComponent<HandleExplosion> ();
 			RocketComponent component = value.Value.Value;
-
 			Charge charge = component as Charge;
 			if (charge != null) {
 				handleExplosion.charge = charge;
 			}
-
 			Powder powder = component as Powder;
 			if (powder != null) {
 				handleExplosion.powder = powder;
 			}
 		}
-		particleSystem.Emit (1);
+		StartCoroutine (Emit (particleSystem));
+	}
 
+	private IEnumerator Emit(ParticleSystem particleSystem) {
+		yield return new WaitForSeconds(Random.Range(0.3f, 2f));
+		int count = (int)Random.Range (0, 100);
+		for (int i = 0; i < count; ++i) {
+			particleSystem.SetParticles (new ParticleSystem.Particle[0], 0);
+			particleSystem.Emit (1);
+		}
+	}
+
+	// Use this for initialization
+	void Start () {
+		for (int i = 0; i < 3; ++i) {
+			GameObject instance = Instantiate (Resources.Load ("Particle System", typeof(GameObject))) as GameObject;
+			SendFireworks (instance);
+		}
 	}
 	
 	// Update is called once per frame

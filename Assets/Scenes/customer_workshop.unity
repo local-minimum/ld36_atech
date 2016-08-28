@@ -662,6 +662,109 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 494760028}
+--- !u!1 &495658556
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 495658557}
+  - 82: {fileID: 495658558}
+  m_Layer: 0
+  m_Name: Audio Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &495658557
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 495658556}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1729683364}
+  m_RootOrder: 0
+--- !u!82 &495658558
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 495658556}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &734484573
 GameObject:
   m_ObjectHideFlags: 0
@@ -933,25 +1036,36 @@ MonoBehaviour:
   workshopNameArea: {fileID: 2084294289}
   currentIndex: -1
   sprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 6e07e8b080c7ad74e9273a12366631e2, type: 3}
+  - {fileID: 21300000, guid: 1fdca5a16f67c0a4189b969ba5fc4b60, type: 3}
+  - {fileID: 21300000, guid: 1ef90cec0b685e34690a5c71fd87695d, type: 3}
+  - {fileID: 21300000, guid: ad58ed228119ec34aa4d730db9f10117, type: 3}
+  - {fileID: 21300000, guid: db81f11a2ebc229478d1d69515d8db41, type: 3}
   faces:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  names:
-  - Dolphin
+  - {fileID: 21300000, guid: 59392eed4c3e2674689256cd7fbe0a76, type: 3}
+  - {fileID: 21300000, guid: 59392eed4c3e2674689256cd7fbe0a76, type: 3}
+  - {fileID: 21300000, guid: 59392eed4c3e2674689256cd7fbe0a76, type: 3}
+  - {fileID: 21300000, guid: 59392eed4c3e2674689256cd7fbe0a76, type: 3}
+  - {fileID: 21300000, guid: 59392eed4c3e2674689256cd7fbe0a76, type: 3}
+  identifiers:
   - Armadillo
   - Bull
-  - Sloth
+  - Dolphin
   - Heron
+  - Sloth
+  musics:
+  - {fileID: 0}
+  - {fileID: 8300000, guid: ea1349e6932e5486caff5285b65bd8b9, type: 3}
+  - {fileID: 8300000, guid: 821cfd0213288489ba2c9e603c131c2a, type: 3}
+  - {fileID: 8300000, guid: 22956ad2c72b5495eadcffd98d9150e5, type: 3}
+  - {fileID: 8300000, guid: 6cd49b6b1a376492bacc3b1f9c823da5, type: 3}
   json_files:
   - Customers/armadillo
   - Customers/bull
   - Customers/dolphin
   - Customers/heron
   - Customers/sloth
+  speaker: {fileID: 495658558}
   baseScore: 400
   failScorePart: -50
   criticalFail: -400
@@ -2106,7 +2220,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 495658557}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!1 &1739243232

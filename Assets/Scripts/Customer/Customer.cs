@@ -9,7 +9,7 @@ public enum CustomerMode {Order, Pay};
 public class DialoguePart
 {
     public int level;
-    public string indentifier;
+    public string identifier;
     public string name;
     public string orderTitle;
     public string text;
@@ -38,12 +38,16 @@ public class Customer : MonoBehaviour {
     public int currentIndex = -1;
     public List<Sprite> sprites = new List<Sprite>();
     public List<Sprite> faces = new List<Sprite>();
-    public List<string> names = new List<string>();
+    public List<string> identifiers = new List<string>();
+    public List<AudioClip> musics = new List<AudioClip>();
 
     public List<string> json_files = new List<string>();
 
     static Dictionary<int, List<DialoguePart>> dialogues = new Dictionary<int, List<DialoguePart>>();
     static Dictionary<int, List<bool>> usedDialogues = new Dictionary<int, List<bool>>();
+
+    [SerializeField]
+    AudioSource speaker;
 
     [SerializeField] int baseScore = 400;
     [SerializeField] int failScorePart = -50;
@@ -127,13 +131,13 @@ public class Customer : MonoBehaviour {
         {
 
             sprites.Add(avatar.sprite);
-            names.Add(nameArea.text);
+            identifiers.Add(nameArea.text);
             faces.Add(faceImage.sprite);
 
         } else if (currentIndex < sprites.Count)
         {
             sprites[currentIndex] = avatar.sprite;
-            names[currentIndex] = nameArea.text;
+            identifiers[currentIndex] = nameArea.text;
             faces[currentIndex] = faceImage.sprite;
 
         } else
@@ -146,11 +150,36 @@ public class Customer : MonoBehaviour {
     {
         SetCustomerIndex();
         DialoguePart part = dialogues[World.Level][currentIndex];
-        avatar.sprite = sprites[currentIndex];
         textTalk.Talk(part);
         nameArea.text = part.orderTitle;
-        workshopNameArea.text = names[currentIndex];
-        faceImage.sprite = faces[currentIndex];
+        workshopNameArea.text = part.name;
+
+        int listIndex = GetListIndex(part.identifier);
+        if (listIndex < 0)
+        {
+            Debug.LogError(string.Format("Could not find identifier '{0}' ({1}) in lists.", part.identifier, part.name));
+        }
+        speaker.mute = true;
+        speaker.clip = musics[listIndex];
+        speaker.loop = true;
+        speaker.mute = false;
+        speaker.Play();
+        
+
+        faceImage.sprite = faces[listIndex];
+        avatar.sprite = sprites[listIndex];
+    }
+
+    int GetListIndex(string identifier)
+    {
+        for (int i=0, l=identifiers.Count; i< l; i++)
+        {
+            if (identifiers[i] == identifier)
+            {
+                return i;
+            }
+        }
+        return -1;
     }
 
     void SetCustomerIndex()

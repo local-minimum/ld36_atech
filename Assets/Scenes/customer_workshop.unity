@@ -937,6 +937,7 @@ MonoBehaviour:
   - Customers/heron
   - Customers/sloth
   - Customers/bull2
+  - Customers/armadillo2
   txt: {fileID: 336106741}
   nextCustomer: Next Customer
   toWorkShopText: To Workshop >
@@ -2389,6 +2390,13 @@ MonoBehaviour:
   - Ingredients/powder_roses
   - Ingredients/powder_steel
   - Ingredients/powder_tea
+  - Ingredients/charge_animall
+  - Ingredients/charge_cross
+  - Ingredients/charge_cube
+  - Ingredients/charge_heart
+  - Ingredients/charge_sphere
+  - Ingredients/charge_star
+  - Ingredients/charge_torus
   customerCanvas: {fileID: 776093113}
 --- !u!1 &1886399946
 GameObject:

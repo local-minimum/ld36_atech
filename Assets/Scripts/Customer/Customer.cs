@@ -114,7 +114,10 @@ public class Customer : MonoBehaviour {
             {
                 Debug.LogError("Missing file: " + json_files[part_index]);
                 continue;
-            } 
+            } else
+            {
+                Debug.Log("Loading file: " + json_files[part_index]);
+            }
             string json = asset.text;
             DialoguePart part = JsonUtility.FromJson<DialoguePart>(json);
             if (!dialogues.ContainsKey(part.level))

@@ -34,7 +34,7 @@ AudioMixerController:
     - 47964f1de1dd783499ed174505b7f53e
     - 156ca841e0877b14a9702a410baf0888
     name: MusicOnly
-  m_CurrentViewIndex: 0
+  m_CurrentViewIndex: 1
   m_TargetSnapshot: {fileID: 24500003}
 --- !u!243 &24300001
 AudioMixerGroupController:

@@ -140,6 +140,20 @@ public class Customer : MonoBehaviour {
     {
         DialoguePart part = SetupCustomer(false);
         customerResponseSnapshot.TransitionTo(fadeTime);
+        int positives;
+        int negatives;
+        int score = Score(part, out positives, out negatives);
+        if (negatives > 0)
+        {
+            textTalk.Talk(part.negativeFeedback);
+        } else if (positives > 0)
+        {
+            textTalk.Talk(part.positiveFeedback);
+        } else
+        {
+            textTalk.Talk(part.neutralFeedback);
+        }
+        World.AddScore(score);
     }
 
     string[] GetInvalidCriteria(string[] criteria) {
@@ -245,13 +259,27 @@ public class Customer : MonoBehaviour {
         usedDialogues[World.Level][currentIndex] = true;
     }
 
-    public int Score
+    public int Score(DialoguePart part, out int positives, out int negatives)
     {
-        get
+  
+        int score = baseScore;
+        List<string> lst = World.RocketBlueprint.Values.Select(kvp => kvp.Value.judgementProperties).SelectMany(e => e).ToList();
+
+        positives = part.positiveCriteria.Where(e => lst.Contains(e)).Count();
+        negatives = part.negativeCriteria.Where(e => lst.Contains(e)).Count();
+
+        score += positives * bonusPart;
+        score -= negatives * failScorePart;
+
+        if (negatives == part.negativeCriteria.Length)
         {
-            int score = baseScore;
-            //TODO: Add stuff
-            return score;
+            score -= criticalFail;
         }
+        else if (positives == part.positiveCriteria.Length)
+        {
+            score += completeBonus;
+        }
+        return score;
+   
     }
 }

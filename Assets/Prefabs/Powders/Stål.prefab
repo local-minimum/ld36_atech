@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000011232827668}
   - 114: {fileID: 114000010327218198}
   m_Layer: 0
-  m_Name: "Sta\u030Al"
+  m_Name: "St\xE5l"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

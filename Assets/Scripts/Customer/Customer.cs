@@ -51,6 +51,8 @@ public class Customer : MonoBehaviour {
     AudioSource speaker;
     [SerializeField]
     AudioSource speakerB;
+    [SerializeField]
+    AudioSource speakerButtons;
 
     [SerializeField]
     AudioMixerSnapshot workshopSnapshot;
@@ -60,6 +62,9 @@ public class Customer : MonoBehaviour {
     AudioMixerSnapshot customerResponseSnapshot;
     [SerializeField]
     float fadeTime = 0.1f;
+
+    [SerializeField]
+    AudioClip toWorkshopSound;
 
     [SerializeField] int baseScore = 400;
     [SerializeField] int failScorePart = -50;
@@ -76,6 +81,9 @@ public class Customer : MonoBehaviour {
         if (customerMode == CustomerMode.Order)
         {
             SetCustomerFromLevel();
+        } else
+        {
+            SetupResponse();
         }
 	}
 	
@@ -128,12 +136,20 @@ public class Customer : MonoBehaviour {
         
     }
 
+    void SetupResponse()
+    {
+        DialoguePart part = SetupCustomer(false);
+        customerResponseSnapshot.TransitionTo(fadeTime);
+    }
+
     string[] GetInvalidCriteria(string[] criteria) {
         return criteria.Where(e => !Workshop.ingredients.ContainsKey(e)).ToArray();
     }
 
     public void HideCustomer()
     {
+
+        speakerButtons.PlayOneShot(toWorkshopSound);
         workshopSnapshot.TransitionTo(fadeTime);
         canvas.enabled = false;
     }
@@ -165,10 +181,13 @@ public class Customer : MonoBehaviour {
         SetupCustomer();
     }
 
-    void SetupCustomer()
+    DialoguePart SetupCustomer(bool doTalk=true)
     {
         DialoguePart part = dialogues[World.Level][currentIndex];
-        textTalk.Talk(part);
+        if (doTalk)
+        {
+            textTalk.Talk(part);
+        }
         nameArea.text = part.orderTitle;
         workshopNameArea.text = part.name;
 
@@ -187,6 +206,8 @@ public class Customer : MonoBehaviour {
 
         faceImage.sprite = faces[listIndex];
         avatar.sprite = sprites[listIndex];
+
+        return part;
     }
 
     int GetListIndex(string identifier)

@@ -1,6 +1,7 @@
 {
     "name": "Rose Petals",
     "identifier": "powder_roses",
+    "level": -1,
     "text": "Nothing says “I love you” like red roses, pulverised and launched into the dark night sky. A classic for any romantic event.",
     "shape": "flower",
     "colour": "red",

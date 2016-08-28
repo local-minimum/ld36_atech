@@ -1,6 +1,7 @@
 {
     "name": "Star Mist",
     "identifier": "powder_mist",
+    "level": -1,
     "text": "",
     "shape": "",
     "colour": "white",

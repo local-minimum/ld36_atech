@@ -1,6 +1,7 @@
 {
     "name": "Organic Green Tea",
     "identifier": "powder_tea",
+    "level": -1,
     "text": "Update your tea ceremony with fireworks! Steep in hot water before use to fully develop the flavours.",
     "shape": "drop",
     "colour": "green",

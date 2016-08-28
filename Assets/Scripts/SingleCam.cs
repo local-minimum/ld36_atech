@@ -7,12 +7,14 @@ public class SingleCam : MonoBehaviour {
     static SingleCam _cam;
 
 	void Awake () {
-	    if (_cam != null && _cam != this)
+        if (_cam != null && _cam != this)
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
-        _cam = this;
-        DontDestroyOnLoad(this);
+        else {
+            _cam = this;
+            DontDestroyOnLoad(this);
+        }
 	}
 
 	void Update() {

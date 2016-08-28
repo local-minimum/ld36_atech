@@ -865,11 +865,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ad58ed228119ec34aa4d730db9f10117, type: 3}
   - {fileID: 21300000, guid: db81f11a2ebc229478d1d69515d8db41, type: 3}
   faces:
+  - {fileID: 21300000, guid: 3e41ed6259d3dbc46a4053923349d692, type: 3}
+  - {fileID: 21300000, guid: 5a8e8ff3cfa53004dbf7e70b5afaaff1, type: 3}
   - {fileID: 21300000, guid: 59392eed4c3e2674689256cd7fbe0a76, type: 3}
-  - {fileID: 21300000, guid: 59392eed4c3e2674689256cd7fbe0a76, type: 3}
-  - {fileID: 21300000, guid: 59392eed4c3e2674689256cd7fbe0a76, type: 3}
-  - {fileID: 21300000, guid: 59392eed4c3e2674689256cd7fbe0a76, type: 3}
-  - {fileID: 21300000, guid: 59392eed4c3e2674689256cd7fbe0a76, type: 3}
+  - {fileID: 21300000, guid: c46a5b147d3892a4fad5c5a9ce519963, type: 3}
+  - {fileID: 21300000, guid: 2a83dc8afcc58f2429a0b6dcb6f1aa40, type: 3}
   identifiers:
   - Armadillo
   - Bull
@@ -877,7 +877,7 @@ MonoBehaviour:
   - Heron
   - Sloth
   musics:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 2d599e995b81d4b9cbc086f4aaedc116, type: 3}
   - {fileID: 8300000, guid: ea1349e6932e5486caff5285b65bd8b9, type: 3}
   - {fileID: 8300000, guid: 821cfd0213288489ba2c9e603c131c2a, type: 3}
   - {fileID: 8300000, guid: 22956ad2c72b5495eadcffd98d9150e5, type: 3}

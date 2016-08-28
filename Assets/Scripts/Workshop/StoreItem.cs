@@ -38,6 +38,12 @@ public class StoreItem : MonoBehaviour {
     [SerializeField, Range(0, 10)]
     float positionNoise = 0.1f;
 
+    [SerializeField]
+    Transform dragParent;
+
+    [SerializeField]
+    Transform restParent;
+
     public RocketComponent Blueprint
     {
         get
@@ -113,6 +119,7 @@ public class StoreItem : MonoBehaviour {
         {
             workshop.Emit(this, StoreItemEvents.Drag);
             state = StoreItemEvents.Drag;
+            transform.SetParent(dragParent);
         }
     }
 
@@ -149,6 +156,6 @@ public class StoreItem : MonoBehaviour {
         transform.position = to;
         workshop.Emit(this, endEvent);
         state = StoreItemEvents.None;
-
+        transform.SetParent(restParent);
     }
 }

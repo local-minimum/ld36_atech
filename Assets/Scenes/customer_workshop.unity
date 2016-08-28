@@ -123,11 +123,11 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1468282049}
-  m_Father: {fileID: 734484574}
-  m_RootOrder: 9
+  m_Father: {fileID: 1728452373}
+  m_RootOrder: 6
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -112.785614, y: 7.100006}
+  m_AnchoredPosition: {x: -112.7856, y: 7.100006}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4008248
@@ -168,6 +168,8 @@ MonoBehaviour:
   delta: 0.01
   blueprint: {fileID: 1468282050}
   positionNoise: 5
+  dragParent: {fileID: 1941865787}
+  restParent: {fileID: 1728452373}
 --- !u!114 &4008249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2177,11 +2179,11 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 272553283}
-  m_Father: {fileID: 734484574}
-  m_RootOrder: 7
+  m_Father: {fileID: 1728452373}
+  m_RootOrder: 4
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.8463745, y: 7.100006}
+  m_AnchoredPosition: {x: 1.846405, y: 7.100006}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &489622450
@@ -2222,6 +2224,8 @@ MonoBehaviour:
   delta: 0.01
   blueprint: {fileID: 272553284}
   positionNoise: 5
+  dragParent: {fileID: 1941865787}
+  restParent: {fileID: 1728452373}
 --- !u!114 &489622451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2383,8 +2387,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 2072357957}
-  m_Father: {fileID: 734484574}
-  m_RootOrder: 5
+  m_Father: {fileID: 1728452373}
+  m_RootOrder: 2
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 115.2784, y: 102.00001}
@@ -2428,6 +2432,8 @@ MonoBehaviour:
   delta: 0.01
   blueprint: {fileID: 2072357958}
   positionNoise: 5
+  dragParent: {fileID: 1941865787}
+  restParent: {fileID: 1728452373}
 --- !u!114 &502037216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2794,11 +2800,11 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 485533595}
-  m_Father: {fileID: 734484574}
-  m_RootOrder: 4
+  m_Father: {fileID: 1728452373}
+  m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 116.47839, y: -82}
+  m_AnchoredPosition: {x: 116.478424, y: -82}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &564933339
@@ -2839,6 +2845,8 @@ MonoBehaviour:
   delta: 0.01
   blueprint: {fileID: 485533596}
   positionNoise: 5
+  dragParent: {fileID: 1941865787}
+  restParent: {fileID: 1728452373}
 --- !u!114 &564933340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3279,14 +3287,8 @@ RectTransform:
   - {fileID: 913564547}
   - {fileID: 413901711}
   - {fileID: 675033248}
-  - {fileID: 1591593905}
-  - {fileID: 564933338}
-  - {fileID: 502037214}
-  - {fileID: 1362745623}
-  - {fileID: 489622449}
-  - {fileID: 903494891}
-  - {fileID: 4008247}
-  - {fileID: 1954366661}
+  - {fileID: 1728452373}
+  - {fileID: 1941865787}
   m_Father: {fileID: 1862634190}
   m_RootOrder: 3
   m_AnchorMin: {x: 0.22, y: 0.03}
@@ -3973,11 +3975,11 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 392977043}
-  m_Father: {fileID: 734484574}
-  m_RootOrder: 8
+  m_Father: {fileID: 1728452373}
+  m_RootOrder: 5
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.646405, y: 102.00001}
+  m_AnchoredPosition: {x: 0.6464355, y: 102.00001}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &903494892
@@ -4018,6 +4020,8 @@ MonoBehaviour:
   delta: 0.01
   blueprint: {fileID: 392977044}
   positionNoise: 5
+  dragParent: {fileID: 1941865787}
+  restParent: {fileID: 1728452373}
 --- !u!114 &903494893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5603,11 +5607,11 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1637730755}
-  m_Father: {fileID: 734484574}
-  m_RootOrder: 6
+  m_Father: {fileID: 1728452373}
+  m_RootOrder: 3
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 116.47839, y: 7.100006}
+  m_AnchoredPosition: {x: 116.478424, y: 7.100006}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1362745624
@@ -5648,6 +5652,8 @@ MonoBehaviour:
   delta: 0.01
   blueprint: {fileID: 1637730756}
   positionNoise: 5
+  dragParent: {fileID: 1941865787}
+  restParent: {fileID: 1728452373}
 --- !u!114 &1362745625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6444,11 +6450,11 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 9101683}
-  m_Father: {fileID: 734484574}
-  m_RootOrder: 3
+  m_Father: {fileID: 1728452373}
+  m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.8463745, y: -82}
+  m_AnchoredPosition: {x: 1.846405, y: -82}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1591593906
@@ -6489,6 +6495,8 @@ MonoBehaviour:
   delta: 0.01
   blueprint: {fileID: 9101684}
   positionNoise: 5
+  dragParent: {fileID: 1941865787}
+  restParent: {fileID: 1728452373}
 --- !u!114 &1591593907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6939,6 +6947,47 @@ RectTransform:
   m_AnchorMax: {x: 0.9, y: 0.43}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0.0000076293945, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1728452372
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1728452373}
+  m_Layer: 5
+  m_Name: Draggables
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1728452373
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1728452372}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 1591593905}
+  - {fileID: 564933338}
+  - {fileID: 502037214}
+  - {fileID: 1362745623}
+  - {fileID: 489622449}
+  - {fileID: 903494891}
+  - {fileID: 4008247}
+  - {fileID: 1954366661}
+  m_Father: {fileID: 734484574}
+  m_RootOrder: 3
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.000015258789, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1739243232
 GameObject:
@@ -7899,6 +7948,39 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1936426719}
+--- !u!1 &1941865786
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1941865787}
+  m_Layer: 5
+  m_Name: DragItemParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1941865787
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1941865786}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 734484574}
+  m_RootOrder: 4
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.000015258789, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1954366660
 GameObject:
   m_ObjectHideFlags: 0
@@ -7933,11 +8015,11 @@ RectTransform:
   m_Children:
   - {fileID: 1295129071}
   - {fileID: 360231942}
-  m_Father: {fileID: 734484574}
-  m_RootOrder: 10
+  m_Father: {fileID: 1728452373}
+  m_RootOrder: 7
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -113.985596, y: 102.00001}
+  m_AnchoredPosition: {x: -113.98558, y: 102.00001}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1954366662
@@ -7978,6 +8060,8 @@ MonoBehaviour:
   delta: 0.01
   blueprint: {fileID: 1295129072}
   positionNoise: 5
+  dragParent: {fileID: 1941865787}
+  restParent: {fileID: 1728452373}
 --- !u!114 &1954366663
 MonoBehaviour:
   m_ObjectHideFlags: 0

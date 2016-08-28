@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class StoreItem : MonoBehaviour {
@@ -69,6 +70,28 @@ public class StoreItem : MonoBehaviour {
     {
         workshop = FindObjectOfType<Workshop>();
         transform.position = sourcePosition.position + Noise;
+    }
+
+    void Start()
+    {
+        if (typeof(Powder) == blueprint.GetType())
+        {
+            Image plate = GetComponent<Image>();
+            Color color = new Color();
+            Color refColor = (blueprint as Powder).color;
+            color.r = refColor.r;
+            color.g = refColor.g;
+            color.b = refColor.b;
+            color.a = 1;
+            foreach(Image im in GetComponentsInChildren<Image>())
+            {
+                if (im != plate)
+                {
+                    im.color = color;
+                }
+            }
+        }
+
     }
 
     void OnEnable()

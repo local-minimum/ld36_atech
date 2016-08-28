@@ -51,9 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a44e4fb62216b46f0ba14dfe73ecc02a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  judgementProperties: []
-  icon: {fileID: 0}
-  description: 
   audio: {fileID: 8300000, guid: 30d0410b64068494ca1652ae67385d82, type: 3}
+  identifier: charge_cube
   explosionShape: {fileID: 4300000, guid: 6b6d69e29771a4e118a99a9704c600b7, type: 3}
   shapeSize: 4

@@ -120,6 +120,12 @@ public class Customer : MonoBehaviour {
             }
             string json = asset.text;
             DialoguePart part = JsonUtility.FromJson<DialoguePart>(json);
+
+            if (GetListIndex(part.identifier) < 0)
+            {
+                Debug.LogError(string.Format("Unknown customer identifier: {0} in file {1}", part.identifier, json_files[part_index]));
+            }
+
             if (!dialogues.ContainsKey(part.level))
             {
                 dialogues[part.level] = new List<DialoguePart>();

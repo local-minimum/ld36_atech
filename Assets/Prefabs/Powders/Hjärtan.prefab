@@ -51,10 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 012347e8b7c8040ca898256b93b58842, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  judgementProperties: []
-  icon: {fileID: 0}
-  description: 
   audio: {fileID: 8300000, guid: f411b119a51f94a6f903b7682a752752, type: 3}
+  identifier: powder_heart
   particleMaterial: {fileID: 2100000, guid: e47b57d67ed434f368fd0beea17dba64, type: 2}
   color: {r: 1, g: 0, b: 0, a: 0}
   burnTime: 0

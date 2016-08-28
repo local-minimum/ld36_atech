@@ -9,7 +9,7 @@
     "negativeCriteria": ["powder_laughter", "powder_fairies", "powder_heart", "charge_heart", "charge_torus"],
     "positiveFeedback": "We were very amused by your lightning-display. A most pleasureable experience that brought clarity and calm to the rest of our Gathering.\n\nI thank you most graciously for your meticulous work! The Gathering could not be more pleased!",
     "negativeFeedback": "No, this was not what I was hoping for.\n\nI am telling you again: I seek clarity and order...!",
-    "neutralFeedback": "",
+    "neutralFeedback": "Hm. That will have to do. Good evening.",
     "wordSpeed": -1,
     "endOfSentenceSpeed": -1,
     "endOfSentenceDelays": -1

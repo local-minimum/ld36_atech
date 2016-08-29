@@ -1,7 +1,7 @@
 {
     "name": "Star Mist",
     "identifier": "powder_mist",
-    "level": -1,
+    "level": 1,
     "text": "The softest and purest aether, spun from the rays of our nocturnal guardians and blessed by Algol, the daemon star.",
     "shape": "",
     "colour": "white",

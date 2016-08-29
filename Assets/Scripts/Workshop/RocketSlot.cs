@@ -7,6 +7,9 @@ public class RocketSlot : MonoBehaviour
 {
 
     [SerializeField]
+    Sprite[] markings;
+
+    [SerializeField]
     ItemType _itemType;
 
     [SerializeField]
@@ -69,6 +72,30 @@ public class RocketSlot : MonoBehaviour
         workshop = FindObjectOfType<Workshop>();
     }
 
+    void Start()
+    {
+        icon.enabled = false;
+        Image marking = GetComponent<Image>();
+        if (_itemType == ItemType.None)
+        {
+            marking.sprite = null;
+        } else if (_itemType == ItemType.Charges) {
+            marking.sprite = markings[0];
+            ToggleShadows(false);
+        } else {
+            marking.sprite = markings[1];
+            ToggleShadows(true);
+        }
+    }
+
+    void ToggleShadows(bool enable)
+    {
+        foreach (Shadow shadow in icon.GetComponents<Shadow>())
+        {
+            shadow.enabled = enabled;
+        }
+    }
+
     void OnEnable()
     {
         workshop.OnStoreItemAction += Workshop_OnStoreItemAction;
@@ -83,13 +110,18 @@ public class RocketSlot : MonoBehaviour
     {
         if (item == this.item && type == StoreItemEvents.Slotted)
         {
-            Image img = item.GetComponent<Image>();
-            icon.sprite = img.sprite;
-            icon.color = img.color;
-            icon.fillMethod = img.fillMethod;
-            icon.preserveAspect = img.preserveAspect;
-            icon.fillAmount = icon.fillAmount;
-
+            Image img = item.SlottingImage;
+            if (img == null)
+            {
+                icon.enabled = false;
+            } else {
+                icon.enabled = true;
+                icon.sprite = img.sprite;
+                icon.color = img.color;
+                icon.fillMethod = img.fillMethod;
+                icon.preserveAspect = img.preserveAspect;
+                icon.fillAmount = icon.fillAmount;
+            }
         } else if (type == StoreItemEvents.Drag)
         {
             dragItem = item;

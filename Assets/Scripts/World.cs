@@ -13,13 +13,13 @@ public static class World {
     public static Dictionary<int, KeyValuePair<int, RocketComponent>> RocketBlueprint = new Dictionary<int, KeyValuePair<int, RocketComponent>>();
 
     static int _lvl = 0;
-    static int max_lvl = 5;
+    static int max_lvl = 3;
     static int _scoreLast = 0;
     static bool _lastWasNegative = false;
 
     public static int _score = 0;
 
-    static int[] _lvlThresholds = new int[] { 400, 900, 1500, 2500 };
+    static int[] _lvlThresholds = new int[] { 1000, 2500, 4000 };
 
     public static int Level
     {
@@ -57,7 +57,7 @@ public static class World {
         _scoreLast = change;
         _score += change;
         _lastWasNegative = isNegativeResponse;
-
+        Debug.Log(string.Format("Scoring (Total: {0}, Last: {1}, LastHasNegative {2}", _score, _scoreLast, isNegativeResponse));
         if (OnNewScore != null)
         {
             OnNewScore(_score);
@@ -67,6 +67,7 @@ public static class World {
         if (last != null && last.value > _lvl)
         {
             NextLevel();
+            Debug.Log(string.Format("Level {0}=>{1}", _lvl, last));
         }
 
     }

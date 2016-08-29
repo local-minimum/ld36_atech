@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System.Linq;
 
 public class StoreItem : MonoBehaviour {
 
@@ -44,6 +45,26 @@ public class StoreItem : MonoBehaviour {
 
     [SerializeField]
     Transform restParent;
+
+    public Image SlottingImage
+    {
+        get
+        {
+            ItemType iType = itemType;
+            if (iType == ItemType.Charges)
+            {
+                return GetComponent<Image>();
+            } else if (iType == ItemType.Powders)
+            {
+                Image thisImg = GetComponent<Image>();
+                return GetComponentsInChildren<Image>().Where(e => e != thisImg).First();
+
+            } else
+            {
+                return null;
+            }
+        }
+    }
 
     public RocketComponent Blueprint
     {

@@ -88,7 +88,7 @@ GameObject:
   - 199: {fileID: 199000012476759876}
   - 114: {fileID: 114000011724012184}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: Firework
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

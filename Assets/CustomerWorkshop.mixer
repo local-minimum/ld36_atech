@@ -9,11 +9,12 @@ AudioMixerController:
   m_OutputGroup: {fileID: 0}
   m_MasterGroup: {fileID: 24300001}
   m_Snapshots:
+  - {fileID: 245000013344407306}
   - {fileID: 24500003}
   - {fileID: 245000010085214376}
   - {fileID: 245000013840639606}
-  - {fileID: 245000013344407306}
-  m_StartSnapshot: {fileID: 24500003}
+  - {fileID: 245000011147353432}
+  m_StartSnapshot: {fileID: 245000013344407306}
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
@@ -35,9 +36,10 @@ AudioMixerController:
     - 47964f1de1dd783499ed174505b7f53e
     - 156ca841e0877b14a9702a410baf0888
     - 91f0da16e1f9d4224a225449b020f8bb
+    - cab6b6750d8fc864a88516715e95928c
     name: MusicOnly
   m_CurrentViewIndex: 1
-  m_TargetSnapshot: {fileID: 24500003}
+  m_TargetSnapshot: {fileID: 245000013344407306}
 --- !u!243 &24300001
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -52,6 +54,7 @@ AudioMixerGroupController:
   - {fileID: 243000013901207466}
   - {fileID: 243000011322765502}
   - {fileID: 243000013264698880}
+  - {fileID: 243000010678863874}
   m_Volume: 1d4505548c969594b967bd642ae48b55
   m_Pitch: 12ecc13ef486611408b0e52f2d418a5f
   m_Effects:
@@ -85,6 +88,7 @@ AudioMixerSnapshotController:
     cd0b08e0e7861b9489d9a22136a7de08: -10.345207
     4d0a63f136f0249e187aacaf56d1d603: -80
     65a817a3186d84b49997e4527f745d9d: -80
+    243cfadc07ca6db4e9cdc2f99e9d7e61: -80
     14b589ece511a5746b7e968bfccd0f3a: -9.833286
     8ff7244d68d285c439ba32eec81437a8: -80
   m_TransitionOverrides: {}
@@ -102,6 +106,24 @@ AudioMixerGroupController:
   m_Pitch: 0f7bda5bb96bfa64b90eeedec28f43a8
   m_Effects:
   - {fileID: 244000011957533754}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!243 &243000010678863874
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: NightSky
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: cab6b6750d8fc864a88516715e95928c
+  m_Children:
+  - {fileID: 243000012698610832}
+  m_Volume: 243cfadc07ca6db4e9cdc2f99e9d7e61
+  m_Pitch: 9e10eaae7b53e344c899b00364f0b2a2
+  m_Effects:
+  - {fileID: 244000010563600192}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -153,6 +175,23 @@ AudioMixerGroupController:
   m_Pitch: 16d2ad0641475054293f3b2a58311e17
   m_Effects:
   - {fileID: 244000011863387760}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!243 &243000012698610832
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: NightEffects
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: d62aa9e850619754c969d17ce7280824
+  m_Children: []
+  m_Volume: 433ce970ba3b1134994ab3fa6d746e69
+  m_Pitch: 389b8d003f8477d4e9c36c1914d27f6b
+  m_Effects:
+  - {fileID: 244000012540636960}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -279,6 +318,19 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &244000010563600192
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: ab3de45bca7037a46ab62098dd5c8065
+  m_EffectName: Attenuation
+  m_MixLevel: c7c750c57d3d0004ea3b226d6a36b5f5
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!244 &244000011180967180
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -318,6 +370,19 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &244000012540636960
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: d7eec05101b1ead44be352c3e84195b9
+  m_EffectName: Attenuation
+  m_MixLevel: 319be140bd9dd8e419aa4134d0455c38
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!244 &244000014094061968
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -344,6 +409,23 @@ AudioMixerSnapshotController:
     4d0a63f136f0249e187aacaf56d1d603: -80
     65a817a3186d84b49997e4527f745d9d: -0.037667945
     24f56d2a94997c2499c3f0ec6fa9d545: -10.345207
+    243cfadc07ca6db4e9cdc2f99e9d7e61: -80
+    8ff7244d68d285c439ba32eec81437a8: -80
+    f70b0dbe18a95954f89de0abc9fdec59: -80
+  m_TransitionOverrides: {}
+--- !u!245 &245000011147353432
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: NightSky
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: ed5416fa49b2a5e4992408ae6395f0a8
+  m_FloatValues:
+    cd0b08e0e7861b9489d9a22136a7de08: -10.345207
+    4d0a63f136f0249e187aacaf56d1d603: -80
+    65a817a3186d84b49997e4527f745d9d: -80
+    14b589ece511a5746b7e968bfccd0f3a: -9.833286
     8ff7244d68d285c439ba32eec81437a8: -80
     f70b0dbe18a95954f89de0abc9fdec59: -80
   m_TransitionOverrides: {}
@@ -358,6 +440,7 @@ AudioMixerSnapshotController:
   m_FloatValues:
     cd0b08e0e7861b9489d9a22136a7de08: -10.345207
     65a817a3186d84b49997e4527f745d9d: -80
+    243cfadc07ca6db4e9cdc2f99e9d7e61: -80
     14b589ece511a5746b7e968bfccd0f3a: -9.833286
     8ff7244d68d285c439ba32eec81437a8: -80
   m_TransitionOverrides: {}
@@ -373,6 +456,7 @@ AudioMixerSnapshotController:
     cd0b08e0e7861b9489d9a22136a7de08: -9.833286
     4d0a63f136f0249e187aacaf56d1d603: -80
     65a817a3186d84b49997e4527f745d9d: -80
+    243cfadc07ca6db4e9cdc2f99e9d7e61: -80
     14b589ece511a5746b7e968bfccd0f3a: -0.16685188
     f70b0dbe18a95954f89de0abc9fdec59: -80
   m_TransitionOverrides: {}

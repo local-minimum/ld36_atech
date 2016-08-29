@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 public delegate void LevelEvent(int lvl);
-public delegate void ScoreEvent(int score);
+public delegate void ScoreEvent(int oldScore, int score);
 
 public static class World {
 
@@ -54,13 +54,14 @@ public static class World {
 
     public static void AddScore(int change, bool isNegativeResponse)
     {
+        int _pervious = _score;
         _scoreLast = change;
         _score += change;
         _lastWasNegative = isNegativeResponse;
         Debug.Log(string.Format("Scoring (Total: {0}, Last: {1}, LastHasNegative {2}", _score, _scoreLast, isNegativeResponse));
         if (OnNewScore != null)
         {
-            OnNewScore(_score);
+            OnNewScore(_pervious, _score);
         }
 
         var last = _lvlThresholds.Select((val, i) => new { index = i + 1, value = val }).Where(e => e.value < _score).LastOrDefault();        

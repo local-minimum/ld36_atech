@@ -7,6 +7,8 @@ public class LaunchButton : MonoBehaviour {
     public string launchScene;
     Workshop workshop;
     Button btn;
+    [SerializeField]
+    Customer _customer;
 
     void Awake()
     {
@@ -31,7 +33,7 @@ public class LaunchButton : MonoBehaviour {
 
     public void Launch()
     {
-        Customer.customerMode = CustomerMode.Pay;
+        _customer.customerMode = CustomerMode.Pay;
         SceneManager.LoadScene(launchScene);
         
     }

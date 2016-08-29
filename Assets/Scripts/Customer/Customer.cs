@@ -6,6 +6,7 @@ using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public enum CustomerMode {Order, Pay};
+public delegate void CustomerModeEvent(CustomerMode mode);
 
 [System.Serializable]
 public class DialoguePart
@@ -30,13 +31,32 @@ public class Customer : MonoBehaviour {
 
     Canvas canvas;
 
+    public event CustomerModeEvent OnCustomerModeChange;
+
     public Image avatar;
     public Text nameArea;
     public Text textArea;
     public TextTalker textTalk;
     public Image faceImage;
     public Text workshopNameArea;
-    public static CustomerMode customerMode = CustomerMode.Order;
+
+    static CustomerMode _customerMode = CustomerMode.Order;
+    public CustomerMode customerMode
+    {
+        get
+        {
+            return _customerMode;
+        }
+
+        set
+        {
+            _customerMode = value;
+            if (OnCustomerModeChange != null)
+            {
+                OnCustomerModeChange(_customerMode);
+            }
+        }
+    }
     static int currentIndex = -1;
     public List<Sprite> sprites = new List<Sprite>();
     public List<Sprite> faces = new List<Sprite>();
@@ -230,6 +250,7 @@ public class Customer : MonoBehaviour {
     public void SetCustomerFromLevel()
     {
         customerMode = CustomerMode.Order;
+
         SetCustomerIndex();
         SetupCustomer();
     }
@@ -276,25 +297,29 @@ public class Customer : MonoBehaviour {
 
     void SetCustomerIndex()
     {
-        List<bool> used = usedDialogues[World.Level];
+        int lvl = World.Level;
+        List<bool> used = usedDialogues[lvl];
 
         int[] candidates = used.Select((val, index) => new {index = index, used = val}).Where(item => !item.used).Select(item => item.index).ToArray();        
         if (candidates.Length > 0)
         {
             currentIndex = candidates[Random.Range(0, candidates.Length)];
         }
-        else
+        else if (usedDialogues[lvl].Count == 1)
         {
-            for (int i=0, l=usedDialogues[World.Level].Count; i< l; i++)
+            Debug.LogWarning("Will repeat same dialigoue because only at level " + lvl);
+        } else
+        {
+            for (int i=0, l=usedDialogues[lvl].Count; i< l; i++)
             {
-                usedDialogues[World.Level][i] = false;
+                usedDialogues[lvl][i] = false;
             }
 
-            int[] potentials = Enumerable.Range(0, usedDialogues[World.Level].Count).Where((e, i) => i != currentIndex).ToArray();
+            int[] potentials = Enumerable.Range(0, usedDialogues[lvl].Count).Where((e, i) => i != currentIndex).ToArray();
             currentIndex = potentials[Random.Range(0, potentials.Length)];
             
         }
-        usedDialogues[World.Level][currentIndex] = true;
+        usedDialogues[lvl][currentIndex] = true;
     }
 
     public int Score(DialoguePart part, out int positives, out int negatives)

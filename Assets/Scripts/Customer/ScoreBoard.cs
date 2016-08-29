@@ -92,5 +92,7 @@ public class ScoreBoard : MonoBehaviour {
             textArea.color = txtColor;
             yield return new WaitForSeconds(stepDelay);
         }
+        img.enabled = false;
+        textArea.enabled = false;
     }
 }

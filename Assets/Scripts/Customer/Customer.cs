@@ -101,7 +101,7 @@ public class Customer : MonoBehaviour {
     void Start () {
 
         LoadJSON();
-
+                
         canvas = GetComponent<Canvas>();
         canvas.enabled = true;
         if (customerMode == CustomerMode.Order)

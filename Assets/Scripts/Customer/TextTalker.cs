@@ -11,6 +11,8 @@ public class TextTalker : MonoBehaviour {
 
     public event Talk OnTalk;
 
+    Animator anim;
+
     [SerializeField]
     Text TextArea;
 
@@ -34,6 +36,32 @@ public class TextTalker : MonoBehaviour {
 
     bool recievedInterrupt = false;
     bool talking = false;
+
+    void Start()
+    {
+        anim = GetComponentInParent<Animator>();
+    }
+
+    void OnEnable()
+    {
+        OnTalk += TextTalker_OnTalk;
+    }
+
+    void OnDisable()
+    {
+        OnTalk -= TextTalker_OnTalk;
+    }
+
+    private void TextTalker_OnTalk(TalkEvents type)
+    {
+        if (type == TalkEvents.Talking)
+        {
+            anim.SetTrigger("talk");
+        } else
+        {
+            anim.SetTrigger("wait");
+        }
+    }
 
     public void Talk(string text)
     {

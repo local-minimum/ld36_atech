@@ -218,6 +218,7 @@ public class RocketSlot : MonoBehaviour
     {
         if (item != dragItem)
         {
+            Debug.Log("Enter " + name);
             workshop.Emit(this, SlotEvent.Hover);
         }
     }
@@ -226,6 +227,7 @@ public class RocketSlot : MonoBehaviour
     {
         if (item != dragItem)
         {
+            Debug.Log("Exit " + name);
             StartCoroutine(_delayExit());
         }
     }

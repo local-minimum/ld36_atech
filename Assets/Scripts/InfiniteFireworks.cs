@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Audio;
 
 public class InfiniteFireworks : MonoBehaviour {
 
+    public AudioMixerSnapshot mixerSnapshot;
 	public GameObject prefab;
 	public Charge[] charges;
 	public Powder[] powders;
@@ -40,6 +42,7 @@ public class InfiniteFireworks : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        mixerSnapshot.TransitionTo(0.5f);
 		StartCoroutine (CreateInfiniteFireworks ());
 	}
 

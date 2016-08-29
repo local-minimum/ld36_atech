@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.Audio;
 
 struct RocketLayout
 {
@@ -36,7 +37,8 @@ public class ParticleSystemHandler : MonoBehaviour {
 	public Powder defaultPowder;
     public string[] componentLookup;
     public RocketComponent[] rocketComponents;
-
+    public AudioMixerSnapshot mixerSnapshot;
+    
 	void SendFireworks (GameObject instance, RocketLayout rocket)
 	{
 		float diff = Random.Range (-5.0f, 5.0f);
@@ -49,15 +51,23 @@ public class ParticleSystemHandler : MonoBehaviour {
 	}
 
 	private IEnumerator Emit(ParticleSystem particleSystem) {
+
+        ShootingSoundController sCtrl = particleSystem.GetComponentInChildren<ShootingSoundController>();
 		yield return new WaitForSeconds(Random.Range(0.3f, 2f));
+        sCtrl.Shoot();
 		int count = Random.Range (0, 100);
 		for (int i = 0; i < count; ++i) {
 			particleSystem.SetParticles (new ParticleSystem.Particle[0], 0);
 			particleSystem.Emit (1);
 		}
+        yield return new WaitForSeconds(1.5f);
+        sCtrl.Explode();
 	}
 
 	void Start () {
+
+        mixerSnapshot.TransitionTo(0.5f);
+
 
         //Test that all exists...
         foreach (string identifier in Workshop.ingredients.Keys)

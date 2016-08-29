@@ -57,6 +57,20 @@ public class Customer : MonoBehaviour {
             }
         }
     }
+
+    public static void ResetGame()
+    {
+        _customerMode = CustomerMode.Order;
+        currentIndex = -1;
+        foreach(int lvl in usedDialogues.Keys)
+        {
+            for (int i=0, l=usedDialogues[lvl].Count; i< l; i++)
+            {
+                usedDialogues[lvl][i] = false;
+            }
+        }
+    }
+
     static int currentIndex = -1;
     public List<Sprite> sprites = new List<Sprite>();
     public List<Sprite> faces = new List<Sprite>();
@@ -211,6 +225,7 @@ public class Customer : MonoBehaviour {
             if (!World.GameOver)
             {
                 txt.text = toWorkShopText;
+                World.RocketBlueprint.Clear();
                 SetCustomerFromLevel();
             } else
             {
@@ -327,6 +342,7 @@ public class Customer : MonoBehaviour {
   
         int score = baseScore;
         List<string> lst = World.RocketBlueprint.Values.Select(kvp => kvp.Value).ToList();
+        int shots = lst.Count;
 
         positives = part.positiveCriteria.Where(e => lst.Contains(e)).Count();
         negatives = part.negativeCriteria.Where(e => lst.Contains(e)).Count();
@@ -334,11 +350,11 @@ public class Customer : MonoBehaviour {
         score += positives * bonusPart;
         score -= negatives * failScorePart;
 
-        if (negatives == part.negativeCriteria.Length)
+        if (negatives == part.negativeCriteria.Length || negatives == shots)
         {
             score -= criticalFail;
         }
-        else if (positives == part.positiveCriteria.Length)
+        else if (positives == part.positiveCriteria.Length || positives == shots)
         {
             score += completeBonus;
         }

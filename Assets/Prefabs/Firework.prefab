@@ -52,6 +52,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000013543146214}
   - 82: {fileID: 82000014026207574}
+  - 114: {fileID: 114000010557954180}
   m_Layer: 0
   m_Name: ExplosionAudio
   m_TagString: Untagged
@@ -173,8 +174,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243000012698610832, guid: 49116b83a12edfb46abdb69b4ec1c548,
     type: 2}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: c3e9b9daf5dca4a4b81291bbbc07f8be, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -238,6 +239,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114000010557954180
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012423530330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83335a7ad47c4e045b8abc60e33e37ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootSound: {fileID: 8300000, guid: c3e9b9daf5dca4a4b81291bbbc07f8be, type: 3}
+  explodeSounds:
+  - {fileID: 8300000, guid: eb9c5a6b092becc42a287c20dc017316, type: 3}
+  - {fileID: 8300000, guid: 2f0a1147fcfa12145ad1a776bdd8c6fc, type: 3}
+  - {fileID: 8300000, guid: 9d0c7376e0630754ca18befa73d97898, type: 3}
+  - {fileID: 8300000, guid: c8d912ce8be9d1542bfdb49cab99bd7a, type: 3}
+  - {fileID: 8300000, guid: eb9c5a6b092becc42a287c20dc017316, type: 3}
+  - {fileID: 8300000, guid: eb9c5a6b092becc42a287c20dc017316, type: 3}
+  speaker: {fileID: 82000014026207574}
 --- !u!114 &114000011724012184
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -254,6 +275,10 @@ MonoBehaviour:
   powder: {fileID: 0}
   disableNextScene: 0
   source: {fileID: 82000014026207574}
+  nSoundsMin: 8
+  nSoundsMax: 12
+  dSoundMin: 0.05
+  dSoundMax: 0.2
 --- !u!198 &198000011426746014
 ParticleSystem:
   m_ObjectHideFlags: 1

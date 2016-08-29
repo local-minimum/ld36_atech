@@ -226,6 +226,15 @@ public class RocketSlot : MonoBehaviour
     {
         if (item != dragItem)
         {
+            StartCoroutine(_delayExit());
+        }
+    }
+
+    IEnumerator<WaitForSeconds> _delayExit()
+    {
+        yield return new WaitForSeconds(1.5f);
+        if (item != dragItem)
+        {
             workshop.Emit(this, SlotEvent.Exit);
         }
     }

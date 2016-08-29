@@ -12,16 +12,42 @@ public class HandleExplosion : MonoBehaviour {
 	ParticleSystem.Particle[] particles = new ParticleSystem.Particle[10];
 	public AudioSource source;
 
-	private IEnumerator PlaySounds() {
-		yield return new WaitForSeconds(0.1f);
-		source.Play ();
+    [SerializeField]
+    int nSoundsMin = 5;
+
+    [SerializeField]
+    int nSoundsMax = 10;
+
+    [SerializeField]
+    float dSoundMin = 0.1f;
+
+    [SerializeField]
+    float dSoundMax = 0.5f;
+
+	private IEnumerator PlaySounds(AudioClip clip) {
+        yield return new WaitForSeconds(0.4f);
+
+        for (int i=0, l=Random.Range(nSoundsMin, nSoundsMax); i<l; i++)
+        {
+            source.PlayOneShot(clip, 0.1f);
+            yield return new WaitForSeconds(Random.Range(dSoundMin, dSoundMax));
+        }
 	}
+
+    IEnumerator WaitForDeath()
+    {
+        yield return new WaitForSeconds(5f);
+        Destroy(gameObject);
+    }
 
 	void OnParticleCollision(GameObject other) {
 		source.clip = powder.audio;
 		if (source.clip != null) {
-			StartCoroutine (PlaySounds ());
+			StartCoroutine (PlaySounds (source.clip));
 		}
+
+        StartCoroutine(WaitForDeath());
+
 		var system = this.GetComponent<ParticleSystem> ();
 		int num = system.GetParticles (particles);
 		if (num > 0) {

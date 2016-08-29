@@ -19,7 +19,7 @@ public static class World {
 
     public static int _score = 0;
 
-    static int[] _lvlThresholds = new int[] { 350, 1500, 4000 };
+    static int[] _lvlThresholds = new int[] { 350, 1200, 2700 };
 
     public static int Level
     {
@@ -87,6 +87,9 @@ public static class World {
     {
         _score = 0;
         _lvl = 0;
+        Customer.ResetGame();
+        RocketBlueprint.Clear();
+
         if (OnNewLevel != null)
         {
             OnNewLevel(_lvl);

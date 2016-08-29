@@ -1,0 +1,299 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!74 &7400000
+AnimationClip:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: titlescreen
+  serializedVersion: 6
+  m_Legacy: 0
+  m_Compressed: 0
+  m_UseHighQualityCurve: 1
+  m_RotationCurves: []
+  m_CompressedRotationCurves: []
+  m_EulerCurves: []
+  m_PositionCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: {x: 13.707149, y: -1.563554, z: -6.483537}
+        inSlope: {x: -0.05267543, y: -0.06249585, z: 0}
+        outSlope: {x: -0.05267543, y: -0.06249585, z: 0}
+        tangentMode: 0
+      - time: 2.9833333
+        value: {x: 13.55, y: -1.75, z: -6.483537}
+        inSlope: {x: -8.729951, y: 2.7518845, z: 0}
+        outSlope: {x: -8.729951, y: 2.7518845, z: 0}
+        tangentMode: 0
+      - time: 4.366667
+        value: {x: -10.53, y: 5.95, z: -6.483537}
+        inSlope: {x: -6.0742655, y: 2.789654, z: 0}
+        outSlope: {x: -6.0742655, y: 2.789654, z: 0}
+        tangentMode: 0
+      - time: 8.966666
+        value: {x: 13.66, y: 6.01, z: -6.483537}
+        inSlope: {x: 2.6561637, y: -1.3845396, z: 0}
+        outSlope: {x: 2.6561637, y: -1.3845396, z: 0}
+        tangentMode: 0
+      - time: 11.95
+        value: {x: 13.82, y: -2.29, z: -6.483537}
+        inSlope: {x: 0.053631227, y: -2.7821229, z: 0}
+        outSlope: {x: 0.053631227, y: -2.7821229, z: 0}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: village-skyline-star
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: {x: 13.5, y: 0.13, z: -6.483537}
+        inSlope: {x: -0.09891886, y: -0.01945946, z: 0}
+        outSlope: {x: -0.09891886, y: -0.01945946, z: 0}
+        tangentMode: 0
+      - time: 6.1666665
+        value: {x: 12.89, y: 0.01, z: -6.483537}
+        inSlope: {x: -3.0067673, y: 0.20719334, z: 0}
+        outSlope: {x: -3.0067673, y: 0.20719334, z: 0}
+        tangentMode: 0
+      - time: 10.5
+        value: {x: -12.74, y: 1.89, z: -6.483537}
+        inSlope: {x: -5.9146156, y: 0.43384615, z: 0}
+        outSlope: {x: -5.9146156, y: 0.43384615, z: 0}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: village-skyline-star (1)
+  m_ScaleCurves: []
+  m_FloatCurves: []
+  m_PPtrCurves: []
+  m_SampleRate: 60
+  m_WrapMode: 0
+  m_Bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_ClipBindingConstant:
+    genericBindings:
+    - path: 1409198658
+      attribute: 1
+      script: {fileID: 0}
+      classID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - path: 2926083289
+      attribute: 1
+      script: {fileID: 0}
+      classID: 4
+      customType: 0
+      isPPtrCurve: 0
+    pptrCurveMapping: []
+  m_AnimationClipSettings:
+    serializedVersion: 2
+    m_AdditiveReferencePoseClip: {fileID: 0}
+    m_AdditiveReferencePoseTime: 0
+    m_StartTime: 0
+    m_StopTime: 11.95
+    m_OrientationOffsetY: 0
+    m_Level: 0
+    m_CycleOffset: 0
+    m_HasAdditiveReferencePose: 0
+    m_LoopTime: 1
+    m_LoopBlend: 0
+    m_LoopBlendOrientation: 0
+    m_LoopBlendPositionY: 0
+    m_LoopBlendPositionXZ: 0
+    m_KeepOriginalOrientation: 0
+    m_KeepOriginalPositionY: 1
+    m_KeepOriginalPositionXZ: 0
+    m_HeightFromFeet: 0
+    m_Mirror: 0
+  m_EditorCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 13.707149
+        inSlope: -0.05267543
+        outSlope: -0.05267543
+        tangentMode: 10
+      - time: 2.9833333
+        value: 13.55
+        inSlope: -8.729951
+        outSlope: -8.729951
+        tangentMode: 10
+      - time: 4.366667
+        value: -10.53
+        inSlope: -6.0742655
+        outSlope: -6.0742655
+        tangentMode: 10
+      - time: 8.966666
+        value: 13.66
+        inSlope: 2.6561637
+        outSlope: 2.6561637
+        tangentMode: 10
+      - time: 11.95
+        value: 13.82
+        inSlope: 0.053631227
+        outSlope: 0.053631227
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.x
+    path: village-skyline-star
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: -1.563554
+        inSlope: -0.06249585
+        outSlope: -0.06249585
+        tangentMode: 10
+      - time: 2.9833333
+        value: -1.75
+        inSlope: 2.7518845
+        outSlope: 2.7518845
+        tangentMode: 10
+      - time: 4.366667
+        value: 5.95
+        inSlope: 2.789654
+        outSlope: 2.789654
+        tangentMode: 10
+      - time: 8.966666
+        value: 6.01
+        inSlope: -1.3845396
+        outSlope: -1.3845396
+        tangentMode: 10
+      - time: 11.95
+        value: -2.29
+        inSlope: -2.7821229
+        outSlope: -2.7821229
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.y
+    path: village-skyline-star
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: -6.483537
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 2.9833333
+        value: -6.483537
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 4.366667
+        value: -6.483537
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 8.966666
+        value: -6.483537
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 11.95
+        value: -6.483537
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.z
+    path: village-skyline-star
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 13.5
+        inSlope: -0.09891886
+        outSlope: -0.09891886
+        tangentMode: 10
+      - time: 6.1666665
+        value: 12.89
+        inSlope: -3.0067673
+        outSlope: -3.0067673
+        tangentMode: 10
+      - time: 10.5
+        value: -12.74
+        inSlope: -5.9146156
+        outSlope: -5.9146156
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.x
+    path: village-skyline-star (1)
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0.13
+        inSlope: -0.01945946
+        outSlope: -0.01945946
+        tangentMode: 10
+      - time: 6.1666665
+        value: 0.01
+        inSlope: 0.20719334
+        outSlope: 0.20719334
+        tangentMode: 10
+      - time: 10.5
+        value: 1.89
+        inSlope: 0.43384615
+        outSlope: 0.43384615
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.y
+    path: village-skyline-star (1)
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: -6.483537
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 6.1666665
+        value: -6.483537
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 10.5
+        value: -6.483537
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.z
+    path: village-skyline-star (1)
+    classID: 4
+    script: {fileID: 0}
+  m_EulerEditorCurves: []
+  m_HasGenericRootTransform: 0
+  m_HasMotionFloatCurves: 0
+  m_GenerateMotionCurves: 0
+  m_Events: []

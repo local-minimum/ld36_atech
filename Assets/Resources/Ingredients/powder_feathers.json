@@ -1,7 +1,7 @@
 {
     "name": "Owl Feathers",
     "identifier": "powder_feathers",
-    "level": -1,
+    "level": 1,
     "text": "Completely silent, these feathers provide a sublime experience of being caressed by the softest of winds. May contain traces of rodents.",
     "shape": "",
     "colour": "white",

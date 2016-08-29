@@ -1,7 +1,7 @@
 {
     "name": "Crystal",
     "identifier": "powder_crystal",
-    "level": -1,
+    "level": 1,
     "text": "Ancient and full of natural wisdom, this substance will recharge and harmonise your energies. Brought to you from the deepest mine carved out of the hardest rock.",
     "shape": "star",
     "colour": "lightblue",

@@ -94,16 +94,20 @@ public class TextTalker : MonoBehaviour {
         while (pos < len)
         {
             int concatStart = pos;
+    
 
-            atSentenceEnd = pos < len && sentencelimits.Contains(text[pos]);
-            while (pos < len && !atSentenceEnd && wordlimits.Contains(text[pos]))
+            while (pos < len)
             {
-                pos++;
 
-                if (pos < len && (!atSentenceEnd && sentencelimits.Contains(text[pos])))
+                if (sentencelimits.Contains(text[pos]))
                 {
                     atSentenceEnd = true;
                     break;
+                } else if (wordlimits.Contains(text[pos]))
+                {
+                    break;
+                } else {
+                    pos++;
                 }
             }
 
@@ -111,55 +115,69 @@ public class TextTalker : MonoBehaviour {
             {
                 break;
             }
-
-            while (pos < len && (atSentenceEnd || !wordlimits.Contains(text[pos])))
-            {
-
-                if (atSentenceEnd && sentencelimits.Contains(text[pos]))
-                {
-                    atSentenceEnd = false;
-                }
-                pos++;
-            }
-
-            TextArea.text += text.Substring(concatStart, pos - concatStart);
+            
 
             if (atSentenceEnd)
             {
-                if (OnTalk != null)
+                
+                while (pos < len)
                 {
-                    OnTalk(TalkEvents.Thinking);
-                }
 
-                recievedInterrupt = false;
-                string curText = TextArea.text;
-                for (int i=0; i < sentencePauses; i++)
-                {
-                    TextArea.text = curText + sentencePauseAnimation.Substring(0, i % (sentencePauseAnimation.Length + 1));
-                    if (recievedInterrupt)
+                    if (sentencelimits.Contains(text[pos]))
                     {
-                        i = sentencePauses;
+                        atSentenceEnd = false;
                         break;
-                    } else {
-                        yield return new WaitForSeconds(sentencePause);
+                    }
+                    else {
+                        pos++;
                     }
                 }
-                TextArea.text = curText;
-                recievedInterrupt = false;
+                pos++;
+                TextArea.text += text.Substring(concatStart, pos - concatStart);
 
-                if (OnTalk != null)
+                if (pos < len)
                 {
-                    OnTalk(TalkEvents.Talking);
-                }
+                    if (OnTalk != null)
+                    {
+                        OnTalk(TalkEvents.Thinking);
+                    }
 
+                    recievedInterrupt = false;
+                    string curText = TextArea.text;
+                    for (int i = 0; i < sentencePauses; i++)
+                    {
+                        TextArea.text = curText + sentencePauseAnimation.Substring(0, i % (sentencePauseAnimation.Length + 1));
+                        if (recievedInterrupt)
+                        {
+                            i = sentencePauses;
+                            break;
+                        }
+                        else
+                        {
+                            yield return new WaitForSeconds(sentencePause);
+                        }
+                    }
+                    TextArea.text = curText;
+                    recievedInterrupt = false;
+
+                    if (OnTalk != null)
+                    {
+                        OnTalk(TalkEvents.Talking);
+                    }
+                }
             }
             else {
+                pos++;
+                TextArea.text += text.Substring(concatStart, pos - concatStart);
+
                 if (!recievedInterrupt)
                 {
                     yield return new WaitForSeconds(wordPause);
                 }
             }
+            
         }
+
         TextArea.text = text;
         if (toggleButton)
         {

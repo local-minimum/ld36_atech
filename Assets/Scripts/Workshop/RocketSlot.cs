@@ -38,6 +38,10 @@ public class RocketSlot : MonoBehaviour
 
         set
         {
+            if (item)
+            {
+                workshop.Emit(item, StoreItemEvents.Return);
+            }
             item = value;
             if (item)
             {

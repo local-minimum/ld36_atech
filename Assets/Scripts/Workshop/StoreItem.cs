@@ -134,9 +134,15 @@ public class StoreItem : MonoBehaviour {
 
     private void Workshop_OnStoreItemAction(StoreItem item, StoreItemEvents type)
     {
-        if (item == this && type == StoreItemEvents.Slotted)
-        {
-            transform.position = sourcePosition.position + Noise;
+        if (item == this) {
+            if (type == StoreItemEvents.Slotted)
+            {
+                SlottingImage.enabled = false;
+                transform.position = sourcePosition.position + Noise;
+            } else if (type == StoreItemEvents.Return)
+            {
+                SlottingImage.enabled = true;
+            }
         }
     }
 
@@ -159,12 +165,15 @@ public class StoreItem : MonoBehaviour {
 
     public void Hover()
     {
-        workshop.Emit(this, StoreItemEvents.Hover);        
+        if (SlottingImage.enabled)
+        {
+            workshop.Emit(this, StoreItemEvents.Hover);
+        }
     }
 
     public void OnBeginDrag()
     {
-        if (state == StoreItemEvents.None)
+        if (SlottingImage.enabled && state == StoreItemEvents.None)
         {
             workshop.Emit(this, StoreItemEvents.Drag);
             state = StoreItemEvents.Drag;
@@ -182,17 +191,20 @@ public class StoreItem : MonoBehaviour {
 
     public void OnEndDrag()
     {
-        if (slot == null)
+        if (state == StoreItemEvents.Drag)
         {
-            StartCoroutine(AnimateTo(transform.position, sourcePosition.position + Noise, StoreItemEvents.Return));
-            slot = null;
-        } else
-        {
-            slot.Item = this;                        
-            StartCoroutine(AnimateTo(transform.position, slot.transform.position, StoreItemEvents.Slotted));
-            slot = null;
+            if (slot == null)
+            {
+                StartCoroutine(AnimateTo(transform.position, sourcePosition.position + Noise, StoreItemEvents.Return));
+                slot = null;
+            }
+            else
+            {
+                slot.Item = this;
+                StartCoroutine(AnimateTo(transform.position, slot.transform.position, StoreItemEvents.Slotted));
+                slot = null;
+            }
         }
-        
     }
 
     IEnumerator<WaitForSeconds> AnimateTo(Vector3 from, Vector3 to, StoreItemEvents endEvent)

@@ -10,7 +10,7 @@ public static class World {
     public static event LevelEvent OnNewLevel;
     public static event ScoreEvent OnNewScore;
 
-    public static Dictionary<int, KeyValuePair<int, RocketComponent>> RocketBlueprint = new Dictionary<int, KeyValuePair<int, RocketComponent>>();
+    public static Dictionary<int, KeyValuePair<int, string>> RocketBlueprint = new Dictionary<int, KeyValuePair<int, string>>();
 
     static int _lvl = 0;
     static int max_lvl = 3;

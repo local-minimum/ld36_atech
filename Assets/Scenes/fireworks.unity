@@ -99,11 +99,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000011717070688, guid: 8d1104ff18471544b91c322d2a4fd713, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.1
       objectReference: {fileID: 0}
     - target: {fileID: 4000011717070688, guid: 8d1104ff18471544b91c322d2a4fd713, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 14
+      value: 5.9
       objectReference: {fileID: 0}
     - target: {fileID: 4000011717070688, guid: 8d1104ff18471544b91c322d2a4fd713, type: 2}
       propertyPath: m_LocalPosition.z
@@ -270,10 +270,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 1000014050198832, guid: 0fff83ed4d569463dada3db054e17ecf, type: 2}
-  testCharge: {fileID: 114000013103755912, guid: 7e6e2b1631f3b68409d97c81e7c95c64,
+  defaultCharge: {fileID: 114000013103755912, guid: 7e6e2b1631f3b68409d97c81e7c95c64,
     type: 2}
-  testPowder: {fileID: 114000011752371886, guid: 4e32f5a9479d87e49b6617491a12fa41,
+  defaultPowder: {fileID: 114000011752371886, guid: 4e32f5a9479d87e49b6617491a12fa41,
     type: 2}
+  componentLookup:
+  - charge_cross
+  - charge_torus
+  - charge_star
+  - charge_sphere
+  - charge_heart
+  - charge_animal
+  - charge_cube
+  - powder_feathers
+  - powder_heart
+  - powder_algae
+  - powder_ash
+  - powder_mist
+  - powder_roses
+  - powder_steel
+  - powder_fairies
+  - powder_frogs
+  - powder_crystal
+  - powder_tea
+  - powder_cat
+  - powder_laughter
+  - powder_dew
+  - powder_default
+  - charge_default
+  rocketComponents:
+  - {fileID: 114000012132860192, guid: 810bb3a3d24724a7296911f154c5738d, type: 2}
+  - {fileID: 114000014190209654, guid: 1fae3924979924da1a9a7cec3ea9e17f, type: 2}
+  - {fileID: 114000013916770832, guid: be62525aa24ae4b3fae8e0cd578ffd47, type: 2}
+  - {fileID: 114000013103755912, guid: 11724a6ab232a4870b9801be1f4149b7, type: 2}
+  - {fileID: 114000013116049482, guid: 1db70ccbad51741aaac2ebed0b4bc2c1, type: 2}
+  - {fileID: 114000013830940134, guid: d730fb9c08d2c4ca9a36a5f1d6f97bd5, type: 2}
+  - {fileID: 114000010453756660, guid: 7aa6511fb77384a3b83c8711dde815c2, type: 2}
+  - {fileID: 114000013117861360, guid: 6d44628079035466989f5a4acf4bbcf5, type: 2}
+  - {fileID: 114000013984488302, guid: d5ad8d807dcce4aa59bcdc633dda00e2, type: 2}
+  - {fileID: 114000011580206648, guid: 6c1bcd90afbd64ee580fa929a11bd495, type: 2}
+  - {fileID: 114000011752371886, guid: de641283765a740fe878fd1b1df21744, type: 2}
+  - {fileID: 114000013730377138, guid: 772e3fa3a30844a219e12130cf5a5b32, type: 2}
+  - {fileID: 114000010655439598, guid: 046491f3b9a8f48c5a36bed0a43fabb2, type: 2}
+  - {fileID: 114000010327218198, guid: 4eb39c948b46b451698b6788f330d09d, type: 2}
+  - {fileID: 114000013904006790, guid: 006df5c54e9164d18a80849545525901, type: 2}
+  - {fileID: 114000012135395662, guid: 650ead3763f4d4bf293f7b2bffe8c41b, type: 2}
+  - {fileID: 114000010577817242, guid: 28844a08289e244f78755468155771f4, type: 2}
+  - {fileID: 114000013454049494, guid: 7442d2880d10548c9836b5271b1de5f8, type: 2}
+  - {fileID: 114000013969675918, guid: 758a5ad825aec4fb99ee2158ca4f47d5, type: 2}
+  - {fileID: 114000011770112416, guid: 2b3cf79c2fd3c452c9ac8ec51898edaf, type: 2}
+  - {fileID: 114000010791813856, guid: 5ff279cf11c5542d4bb6f32016aeae84, type: 2}
+  - {fileID: 114000011752371886, guid: 4e32f5a9479d87e49b6617491a12fa41, type: 2}
+  - {fileID: 114000013103755912, guid: 7e6e2b1631f3b68409d97c81e7c95c64, type: 2}
 --- !u!4 &1366596788
 Transform:
   m_ObjectHideFlags: 0
@@ -314,7 +362,7 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
     - time: 1
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -326,11 +374,11 @@ MonoBehaviour:
     m_Curve:
     - time: 0
       value: 0
-      inSlope: 2
-      outSlope: 2
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
     - time: 1
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0

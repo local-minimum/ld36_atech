@@ -32,8 +32,10 @@ struct RocketLayout
 public class ParticleSystemHandler : MonoBehaviour {
 
 	public GameObject prefab;
-	public Charge testCharge;
-	public Powder testPowder;
+	public Charge defaultCharge;
+	public Powder defaultPowder;
+    public string[] componentLookup;
+    public RocketComponent[] rocketComponents;
 
 	void SendFireworks (GameObject instance, RocketLayout rocket)
 	{
@@ -56,6 +58,12 @@ public class ParticleSystemHandler : MonoBehaviour {
 	}
 
 	void Start () {
+
+        //Test that all exists...
+        foreach (string identifier in Workshop.ingredients.Keys)
+        {
+            GetRocketComponent(identifier);
+        }
 
         List<RocketLayout> rockets = GetRockets();
         RocketLayout rocket;
@@ -80,12 +88,15 @@ public class ParticleSystemHandler : MonoBehaviour {
         RocketLayout rocket;
 
         for (int lvl = 0; lvl < 3; lvl++) {
-            RocketComponent[] components = World.RocketBlueprint.Values.Where(kvp => kvp.Key == lvl).Select(kvp => kvp.Value).ToArray();
-            if (components.Length > 0)
+            string[] identifiers = World.RocketBlueprint.Values.Where(kvp => kvp.Key == lvl).Select(kvp => kvp.Value).ToArray();
+            if (identifiers.Length > 0)
             {
-                rocket =  new RocketLayout(testPowder, testCharge, components);
+
+                RocketComponent[] componentArr = GetRocketComponents(identifiers).ToArray();
+
+                rocket =  new RocketLayout(defaultPowder, defaultCharge, componentArr);
                 Debug.Log(string.Format("Constructing rocket stage {2} with {0} and {1} (components {3})",
-                    rocket.charge, rocket.powder, lvl, string.Join(", ", components.Select(e => e.name).ToArray())));
+                    rocket.charge, rocket.powder, lvl, string.Join(", ", componentArr.Select(e => e.name).ToArray())));
 
                 rockets.Add(rocket);                
             }
@@ -93,11 +104,35 @@ public class ParticleSystemHandler : MonoBehaviour {
 
         if (rockets.Count == 0)
         {
-            rocket = new RocketLayout(testPowder, testCharge);
+            rocket = new RocketLayout(defaultPowder, defaultCharge);
             Debug.Log(string.Format("Constructing default rocket with {0} and {1}", rocket.charge, rocket.powder));
             rockets.Add(rocket);
         }
         return rockets;
+    }
+
+    List<RocketComponent> GetRocketComponents(params string[] identifiers)
+    {
+        List<RocketComponent> ret = new List<RocketComponent>();
+        for (int i=0; i< identifiers.Length; i++)
+        {
+            ret.Add(GetRocketComponent(identifiers[i]));
+        }
+        return ret;
+    }
+
+    RocketComponent GetRocketComponent(string identifier)
+    {
+        for (int i=0; i<componentLookup.Length; i++)
+        {
+            if (componentLookup[i] == identifier)
+            {
+                return rocketComponents[i];
+            }
+        }
+
+        Debug.LogError(string.Format("Could not loook-up {0}", identifier));
+        return null;
     }
 
 

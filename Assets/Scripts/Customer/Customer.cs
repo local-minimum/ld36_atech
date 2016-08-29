@@ -301,7 +301,7 @@ public class Customer : MonoBehaviour {
     {
   
         int score = baseScore;
-        List<string> lst = World.RocketBlueprint.Values.Select(kvp => kvp.Value.identifier).ToList();
+        List<string> lst = World.RocketBlueprint.Values.Select(kvp => kvp.Value).ToList();
 
         positives = part.positiveCriteria.Where(e => lst.Contains(e)).Count();
         negatives = part.negativeCriteria.Where(e => lst.Contains(e)).Count();

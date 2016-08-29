@@ -44,7 +44,7 @@ public class RocketSlot : MonoBehaviour
             } else if (value)
             {
                 item = value;
-                World.RocketBlueprint[identifier] = new KeyValuePair<int, RocketComponent>(stage, Instantiate(item.Blueprint));
+                World.RocketBlueprint[identifier] = new KeyValuePair<int, string>(stage, item.Blueprint.identifier);
                 Debug.Log(string.Format("Set rocket blueprint id {0}, at stage {1} to {2}", identifier, stage, item.Blueprint));
                 workshop.Emit(this, SlotEvent.Filled);
             } else

@@ -6208,6 +6208,7 @@ MonoBehaviour:
   - Customers/sloth
   - Customers/bull2
   - Customers/armadillo2
+  - Customers/sloth2
   txt: {fileID: 336106741}
   nextCustomer: Next Customer
   toWorkShopText: To Workshop >

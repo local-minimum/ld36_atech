@@ -46,7 +46,9 @@ public class RocketSlot : MonoBehaviour
             if (item && value != item)
             {
                 workshop.Emit(item, StoreItemEvents.Return);
-            } else if (value)
+            }
+
+            if (value)
             {
                 item = value;
                 World.RocketBlueprint[identifier] = new KeyValuePair<int, string>(stage, item.Blueprint.identifier);
@@ -138,7 +140,7 @@ public class RocketSlot : MonoBehaviour
 
     private void World_OnNewLevel(int lvl)
     {
-        Debug.Log(string.Format("{0} <= {1} = {2}", visibleFromLvl, lvl, visibleFromLvl <= lvl));
+        //Debug.Log(string.Format("{0} <= {1} = {2}", visibleFromLvl, lvl, visibleFromLvl <= lvl));
         if (visibleFromLvl <= lvl)
         {
             markingImage.enabled = true;

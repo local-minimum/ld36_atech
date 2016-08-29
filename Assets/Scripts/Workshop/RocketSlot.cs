@@ -21,6 +21,9 @@ public class RocketSlot : MonoBehaviour
     [SerializeField]
     int identifier;
 
+    [SerializeField]
+    int visibleFromLvl;
+        
     StoreItem item;
 
     Workshop workshop;
@@ -28,6 +31,8 @@ public class RocketSlot : MonoBehaviour
     bool isOver = false;
 
     StoreItem dragItem;
+
+    Image markingImage;
 
     public StoreItem Item
     {
@@ -71,25 +76,40 @@ public class RocketSlot : MonoBehaviour
         }
     }
 
+    public bool activated
+    {
+        get
+        {
+            return markingImage.enabled;
+        }
+    }
+
     void Awake()
     {
         workshop = FindObjectOfType<Workshop>();
+        markingImage = GetComponent<Image>();
     }
 
     void Start()
     {
+
         icon.enabled = false;
-        Image marking = GetComponent<Image>();
+
         if (_itemType == ItemType.None)
         {
-            marking.sprite = null;
-        } else if (_itemType == ItemType.Charges) {
-            marking.sprite = markings[0];
+            markingImage.sprite = null;
+        }
+        else if (_itemType == ItemType.Charges)
+        {
+            markingImage.sprite = markings[0];
             ToggleShadows(false);
-        } else {
-            marking.sprite = markings[1];
+        }
+        else {
+            markingImage.sprite = markings[1];
             ToggleShadows(true);
         }
+
+        World_OnNewLevel(World.Level);
     }
 
     void ToggleShadows(bool enable)
@@ -103,12 +123,34 @@ public class RocketSlot : MonoBehaviour
     void OnEnable()
     {
         workshop.OnStoreItemAction += Workshop_OnStoreItemAction;
+        World.OnNewLevel += World_OnNewLevel;
+    }
+
+    void OnDestroy()
+    {
+        World.OnNewLevel -= World_OnNewLevel;
     }
 
     void OnDisable()
-    {
+    {        
         workshop.OnStoreItemAction -= Workshop_OnStoreItemAction;
     }
+
+    private void World_OnNewLevel(int lvl)
+    {
+        Debug.Log(string.Format("{0} <= {1} = {2}", visibleFromLvl, lvl, visibleFromLvl <= lvl));
+        if (visibleFromLvl <= lvl)
+        {
+            markingImage.enabled = true;
+            workshop.Emit(this, SlotEvent.Activated);
+
+        }
+        else
+        {
+            markingImage.enabled = false;
+        }
+    }
+
 
     private void Workshop_OnStoreItemAction(StoreItem item, StoreItemEvents type)
     {
@@ -147,21 +189,27 @@ public class RocketSlot : MonoBehaviour
 
     void Update()
     {
-        if (MouseOver)
+        if (activated)
         {
-            if (!isOver)
+
+            if (MouseOver)
             {
-                isOver = true;
-                OnMouseEnter();
+                if (!isOver)
+                {
+                    isOver = true;
+                    OnMouseEnter();
+                }
             }
-        } else
-        {
-            if (isOver)
+            else
             {
-                isOver = false;
-                OnMouseExit();
+                if (isOver)
+                {
+                    isOver = false;
+                    OnMouseExit();
+                }
             }
         }
+
     }
 
     public void OnMouseEnter()

@@ -66,8 +66,9 @@ public static class World {
         var last = _lvlThresholds.Select((val, i) => new { index = i + 1, value = val }).Where(e => e.value < _score).LastOrDefault();        
         if (last != null && last.value > _lvl)
         {
+            Debug.Log(string.Format("Old Level {0} < {1}", _lvl, last.index));
             NextLevel();
-            Debug.Log(string.Format("Level {0}=>{1}", _lvl, last));
+            
         }
 
     }

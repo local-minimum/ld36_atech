@@ -95,16 +95,6 @@ public class TextTalker : MonoBehaviour {
         {
             int concatStart = pos;
 
-            while (pos < len && (atSentenceEnd || !wordlimits.Contains(text[pos])))
-            {
-
-                if (atSentenceEnd && sentencelimits.Contains(text[pos]))
-                {
-                    atSentenceEnd = false;
-                }
-                pos++;
-            }
-
             atSentenceEnd = pos < len && sentencelimits.Contains(text[pos]);
             while (pos < len && !atSentenceEnd && wordlimits.Contains(text[pos]))
             {
@@ -120,6 +110,16 @@ public class TextTalker : MonoBehaviour {
             if (pos >= len)
             {
                 break;
+            }
+
+            while (pos < len && (atSentenceEnd || !wordlimits.Contains(text[pos])))
+            {
+
+                if (atSentenceEnd && sentencelimits.Contains(text[pos]))
+                {
+                    atSentenceEnd = false;
+                }
+                pos++;
             }
 
             TextArea.text += text.Substring(concatStart, pos - concatStart);
@@ -139,6 +139,7 @@ public class TextTalker : MonoBehaviour {
                     if (recievedInterrupt)
                     {
                         i = sentencePauses;
+                        break;
                     } else {
                         yield return new WaitForSeconds(sentencePause);
                     }

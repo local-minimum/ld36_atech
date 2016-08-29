@@ -4,7 +4,7 @@ using System.Linq;
 
 public class RocketSwitcher : MonoBehaviour {
 
-    List<int> slotsInRocket = new List<int>();
+    [SerializeField] List<int> slotsInRocket = new List<int>();
     Workshop workshop;
 
     public bool Ready
@@ -23,7 +23,8 @@ public class RocketSwitcher : MonoBehaviour {
 
     void Start()
     {
-        slotsInRocket.AddRange(GetComponentsInChildren<RocketSlot>().Select(i => i.ID));
+        slotsInRocket.Clear();
+        slotsInRocket.AddRange(GetComponentsInChildren<RocketSlot>().Where(i => i.activated).Select(i => i.ID));
     }
 
     void OnEnable()
@@ -31,8 +32,17 @@ public class RocketSwitcher : MonoBehaviour {
         workshop.OnRocketSlotAction += Workshop_OnRocketSlotAction;
     }
 
+    void OnDisable()
+    {
+        workshop.OnRocketSlotAction -= Workshop_OnRocketSlotAction;
+    }
+
     private void Workshop_OnRocketSlotAction(RocketSlot slot, SlotEvent type)
     {
+        if (type == SlotEvent.Activated)
+        {
+            Start();
+        }
 
         if (type == SlotEvent.Empied || type == SlotEvent.Filled)
         {

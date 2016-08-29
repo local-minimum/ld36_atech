@@ -113,23 +113,35 @@ public class StoreItem : MonoBehaviour {
                 }
             }
         }
-
-        if (Workshop.ingredients[blueprint.identifier].level > World.Level)
-        {
-            gameObject.SetActive(false);
-        }
+        World_OnNewLevel(World.Level);
     }
 
     void OnEnable()
     {
         workshop.OnRocketSlotAction += Workshop_OnRocketSlotAction;
         workshop.OnStoreItemAction += Workshop_OnStoreItemAction;
+        World.OnNewLevel += World_OnNewLevel;
     }
 
     void OnDisalbe()
     {
         workshop.OnRocketSlotAction -= Workshop_OnRocketSlotAction;
         workshop.OnStoreItemAction -= Workshop_OnStoreItemAction;
+    }
+
+    void OnDestroy() { 
+        World.OnNewLevel -= World_OnNewLevel;
+    }
+
+    private void World_OnNewLevel(int lvl)
+    {
+        if (Workshop.ingredients[blueprint.identifier].level > World.Level)
+        {
+            gameObject.SetActive(false);
+        } else
+        {
+            gameObject.SetActive(true);
+        }
     }
 
     private void Workshop_OnStoreItemAction(StoreItem item, StoreItemEvents type)

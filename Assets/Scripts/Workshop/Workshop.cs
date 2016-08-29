@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.Audio;
 
-public enum SlotEvent { Hover, Exit, Filled, Empied };
+public enum SlotEvent { Hover, Exit, Filled, Empied, Activated };
 public delegate void RocketSlotAction(RocketSlot slot, SlotEvent type);
 
 

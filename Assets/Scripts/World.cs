@@ -19,7 +19,7 @@ public static class World {
 
     public static int _score = 0;
 
-    static int[] _lvlThresholds = new int[] { 1000, 2500, 4000 };
+    static int[] _lvlThresholds = new int[] { 350, 1500, 4000 };
 
     public static int Level
     {

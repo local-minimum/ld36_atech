@@ -103,7 +103,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011717070688, guid: 8d1104ff18471544b91c322d2a4fd713, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 4000011717070688, guid: 8d1104ff18471544b91c322d2a4fd713, type: 2}
       propertyPath: m_LocalPosition.z
@@ -128,6 +128,11 @@ Prefab:
     - target: {fileID: 4000011717070688, guid: 8d1104ff18471544b91c322d2a4fd713, type: 2}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 20000011080896494, guid: 8d1104ff18471544b91c322d2a4fd713,
+        type: 2}
+      propertyPath: orthographic size
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8d1104ff18471544b91c322d2a4fd713, type: 2}
@@ -251,6 +256,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1366596788}
   - 114: {fileID: 1366596787}
+  - 114: {fileID: 1366596789}
   m_Layer: 0
   m_Name: FireworksEmitter
   m_TagString: Untagged
@@ -285,6 +291,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &1366596789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1366596786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0ddee4197c9cba4a9472a222afd8616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationSteps: 150
+  animationSpeed: 0.01
+  animationInitialDelay: 1.5
+  camSizeStart: 5
+  camSizeEnd: 9
+  camPosStart: {x: 0, y: 5, z: -10}
+  camPosEnd: {x: 0, y: 14, z: -10}
+  posEasing:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  sizeEasing:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &1567029657 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114000014068175144, guid: a477b7a39d8e747798d5bd89065dab7c,

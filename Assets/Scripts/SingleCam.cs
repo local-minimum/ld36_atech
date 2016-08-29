@@ -12,13 +12,17 @@ public class SingleCam : MonoBehaviour {
 
     [SerializeField] AudioSource buttons;
 
+    Camera _theCam;
+
     void Awake () {
+
         if (_cam != null && _cam != this)
         {
             Destroy(gameObject);
         }
         else {
             _cam = this;
+            _theCam = GetComponent<Camera>();
             DontDestroyOnLoad(this);
         }
 	}
@@ -54,6 +58,14 @@ public class SingleCam : MonoBehaviour {
         get
         {
             return _cam.buttons;
+        }
+    }
+
+    public static Camera Cam
+    {
+        get
+        {
+            return _cam._theCam;
         }
     }
 }

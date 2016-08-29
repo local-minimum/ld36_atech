@@ -10,7 +10,7 @@
     "positiveFeedback": "What a finale to the race! I drove by Man of the Bulls in the last corner and he became totally owned when he saw me cross the finish line in a cloud of praising star rain.",
     "negativeFeedback": "Disaster!\n\nNot only were the rockets in a totally wrong shape but they also went off when Man of the Bulls drove across the finish line as number one!\n\nAnd I fell asleep right after in the middle of the road.",
     "neutralFeedback": "I finished second, so I should not really complain. But if the pyrotechnics had been a little more potent, and gone off a little earlier, I might not have fallen asleep when I was about to cross the finish line.\n\nThe last I saw was Man of the Bulls overtaking me.",
-    "wordSpeed": 1,
+    "wordSpeed": 0.3,
     "endOfSentenceSpeed": 1,
     "endOfSentenceDelays": 1
 }

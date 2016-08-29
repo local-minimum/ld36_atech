@@ -11810,6 +11810,8 @@ MonoBehaviour:
   - Ingredients/charge_sphere
   - Ingredients/charge_star
   - Ingredients/charge_torus
+  - Ingredients/charge_default
+  - Ingredients/powder_default
   customerCanvas: {fileID: 776093113}
 --- !u!114 &1862634192
 MonoBehaviour:

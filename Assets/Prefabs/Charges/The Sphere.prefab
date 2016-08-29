@@ -53,5 +53,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audio: {fileID: 8300000, guid: 30d0410b64068494ca1652ae67385d82, type: 3}
   identifier: charge_sphere
-  explosionShape: {fileID: 4300000, guid: a6ee15aa3781a474e9e759e08c2cdd87, type: 3}
+  explosionShape: {fileID: 4300000, guid: e9639f16cd2c5484d9e36e21f2f9f664, type: 3}
   shapeSize: 4

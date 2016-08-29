@@ -38,14 +38,14 @@ public class RocketSlot : MonoBehaviour
 
         set
         {
-            if (item)
+            if (item && value != item)
             {
                 workshop.Emit(item, StoreItemEvents.Return);
-            }
-            item = value;
-            if (item)
+            } else if (value)
             {
-                World.RocketBlueprint[identifier] = new KeyValuePair<int, RocketComponent>(stage, item.Blueprint);
+                item = value;
+                World.RocketBlueprint[identifier] = new KeyValuePair<int, RocketComponent>(stage, Instantiate(item.Blueprint));
+                Debug.Log(string.Format("Set rocket blueprint id {0}, at stage {1} to {2}", identifier, stage, item.Blueprint));
                 workshop.Emit(this, SlotEvent.Filled);
             } else
             {

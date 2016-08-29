@@ -69,6 +69,7 @@ public class HandleExplosion : MonoBehaviour {
 			subSystem.SetParticles (particles2, particles2.Length);
 		}
 	}
+
 	void Update () {	       
 		if (!disableNextScene) {
 			int num = subSystem.GetParticles (particles);

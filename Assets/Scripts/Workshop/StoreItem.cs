@@ -91,6 +91,7 @@ public class StoreItem : MonoBehaviour {
     {
         workshop = FindObjectOfType<Workshop>();
         transform.position = sourcePosition.position + Noise;
+
     }
 
     void Start()
@@ -113,6 +114,10 @@ public class StoreItem : MonoBehaviour {
             }
         }
 
+        if (Workshop.ingredients[blueprint.identifier].level > World.Level)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     void OnEnable()

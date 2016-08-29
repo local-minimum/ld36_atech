@@ -7836,7 +7836,7 @@ MonoBehaviour:
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 18
+    m_MinSize: 10
     m_MaxSize: 30
     m_Alignment: 4
     m_AlignByGeometry: 0

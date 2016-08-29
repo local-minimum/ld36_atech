@@ -1,0 +1,16 @@
+{
+    "level": 2,
+    "orderTitle": "The Big Race",
+    "identifier": "sloth",
+    "name": "Sloth",
+    "element": "earth",
+    "text": "Good morning! I just bought me a red Ferrari and will now participate in the big Grand Prix that the empire will hold just after lunch today. I really have to win at all costs and to do that I have to drive really fast! My main opponent is Man of the Bulls - Baron of Fire, and he will also try to win as much as he possible can. I would like to order a fitting series of rockets to go off just when I drive over the finish line as number one.",
+    "positiveCriteria": ["powder_algae", "powder_feathers", "powder_cat", "powder_tea", "powder_dew", "powder_roses", "powder_frogs", "powder_mist", "charge_torus", "charge_sphere"],
+    "negativeCriteria": ["powder_fairies", "powder_crystal", "powder_heart", "charge_star"],
+    "positiveFeedback": "What a finale to the race! I drove by Man of the Bulls in the last corner and he became totally owned when he saw me cross the finish line in a cloud of praising star rain.",
+    "negativeFeedback": "Disaster! Not only were the rockets in total wrong shape but they also went off when Man of the Bulls drove across the finish line as number one! And I fell asleep right after in the middle of the road.",
+    "neutralFeedback": "I finished second, so I should not really complain. But if the pyrotechnics had been a little more potent, and gone of a little earlier, I might not had fallen asleep when I was about to cross the final line. The last I saw was Man of the Bulls overtaking me.",
+    "wordSpeed": 1,
+    "endOfSentenceSpeed": 1,
+    "endOfSentenceDelays": 1
+}

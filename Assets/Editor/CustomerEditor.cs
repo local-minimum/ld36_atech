@@ -8,9 +8,5 @@ public class CustomerEditor : Editor {
     {
         base.OnInspectorGUI();
 
-        if (GUILayout.Button("Record"))
-        {
-            (target as Customer).Record();
-        }
     }
 }

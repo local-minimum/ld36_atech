@@ -218,7 +218,7 @@ public class RocketSlot : MonoBehaviour
     {
         if (item != dragItem)
         {
-            Debug.Log("Enter " + name);
+            //Debug.Log("Enter " + name);
             workshop.Emit(this, SlotEvent.Hover);
         }
     }
@@ -227,14 +227,14 @@ public class RocketSlot : MonoBehaviour
     {
         if (item != dragItem)
         {
-            Debug.Log("Exit " + name);
+            //Debug.Log("Exit " + name);
             StartCoroutine(_delayExit());
         }
     }
 
     IEnumerator<WaitForSeconds> _delayExit()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(.2f);
         if (item != dragItem)
         {
             workshop.Emit(this, SlotEvent.Exit);

@@ -128,7 +128,20 @@ public class Customer : MonoBehaviour {
             SetupResponse();
         }
 	}
-	
+
+	void OnEnable() {
+		World.OnNewLevel += World_OnNewLevel;
+	}
+
+	void OnDestroy() {
+		World.OnNewLevel -= World_OnNewLevel;
+	}
+
+	void World_OnNewLevel (int lvl)
+	{
+		currentIndex = -1;
+	}
+
     void LoadJSON()
     {
         if (dialogues.Count > 0)
@@ -240,28 +253,7 @@ public class Customer : MonoBehaviour {
 
         }
     }
-
-    public void Record()
-    {
-        if (currentIndex < 0)
-        {
-
-            sprites.Add(avatar.sprite);
-            identifiers.Add(nameArea.text);
-            faces.Add(faceImage.sprite);
-
-        } else if (currentIndex < sprites.Count)
-        {
-            sprites[currentIndex] = avatar.sprite;
-            identifiers[currentIndex] = nameArea.text;
-            faces[currentIndex] = faceImage.sprite;
-
-        } else
-        {
-            Debug.LogError("Index too large, " + currentIndex);
-        }
-    }
-
+		
     public void SetCustomerFromLevel()
     {
         customerMode = CustomerMode.Order;
@@ -322,6 +314,7 @@ public class Customer : MonoBehaviour {
         }
         else if (usedDialogues[lvl].Count == 1)
         {
+			currentIndex = 0;
             Debug.LogWarning("Will repeat same dialigoue because only at level " + lvl);
         } else
         {

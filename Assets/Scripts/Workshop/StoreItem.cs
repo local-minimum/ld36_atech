@@ -168,7 +168,7 @@ public class StoreItem : MonoBehaviour {
                 {
                     this.slot = slot;
                 }
-            } else if (type == SlotEvent.Exit)
+			} else if (type == SlotEvent.Exit && slot == this.slot)
             {
                 this.slot = null;
             }
@@ -177,6 +177,7 @@ public class StoreItem : MonoBehaviour {
 
     public void Hover()
     {
+		Debug.Log (name + ": Hover " + SlottingImage.enabled);
         if (SlottingImage.enabled)
         {
             workshop.Emit(this, StoreItemEvents.Hover);
@@ -185,6 +186,8 @@ public class StoreItem : MonoBehaviour {
 
     public void OnBeginDrag()
     {
+		//Debug.Log (string.Format("{0}: DragStart {1} & {2}", name, SlottingImage.enabled, state));
+
         if (SlottingImage.enabled && state == StoreItemEvents.None)
         {
             workshop.Emit(this, StoreItemEvents.Drag);
@@ -195,7 +198,7 @@ public class StoreItem : MonoBehaviour {
 
     public void OnDrag()
     {
-        if (state == StoreItemEvents.Drag)
+		if (state == StoreItemEvents.Drag)
         {
             transform.position = Input.mousePosition;
         }
@@ -203,7 +206,8 @@ public class StoreItem : MonoBehaviour {
 
     public void OnEndDrag()
     {
-        if (state == StoreItemEvents.Drag)
+		//Debug.Log (string.Format("{0}: DragEnd {1} & {2} & slot {3}", name, SlottingImage.enabled, state, slot));
+		if (state == StoreItemEvents.Drag)
         {
             if (slot == null)
             {

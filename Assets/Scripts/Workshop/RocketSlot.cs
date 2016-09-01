@@ -95,6 +95,8 @@ public class RocketSlot : MonoBehaviour
     void Start()
     {
 
+        Input.simulateMouseWithTouches = true;
+
         icon.enabled = false;
 
         if (_itemType == ItemType.None)

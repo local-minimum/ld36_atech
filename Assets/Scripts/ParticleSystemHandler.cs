@@ -55,7 +55,7 @@ public class ParticleSystemHandler : MonoBehaviour {
         ShootingSoundController sCtrl = particleSystem.GetComponentInChildren<ShootingSoundController>();
 		yield return new WaitForSeconds(Random.Range(0.3f, 2f));
         sCtrl.Shoot();
-		int count = Random.Range (0, 100);
+		int count = Random.Range (50, 100);
 		for (int i = 0; i < count; ++i) {
 			particleSystem.SetParticles (new ParticleSystem.Particle[0], 0);
 			particleSystem.Emit (1);

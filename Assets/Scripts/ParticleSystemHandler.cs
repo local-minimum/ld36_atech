@@ -38,8 +38,13 @@ public class ParticleSystemHandler : MonoBehaviour {
     public string[] componentLookup;
     public RocketComponent[] rocketComponents;
     public AudioMixerSnapshot mixerSnapshot;
-    
-	void SendFireworks (GameObject instance, RocketLayout rocket)
+    public int numberOfFireworksMin = 6;
+    public int numberOfFireworksMax = 30;
+    public float launchDelayMin = 0f;
+    public float launchDelayMax = 1f;
+    int toLaunch = -1;
+
+	void SendFireworks (GameObject instance, RocketLayout rocket, int launchSequenceIndex)
 	{
 		float diff = Random.Range (-5.0f, 5.0f);
 		instance.transform.position = new Vector3 (instance.transform.position.x + diff, instance.transform.position.y, instance.transform.position.z);
@@ -47,13 +52,21 @@ public class ParticleSystemHandler : MonoBehaviour {
 		var handleExplosion = particleSystem.GetComponent<HandleExplosion> ();
 		handleExplosion.powder = rocket.powder;
 		handleExplosion.charge = rocket.charge;
-		StartCoroutine (Emit (particleSystem));
+		StartCoroutine (Emit (particleSystem, launchSequenceIndex));
 	}
 
-	private IEnumerator Emit(ParticleSystem particleSystem) {
+	private IEnumerator Emit(ParticleSystem particleSystem, int launchSequenceIndex) {
 
         ShootingSoundController sCtrl = particleSystem.GetComponentInChildren<ShootingSoundController>();
-		yield return new WaitForSeconds(Random.Range(0.3f, 2f));
+
+        while (toLaunch < launchSequenceIndex)
+        {
+            yield return new WaitForSeconds(0.01f);
+        }
+
+		yield return new WaitForSeconds(Random.Range(launchDelayMin, launchDelayMax));
+        toLaunch = launchSequenceIndex + 1;
+
         sCtrl.Shoot();
 		int count = Random.Range (50, 100);
 		for (int i = 0; i < count; ++i) {
@@ -78,7 +91,9 @@ public class ParticleSystemHandler : MonoBehaviour {
         List<RocketLayout> rockets = GetRockets();
         RocketLayout rocket;
         int nRockets = rockets.Count;
-		for (int i = 0; i < 3; ++i) {
+        int numberOfFireworks = Random.Range(numberOfFireworksMin, numberOfFireworksMax);
+        toLaunch = 0;
+		for (int i = 0; i < numberOfFireworks; ++i) {
             if (i < nRockets)
             {
                 rocket = rockets[i];
@@ -87,7 +102,7 @@ public class ParticleSystemHandler : MonoBehaviour {
                 rocket = rockets[Random.Range(0, nRockets)];
             }
 			GameObject instance = Instantiate(prefab);
-			SendFireworks (instance, rocket);
+			SendFireworks (instance, rocket, i);
 		}
 	}
 

@@ -8,9 +8,9 @@ public class HandleExplosion : MonoBehaviour {
 	public Charge charge;
 	public Powder powder;
 	bool started = false;
-	public bool disableNextScene = false;
+	public bool activateSceneTransition = false;
 	ParticleSystem.Particle[] particles = new ParticleSystem.Particle[10];
-	public AudioSource source;
+	public AudioSource source;    
 
     [SerializeField]
     int nSoundsMin = 5;
@@ -36,8 +36,14 @@ public class HandleExplosion : MonoBehaviour {
 
     IEnumerator WaitForDeath()
     {
-        yield return new WaitForSeconds(5f);
-        Destroy(gameObject);
+        yield return new WaitForSeconds(3.5f);
+        if (activateSceneTransition)
+        {
+            SceneManager.LoadScene("customer_workshop");
+        }
+        else {
+            Destroy(gameObject);
+        }
     }
 
 	void OnParticleCollision(GameObject other) {
@@ -96,18 +102,4 @@ public class HandleExplosion : MonoBehaviour {
 		}
 	}
 
-	void Update () {	       
-		if (!disableNextScene) {
-			int num = subSystem.GetParticles (particles);
-			if (started && num == 0) {
-				StartCoroutine (LaunchScene ());
-			}
-		}
-	}
-
-
-	private IEnumerator LaunchScene() {
-		yield return new WaitForSeconds(2);
-		SceneManager.LoadScene("customer_workshop");
-	}
 }

@@ -15,7 +15,7 @@ public class InfiniteFireworks : MonoBehaviour {
 		instance.transform.position = new Vector3 (instance.transform.position.x + diff, instance.transform.position.y, instance.transform.position.z);
 		var particleSystem = instance.GetComponent<ParticleSystem> ();
 		var handleExplosion = particleSystem.GetComponent<HandleExplosion> ();
-		handleExplosion.disableNextScene = true;
+		handleExplosion.activateSceneTransition = false;
 		handleExplosion.charge = charge;
 		handleExplosion.powder = powder;
 		StartCoroutine (Emit (particleSystem));

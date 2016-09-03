@@ -44,7 +44,7 @@ public class ParticleSystemHandler : MonoBehaviour {
     public float launchDelayMax = 1f;
     int toLaunch = -1;
 
-	void SendFireworks (GameObject instance, RocketLayout rocket, int launchSequenceIndex)
+	void SendFireworks (GameObject instance, RocketLayout rocket, int launchSequenceIndex, bool isFinal)
 	{
 		float diff = Random.Range (-5.0f, 5.0f);
 		instance.transform.position = new Vector3 (instance.transform.position.x + diff, instance.transform.position.y, instance.transform.position.z);
@@ -52,6 +52,7 @@ public class ParticleSystemHandler : MonoBehaviour {
 		var handleExplosion = particleSystem.GetComponent<HandleExplosion> ();
 		handleExplosion.powder = rocket.powder;
 		handleExplosion.charge = rocket.charge;
+        handleExplosion.activateSceneTransition = isFinal;
 		StartCoroutine (Emit (particleSystem, launchSequenceIndex));
 	}
 
@@ -102,7 +103,7 @@ public class ParticleSystemHandler : MonoBehaviour {
                 rocket = rockets[Random.Range(0, nRockets)];
             }
 			GameObject instance = Instantiate(prefab);
-			SendFireworks (instance, rocket, i);
+			SendFireworks (instance, rocket, i, i == (numberOfFireworks - 1));
 		}
 	}
 

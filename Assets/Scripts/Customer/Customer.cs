@@ -270,7 +270,7 @@ public class Customer : MonoBehaviour {
             textTalk.Talk(part);
         }
         nameArea.text = part.orderTitle;
-        workshopNameArea.text = part.name;
+        workshopNameArea.text = "Back to " + part.name;
 
         int listIndex = GetListIndex(part.identifier);
         if (listIndex < 0)

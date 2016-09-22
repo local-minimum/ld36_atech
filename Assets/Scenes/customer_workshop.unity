@@ -1233,7 +1233,7 @@ RectTransform:
   - {fileID: 2084294288}
   - {fileID: 1886399947}
   m_Father: {fileID: 1862634190}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_AnchorMin: {x: 0.01, y: 0.65}
   m_AnchorMax: {x: 0.2, y: 0.97}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -1444,7 +1444,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 4000
+  m_Text: 40000
 --- !u!222 &184424481
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1599,6 +1599,9 @@ MonoBehaviour:
   - 
   - You've gained experience
   - With knowledge comes powder
+  - Everyone knows your name
+  - You entitle yourself "Master"
+  - You've become a living legend
   stepDelay: 0.01
 --- !u!114 &260975126
 MonoBehaviour:
@@ -6143,7 +6146,7 @@ RectTransform:
   - {fileID: 1728452373}
   - {fileID: 1941865787}
   m_Father: {fileID: 1862634190}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_AnchorMin: {x: 0.22, y: 0.03}
   m_AnchorMax: {x: 0.68, y: 0.97}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -8282,7 +8285,7 @@ RectTransform:
   - {fileID: 1490910217}
   - {fileID: 1164670314}
   m_Father: {fileID: 1862634190}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_AnchorMin: {x: 0.7, y: 0.03}
   m_AnchorMax: {x: 0.99, y: 0.97}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -8910,7 +8913,7 @@ RectTransform:
   - {fileID: 1152821133}
   - {fileID: 1700637842}
   m_Father: {fileID: 1862634190}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_AnchorMin: {x: 0.01, y: 0.03}
   m_AnchorMax: {x: 0.2, y: 0.6}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -10460,7 +10463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.828, g: 0.828, b: 0.828, a: 0.753}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -10738,6 +10741,74 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 2, y: 2}
   m_UseGraphicAlpha: 1
+--- !u!1 &1521154473
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1521154474}
+  - 222: {fileID: 1521154476}
+  - 114: {fileID: 1521154475}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1521154474
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1521154473}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1862634190}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1521154475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1521154473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.78823537, g: 0.5647059, b: 0.427451, a: 0.803}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 45e7c1c7bf8e62342b719150fe2710b2, type: 3}
+  m_Type: 2
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1521154476
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1521154473}
 --- !u!1 &1560266842
 GameObject:
   m_ObjectHideFlags: 0
@@ -12727,6 +12798,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 1521154474}
   - {fileID: 139554170}
   - {fileID: 1282666143}
   - {fileID: 1120187876}

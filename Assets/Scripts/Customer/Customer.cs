@@ -206,11 +206,11 @@ public class Customer : MonoBehaviour {
         int positives;
         int negatives;
         int score = Score(part, out positives, out negatives);
-        if (negatives > 0)
+        if (negatives > positives)
         {
             Debug.Log("Customer Negative");
             textTalk.Talk(part.negativeFeedback);
-        } else if (positives > 0)
+        } else if (positives > negatives + 1)
         {
             Debug.Log("Customer Positive");
             textTalk.Talk(part.positiveFeedback);

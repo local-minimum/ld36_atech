@@ -13,13 +13,13 @@ public static class World {
     public static Dictionary<int, KeyValuePair<int, string>> RocketBlueprint = new Dictionary<int, KeyValuePair<int, string>>();
 
     static int _lvl = 0;
-    static int max_lvl = 3;
+    static int max_lvl = 8;
     static int _scoreLast = 0;
     static bool _lastWasNegative = false;
 
     public static int _score = 0;
 
-    static int[] _lvlThresholds = new int[] { 350, 1200, 2700 };
+    static int[] _lvlThresholds = new int[] { 1, 2, 3, 4, 5, 6, 7, 8 , 9};
 
     public static int Level
     {

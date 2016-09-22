@@ -358,8 +358,8 @@ MonoBehaviour:
   - {fileID: 114000013103755912, guid: 7e6e2b1631f3b68409d97c81e7c95c64, type: 2}
   mixerSnapshot: {fileID: 245000011147353432, guid: 49116b83a12edfb46abdb69b4ec1c548,
     type: 2}
-  numberOfFireworksMin: 7
-  numberOfFireworksMax: 20
+  numberOfFireworksMin: 13
+  numberOfFireworksMax: 17
   launchDelayMin: 0
   launchDelayMax: 1
 --- !u!4 &1366596788

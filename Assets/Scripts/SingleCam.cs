@@ -15,7 +15,7 @@ public class SingleCam : MonoBehaviour {
     Camera _theCam;
 
     void Awake () {
-
+        Input.simulateMouseWithTouches = true;
         if (_cam != null && _cam != this)
         {
             Destroy(gameObject);
